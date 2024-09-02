@@ -1,10 +1,17 @@
 {
   "name": "semester-project-2",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Semester Project 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test-unit --passWithNoTests && npm run test-e2e-cli",
+    "test-unit": "jest",
+    "test-e2e": "cypress open",
+    "test-e2e-cli": "cypress run",
+    "format": "prettier --write src/**/*.js",
+    "lint": "eslint src/**/*.js",
+    "lint-fix": "eslint src/**/*.js --cache --fix",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -18,5 +25,31 @@
   "bugs": {
     "url": "https://github.com/johnsulf/semester-project-2/issues"
   },
-  "homepage": "https://github.com/johnsulf/semester-project-2#readme"
+  "homepage": "https://github.com/johnsulf/semester-project-2#readme",
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@eslint/js": "^9.9.1",
+    "cypress": "^13.14.1",
+    "eslint": "^9.9.1",
+    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-jest": "^28.8.2",
+    "globals": "^15.9.0",
+    "husky": "^9.1.5",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "prettier --write"
+    ]
+  }
 }
