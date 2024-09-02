@@ -6,7 +6,8 @@
   "scripts": {
     "test-unit": "jest",
     "format": "prettier --write src/**/*.js",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "lint-fix": "eslint src/**/*.js --cache --fix"
   },
   "repository": {
     "type": "git",
