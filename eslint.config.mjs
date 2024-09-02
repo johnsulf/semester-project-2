@@ -1,4 +1,4 @@
-// import cypressPlugin from "eslint-plugin-cypress";
+import cypressPlugin from 'eslint-plugin-cypress';
 import globals from 'globals';
 import eslintRecommended from '@eslint/js';
 
@@ -30,7 +30,7 @@ export default [
       },
     },
     plugins: {
-      // cypress: cypressPlugin,
+      cypress: cypressPlugin,
     },
     rules: {
       'cypress/no-unnecessary-waiting': 'off',
