@@ -4,7 +4,7 @@
   "description": "Semester Project 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-unit": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/johnsulf/semester-project-2/issues"
   },
-  "homepage": "https://github.com/johnsulf/semester-project-2#readme"
+  "homepage": "https://github.com/johnsulf/semester-project-2#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
