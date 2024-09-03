@@ -12,15 +12,16 @@ export async function login(email, password) {
     });
 
     if (response.ok) {
-      const profile = await response.json();
+      const result = await response.json();
+      const profile = result.data;
       save('token', profile.accessToken);
       delete profile.accessToken;
       save('profile', profile);
-      return result;
+      return profile;
     }
   } catch (error) {
     console.error(error);
   }
 }
 
-// login('kalle_kanin1234@stud.noroff.no', '12345678');
+login('kalle_kanin1234@stud.noroff.no', '12345678');
