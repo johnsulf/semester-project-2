@@ -1,7 +1,3 @@
-import { apiBase } from '../constants.js';
-import { register as regEp } from '../endpoints.js';
-import { headers } from '../headers.js';
-
 /**
  * Register a new user
  * @param {string} name - The name of the user
@@ -18,6 +14,10 @@ import { headers } from '../headers.js';
  * @see {@link https://docs.noroff.dev/docs/v2/auth/register|Noroff API v2 | Auth | Register}
  */
 
+import { apiBase } from '../constants.js';
+import { register as regEp } from '../endpoints.js';
+import { headers } from '../headers.js';
+
 export async function register(name, email, password, avatar) {
   try {
     const response = await fetch(`${apiBase + regEp}`, {
@@ -31,8 +31,3 @@ export async function register(name, email, password, avatar) {
     throw new Error(error);
   }
 }
-
-/* register('Kalle_Kanin', 'kalle_kanin1234@stud.noroff.no', '12345678', {
-  url: 'https://www.erlendjohnsen.com/assets/images/profile.png',
-  alt: '',
-}); */
