@@ -58,6 +58,7 @@
     ]
   },
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "jsdocs": "^1.0.0"
   }
 }
