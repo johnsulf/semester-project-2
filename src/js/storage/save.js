@@ -7,6 +7,5 @@
  * save('token', '1234567890abcdef');
  */
 
-export const save = (key, value) => {
+export const save = (key, value) =>
   localStorage.setItem(key, JSON.stringify(value));
-};

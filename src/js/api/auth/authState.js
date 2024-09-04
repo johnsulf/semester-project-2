@@ -1,4 +1,4 @@
-import { load } from '../../storage';
+import { load } from '../../storage/index.js';
 
 export const isLoggedIn = () => Boolean(load('token'));
 
