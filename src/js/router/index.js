@@ -1,6 +1,7 @@
 import { homeView } from '../views/homeView.js';
 import { loginView } from '../views/loginView.js';
 import { registerView } from '../views/registerView.js';
+import { profileView } from '../views/profileView.js';
 
 // Main app container
 const app = document.getElementById('app');
@@ -13,15 +14,24 @@ function router() {
   app.innerHTML = '';
 
   // Load the appropriate view based on the hash
-  if (hash === '#/' || hash === '') {
-    homeView(app);
-  } else if (hash === '#/login') {
-    loginView(app);
-  } else if (hash === '#/register') {
-    registerView(app);
-  } else {
-    // Fallback for 404
-    app.innerHTML = `<h1>404 - Page Not Found</h1>`;
+  switch (hash) {
+    case '':
+    case '#/':
+    case '#':
+      homeView(app);
+      break;
+    case '#/login':
+      loginView(app);
+      break;
+    case '#/register':
+      registerView(app);
+      break;
+    case '#/profile':
+      profileView(app);
+      break;
+    default:
+      app.innerHTML = '<h1>404 - Page Not Found</h1>'; // Handle unknown routes
+      break;
   }
 }
 
