@@ -1,4 +1,4 @@
-export function homeView(app) {
+export async function homeView(app) {
   app.innerHTML = `
         <section>
             <h1 class="text-3xl font-bold">Welcome to the Auction Site!</h1>
