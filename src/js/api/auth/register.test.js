@@ -1,5 +1,6 @@
 import { register } from './register';
 import 'jest-localstorage-mock';
+import 'node-fetch';
 
 describe('register', () => {
   test('should return a response', async () => {

@@ -1,5 +1,6 @@
 import { login } from './login';
 import 'jest-localstorage-mock';
+import 'node-fetch';
 
 describe('login', () => {
   test('should return a response', async () => {
