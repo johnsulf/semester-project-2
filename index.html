@@ -3,10 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Semester Project 2</title>
+    <title>Auction Website</title>
+    <link rel="stylesheet" href="./dist/styles.css" />
   </head>
-  <body>
-    <h1>Semester Project 2</h1>
-    <script type="module" src="./src/js/router/index.js"></script>
+  <body class="bg-gray-100">
+    <nav class="flex justify-between bg-blue-600 p-4 text-white">
+      <div>
+        <a href="#/" class="mr-4">Home</a>
+      </div>
+      <!-- Placeholder for auth link (either Register or Profile) -->
+      <div id="auth-link" class="flex items-center">
+        <a
+          href="#/register"
+          class="mr-4 rounded bg-white px-4 py-2 text-blue-600"
+          >Register</a
+        >
+      </div>
+    </nav>
+
+    <div id="app" class="p-4">
+      <!-- Dynamic content will be injected here -->
+    </div>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
