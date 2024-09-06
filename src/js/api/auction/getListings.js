@@ -14,6 +14,7 @@ export async function getListings() {
     if (response.ok) {
       const result = await response.json();
       listings = result.data.map((listing) => Listing.fromJson(listing));
+      console.log(listings);
       return listings;
     }
   } catch (error) {
