@@ -6,8 +6,8 @@ export function updateNav() {
 
   if (isLoggedIn()) {
     authLink.innerHTML = `
-            <a href="#/profile" class="mr-4">Profile</a>
-            <a href="#" id="logout" class="mr-4">Logout</a>
+            <a href="#/profile" class="text-white">Profile</a>
+            <a href="#" id="logout" class="text-white">Logout</a>
         `;
 
     // Handle logout
@@ -15,7 +15,7 @@ export function updateNav() {
   } else {
     // Show "Register" link if not logged in
     authLink.innerHTML = `
-            <a href="#/register" class="mr-4">Register</a>
+            <a href="#/register" class="text-white">Register</a>
         `;
   }
 }

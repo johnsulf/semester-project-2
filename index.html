@@ -5,27 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auction House</title>
     <link rel="stylesheet" href="./dist/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-gray-100">
-    <nav class="flex justify-between bg-blue-600 p-4 text-white">
-      <div>
-        <a href="#/">Home</a>
-      </div>
-      <!-- Placeholder for auth link (either Register or Profile) -->
-      <div id="auth-link" class="flex items-center">
-        <a
-          href="#/register"
-          class="mr-4 rounded bg-white px-4 py-2 text-blue-600"
-        >
-          Register
-        </a>
+  <body class="bg-neutralLight">
+    <nav class="flex justify-between bg-primary p-4">
+      <a class="text-white" href="#/">Home</a>
+      <div id="auth-link">
+        <!-- Placeholder for auth link (either Register or Profile) -->
       </div>
     </nav>
 
-    <div id="app" class="p-4">
+    <section id="app" class="p-4">
       <!-- Dynamic content will be injected here -->
-    </div>
-
+    </section>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
