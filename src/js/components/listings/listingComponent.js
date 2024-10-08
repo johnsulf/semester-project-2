@@ -17,7 +17,7 @@ export function listingComponent(listing) {
         ];
 
   listingElement.innerHTML = `
-    <a href="#" class="group">
+    <a href="#/listing/${item.id}" class="group">
     <div class="w-full h-64 overflow-hidden rounded-lg bg-gray-200">
         <img 
         src="${media[0].url}" 
