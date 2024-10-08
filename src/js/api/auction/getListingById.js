@@ -1,5 +1,5 @@
 import { apiBase } from '../constants.js';
-import { load } from '../storage/index.js';
+import { load } from '../../storage/index.js';
 
 export async function getListingById(listingId) {
   const token = load('token');

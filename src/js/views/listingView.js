@@ -1,5 +1,5 @@
-import { isLoggedIn } from '../events/auth/authState.js';
-import { getListingById } from '../api/listings.js';
+import { isLoggedIn } from '../api/auth/authState.js';
+import { getListingById } from '../api/auction/getListingById.js';
 
 export async function listingView(app, listingId) {
   // Check if the user is logged in
