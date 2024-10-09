@@ -1,4 +1,4 @@
-export function initPlaceBidEvent(container, listingId) {
+export function placeBidEventListener(container, listingId) {
   const placeBidButton = container.querySelector('#placeBidButton');
   if (placeBidButton) {
     placeBidButton.addEventListener('click', () => {

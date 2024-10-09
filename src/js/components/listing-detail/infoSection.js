@@ -1,4 +1,4 @@
-import { initPlaceBidEvent } from '../../events/auction/placeBid.js';
+import { placeBidEventListener } from '../../events/auction/placeBid.js';
 
 export function infoSectionComponent(listing) {
   // Create a container for the listing info
@@ -13,7 +13,7 @@ export function infoSectionComponent(listing) {
   `;
 
   // Initialize event for the "Place a Bid" button
-  initPlaceBidEvent(infoContainer, listing.id);
+  placeBidEventListener(infoContainer, listing.id);
 
   return infoContainer;
 }
