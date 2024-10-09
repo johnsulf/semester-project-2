@@ -6,6 +6,7 @@ export async function homeView(app) {
     <h1>Welcome to Trust Auction House</h1>
     <section>
       <h2>Browse listings and start bidding on items</h2>
+      <button id="createListingBtn" class="bg-primary text-white px-4 py-2 my-4 rounded">Create a listing</button>
       <div 
         id="listings-container" 
         class="
