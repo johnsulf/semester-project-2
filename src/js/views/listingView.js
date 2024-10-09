@@ -1,8 +1,8 @@
 import { isLoggedIn } from '../api/auth/authState.js';
 import { getListingById } from '../api/auction/getListingById.js';
 import { mediaCarouselComponent } from '../components/listing-detail/mediaCarousel.js';
-import { bidsSectionComponent } from '../components/listing-detail/bidsSesction.js';
-import { initPlaceBidEvent } from '../events/auction/placeBid.js';
+import { infoSectionComponent } from '../components/listing-detail/infoSection.js';
+import { bidsSectionComponent } from '../components/listing-detail/bidsSection.js';
 
 export async function listingView(app, listingId) {
   // Check if the user is logged in
@@ -25,23 +25,11 @@ export async function listingView(app, listingId) {
     // Create the media carousel component
     const mediaCarousel = mediaCarouselComponent(listing);
 
+    // Create the info section component
+    const infoSection = infoSectionComponent(listing);
+
     // Create the bids section component
     const bidsSection = bidsSectionComponent(listing);
-
-    // Build the listing info HTML
-    const listingInfoHtml = `
-      <h1 class="text-2xl lg:text-3xl font-heading text-primary mb-4">${listing.title}</h1>
-      <p class="text-neutralDark mb-4">${listing.description}</p>
-      <p class="text-sm text-gray-500 mb-4">Ends at: ${new Date(listing.endsAt).toLocaleString()}</p>
-      <button id="placeBidButton" class="bg-primary text-white px-4 py-2 rounded">Place a Bid</button>
-    `;
-
-    // Create a container for listing info
-    const listingInfoContainer = document.createElement('div');
-    listingInfoContainer.innerHTML = listingInfoHtml;
-
-    // Initialize event for place bid button
-    initPlaceBidEvent(listingInfoContainer, listingId);
 
     // Assemble the view
     listingDetailElement.innerHTML = `
@@ -60,12 +48,11 @@ export async function listingView(app, listingId) {
     listingDetailElement
       .querySelector('#mediaCarouselContainer')
       .appendChild(mediaCarousel);
-    listingDetailElement
-      .querySelector('#listingInfoContainer')
-      .appendChild(listingInfoContainer);
-    listingDetailElement
-      .querySelector('#listingInfoContainer')
-      .appendChild(bidsSection);
+    const listingInfoContainer = listingDetailElement.querySelector(
+      '#listingInfoContainer',
+    );
+    listingInfoContainer.appendChild(infoSection);
+    listingInfoContainer.appendChild(bidsSection);
 
     // Render the listing detail element
     app.innerHTML = '';
