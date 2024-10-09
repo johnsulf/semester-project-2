@@ -1,18 +1,13 @@
 import { apiBase } from '../constants.js';
-import { load } from '../../storage/index.js';
+import { headers } from '../headers.js';
+import { listings as listingsEp } from '../endpoints.js';
 
 export async function getListingById(listingId) {
-  const token = load('token');
-
   const response = await fetch(
-    `${apiBase}/auction/listings/${listingId}?_seller=true&_bids=true`,
+    `${apiBase + listingsEp}/${listingId}?_seller=true&_bids=true`,
     {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        // Include the token if authentication is required
-        Authorization: `Bearer ${token}`,
-      },
+      headers: headers('application/json'),
     },
   );
 
