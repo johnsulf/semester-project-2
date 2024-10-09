@@ -1,11 +1,12 @@
 import { initToggleBidsEvent } from '../../events/listing-detail/toggleBids.js';
+import { sortDescending } from '../../helpers/sortingLists.js';
 
 export function bidsSectionComponent(listing) {
   const bidsContainer = document.createElement('div');
 
   if (listing.bids && listing.bids.length > 0) {
     // Sort bids in descending order
-    const sortedBids = sortBidsDescending(listing.bids);
+    const sortedBids = sortDescending(listing.bids, 'amount');
 
     // Get the latest bid
     const latestBid = sortedBids[0];
@@ -55,9 +56,4 @@ export function bidsSectionComponent(listing) {
   }
 
   return bidsContainer;
-}
-
-// Helper function to sort bids
-function sortBidsDescending(bids) {
-  return bids.sort((a, b) => b.amount - a.amount);
 }
