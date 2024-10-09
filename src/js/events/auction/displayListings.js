@@ -1,9 +1,9 @@
-import { getListings as fetchListings } from '../../api/auction/getListings.js';
+import { getListings } from '../../api/auction/getListings.js';
 import { listingComponent } from '../../components/listings/listingComponent.js';
 
-export async function getListings() {
+export async function displayListings() {
   try {
-    const listings = await fetchListings();
+    const listings = await getListings();
     const listingsContainer = document.getElementById('listings-container');
     listingsContainer.innerHTML = ''; // Clear the loading message
 

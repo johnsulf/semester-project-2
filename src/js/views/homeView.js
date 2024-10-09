@@ -1,4 +1,4 @@
-import { getListings } from '../events/auction/getListings.js';
+import { displayListings } from '../events/auction/displayListings.js';
 
 export async function homeView(app) {
   app.innerHTML = `
@@ -20,5 +20,5 @@ export async function homeView(app) {
     </section>
   `;
 
-  await getListings();
+  await displayListings();
 }
