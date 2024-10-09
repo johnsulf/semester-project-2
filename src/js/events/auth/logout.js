@@ -1,5 +1,5 @@
 import * as auth from '../../api/auth/index.js';
-import { updateNav } from './nav.js';
+import { updateNav } from '../../helpers/updateNav.js';
 
 export function logoutListener() {
   document.getElementById('logout').addEventListener('click', async () => {
