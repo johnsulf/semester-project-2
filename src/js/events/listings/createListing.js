@@ -1,6 +1,7 @@
 import { modalComponent } from '../../components/common/modalComponent.js';
 import { createListingFormComponent } from '../../components/listings/createListingFormComponent.js';
 import { createListing } from '../../api/auction/createListing.js';
+import { getListings } from '../../api/auction/getListings.js';
 
 export function createListingEventListener(container) {
   const createListingButton = container.querySelector('#createListingBtn');
@@ -16,7 +17,7 @@ export function createListingEventListener(container) {
           displaySuccessMessage(result, container);
 
           // Optionally, refresh the listings
-          // await refreshListings();
+          await refreshListings();
         } catch (error) {
           console.error('Error creating listing:', error);
           alert(
@@ -31,6 +32,24 @@ export function createListingEventListener(container) {
       // Append modal to the container (or document body)
       document.body.appendChild(modal);
     });
+  }
+}
+
+// Refresh the listings after creating a new one
+async function refreshListings() {
+  const listingsContainer = document.getElementById('listings-container');
+  if (listingsContainer) {
+    listingsContainer.innerHTML = '<p>Loading listings...</p>';
+    try {
+      const listings = await getListings();
+      listingsContainer.innerHTML = '';
+      listings.forEach((listing) => {
+        const listingCard = listingComponent(listing);
+        listingsContainer.appendChild(listingCard);
+      });
+    } catch (error) {
+      listingsContainer.innerHTML = `<p class="text-error">Error loading listings: ${error.message}</p>`;
+    }
   }
 }
 
