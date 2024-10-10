@@ -1,5 +1,5 @@
 import { placeBidEventListener } from '../../events/auction/placeBid.js';
-import { deleteListing } from '../../api/auction/deleteListing.js';
+import { deleteListingEventListener } from '../../events/listing-detail/deleteListing.js';
 
 export function infoSectionComponent(listing) {
   // Create a container for the listing info
@@ -16,16 +16,7 @@ export function infoSectionComponent(listing) {
 
   // Initialize event for the "Place a Bid" button
   placeBidEventListener(infoContainer, listing.id);
-  const deleteBtn = infoContainer.querySelector('#deleteListingBtn');
-  deleteBtn.addEventListener('click', async () => {
-    try {
-      await deleteListing(listing.id);
-      infoContainer.innerHTML =
-        '<p class="text-success">Listing deleted successfully!</p>';
-    } catch (error) {
-      infoContainer.innerHTML = `<p class="text-error">Error deleting listing: ${error.message}</p>`;
-    }
-  });
+  deleteListingEventListener(listing.id);
 
   return infoContainer;
 }
