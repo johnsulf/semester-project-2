@@ -25,7 +25,10 @@ export function listingComponent(listing) {
         class="w-full h-full object-cover object-center group-hover:opacity-75">
     </div>
     <h3 class="mt-4 text-sm text-gray-700">${item.title}</h3>
-    <p class="mt-1 text-lg font-medium text-gray-900">${new Date(item.created).toLocaleDateString()}</p>
+    <a href="#/profile" class="mt-1 font-medium text-gray-900">Seller: ${item.seller['name']}</a>
+    <p class="mt-1 font-medium text-gray-900">Bids: ${item._count['bids']}</p>
+    <p class="mt-1 font-medium text-gray-900">Images: ${item.media.length}</p>
+    <p class="mt-1 font-medium text-gray-900">${new Date(item.created).toLocaleDateString()}</p>
     </a>
 `;
 

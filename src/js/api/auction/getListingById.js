@@ -3,19 +3,21 @@ import { headers } from '../headers.js';
 import { listings as listingsEp } from '../endpoints.js';
 
 export async function getListingById(listingId) {
-  const response = await fetch(
-    `${apiBase + listingsEp}/${listingId}?_seller=true&_bids=true`,
-    {
-      method: 'GET',
-      headers: headers('application/json'),
-    },
-  );
+  try {
+    const response = await fetch(
+      `${apiBase + listingsEp}/${listingId}?_seller=true&_bids=true`,
+      {
+        method: 'GET',
+        headers: headers('application/json'),
+      },
+    );
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.errors[0].message || 'Failed to fetch listing');
+    if (response.ok) {
+      const result = await response.json();
+      console.log(result);
+      return result.data;
+    }
+  } catch (error) {
+    console.error(error);
   }
-
-  const data = await response.json();
-  return data.data;
 }

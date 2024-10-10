@@ -1,7 +1,9 @@
-import { apiBase } from '../constants';
-import { listings } from '../endpoints';
+import { apiBase } from '../constants.js';
+import { listings } from '../endpoints.js';
+import { headers } from '../headers.js';
 
 export async function createListing(data) {
+  console.log(data);
   try {
     const response = await fetch(`${apiBase + listings}`, {
       method: 'POST',
@@ -17,5 +19,3 @@ export async function createListing(data) {
     console.error(error);
   }
 }
-
-// "https://images.unsplash.com/photo-1454493246676-c0e063828dce?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
