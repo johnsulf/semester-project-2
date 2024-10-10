@@ -1,6 +1,6 @@
 import { deleteListing } from '../../api/auction/deleteListing.js';
 
-export async function deleteListingEventListener(listingId) {
+export async function deleteListingEventListener(infoContainer, listingId) {
   const deleteBtn = infoContainer.querySelector('#deleteListingBtn');
   deleteBtn.addEventListener('click', async () => {
     try {
