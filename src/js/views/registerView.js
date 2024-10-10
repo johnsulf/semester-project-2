@@ -1,3 +1,5 @@
+import { registerEventListener } from '../events/auth/register.js';
+
 export function registerView(app) {
   app.innerHTML = `
         <section>
@@ -28,11 +30,5 @@ export function registerView(app) {
         </section>
     `;
 
-  // Add event listener for the register form
-  const form = document.getElementById('register-form');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    // Add your register handling logic here
-    console.log('Register form submitted!');
-  });
+  registerEventListener();
 }

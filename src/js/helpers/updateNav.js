@@ -1,5 +1,5 @@
-import { isLoggedIn } from '../../api/auth/authState.js';
-import { logoutListener } from './logout.js';
+import { isLoggedIn } from '../api/auth/authState.js';
+import { logoutListener } from '../events/auth/logout.js';
 
 export function updateNav() {
   const authLink = document.getElementById('auth-link');

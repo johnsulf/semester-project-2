@@ -2,20 +2,18 @@ import { apiBase } from '../constants.js';
 import { headers } from '../headers.js';
 import { listings as listingsEp } from '../endpoints.js';
 
-export async function getListings() {
+export async function bidOnListing(listingId, amount) {
   try {
-    const response = await fetch(
-      `${apiBase + listingsEp}?_active=true&_seller=true&_bids=true&sort=created`,
-      {
-        method: 'GET',
-        headers: headers('application/json'),
-      },
-    );
+    const response = await fetch(`${apiBase + listingsEp}/${listingId}/bids`, {
+      method: 'POST',
+      headers: headers('application/json'),
+      body: JSON.stringify({ amount }),
+    });
 
     if (response.ok) {
       const result = await response.json();
       console.log(result);
-      return result.data;
+      return result;
     }
   } catch (error) {
     console.error(error);

@@ -2,10 +2,10 @@ import { apiBase } from '../constants.js';
 import { headers } from '../headers.js';
 import { listings as listingsEp } from '../endpoints.js';
 
-export async function getListings() {
+export async function getListingById(listingId) {
   try {
     const response = await fetch(
-      `${apiBase + listingsEp}?_active=true&_seller=true&_bids=true&sort=created`,
+      `${apiBase + listingsEp}/${listingId}?_seller=true&_bids=true`,
       {
         method: 'GET',
         headers: headers('application/json'),

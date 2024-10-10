@@ -9,8 +9,8 @@ export class Listing {
     updated,
     endsAt,
     _count,
-    _seller,
-    _bids,
+    seller,
+    bids,
   ) {
     this.id = id;
     this.title = title;
@@ -21,8 +21,8 @@ export class Listing {
     this.updated = updated;
     this.endsAt = endsAt;
     this._count = _count;
-    this._seller = _seller;
-    this._bids = _bids;
+    this.seller = seller;
+    this.bids = bids;
   }
 
   static fromJson(json) {
@@ -36,8 +36,8 @@ export class Listing {
       json.updated,
       json.endsAt,
       json._count,
-      json._seller,
-      json._bids,
+      json.seller,
+      json.bids,
     );
   }
 }
