@@ -1,4 +1,4 @@
-import { loginListener } from '../events/auth/login.js'; // Import the login event listener
+import { loginEventListener } from '../events/auth/login.js';
 
 export function loginView(app) {
   app.innerHTML = `
@@ -30,7 +30,5 @@ export function loginView(app) {
     </section>
   `;
 
-  // Attach the loginListener to the form
-  const form = document.getElementById('login-form');
-  form.addEventListener('submit', loginListener);
+  loginEventListener();
 }

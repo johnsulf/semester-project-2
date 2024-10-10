@@ -1,8 +1,8 @@
 import * as auth from '../../api/auth/index.js';
 import { updateNav } from '../../helpers/updateNav.js';
 
-export async function loginEventListener() {
-  const form = document.getElementById('login-form');
+export async function registerEventListener() {
+  const form = document.getElementById('register-form');
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = new FormData(form);
@@ -10,7 +10,7 @@ export async function loginEventListener() {
     const password = data.get('password');
 
     try {
-      await auth.login(email, password);
+      await auth.register(email, password);
 
       // Updates the navigation to reflect login state
       updateNav();
@@ -18,7 +18,7 @@ export async function loginEventListener() {
       // Redirects to home view
       location.href = '#/';
     } catch {
-      alert('Either your username was not found or your password is incorrect');
+      alert('An error occurred while registering');
     }
   });
 }
