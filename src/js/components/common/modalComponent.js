@@ -38,9 +38,14 @@ export function modalComponent(contentElement) {
     modalOverlay.remove();
   });
 
+  // Content wrapper
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('modal-content');
+  modalContent.appendChild(contentElement);
+
   // Assemble modal
   modalContainer.appendChild(closeButton);
-  modalContainer.appendChild(contentElement);
+  modalContainer.appendChild(modalContent);
   modalOverlay.appendChild(modalContainer);
 
   return modalOverlay;

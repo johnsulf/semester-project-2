@@ -710,6 +710,10 @@ p,
   margin-top: 0.5rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -823,6 +827,10 @@ p,
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.break-all {
+  word-break: break-all;
 }
 
 .rounded {
