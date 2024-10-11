@@ -1,14 +1,13 @@
 import { addMediaEventListener } from '../../events/create-listing/addMedia.js';
+import { submitCreateListingForm } from '../../events/create-listing/submitCreateListingForm.js';
 
 export function createListingFormComponent(onSubmitCallback, modal) {
   const form = document.createElement('form');
   form.classList.add('space-y-4');
 
   const mediaUrls = [];
-
-  // Get the current date and time in the correct format for the min attribute
   const now = new Date();
-  const tzOffset = now.getTimezoneOffset() * 60000; // Offset in milliseconds
+  const tzOffset = now.getTimezoneOffset() * 60000;
   const localISOTime = new Date(now - tzOffset).toISOString().slice(0, 16); // YYYY-MM-DDTHH:mm
 
   form.innerHTML = `
@@ -42,32 +41,7 @@ export function createListingFormComponent(onSubmitCallback, modal) {
   // After setting innerHTML, add event listeners for the media input
   addMediaEventListener(mediaUrls, form);
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    // Collect form data
-    const formData = new FormData(form);
-    const title = formData.get('title');
-    const description = formData.get('description');
-    const endsAtInput = formData.get('endsAt');
-
-    // Process media URLs
-    // Process media URLs
-    const media = mediaUrls.map((url) => ({ url, alt: title }));
-
-    // Ensure endsAt is in ISO format
-    const endsAt = new Date(endsAtInput).toISOString();
-
-    const data = {
-      title,
-      description,
-      media,
-      endsAt,
-    };
-
-    // Call the callback with the collected data
-    onSubmitCallback(data);
-  });
+  submitCreateListingForm(form, mediaUrls, onSubmitCallback);
 
   const closeFormBtn = form.querySelector('#closeFormBtn');
   if (closeFormBtn) {
