@@ -1,4 +1,4 @@
-export function createListingFormComponent(onSubmitCallback) {
+export function createListingFormComponent(onSubmitCallback, modal) {
   const form = document.createElement('form');
   form.classList.add('space-y-4');
 
@@ -32,7 +32,7 @@ export function createListingFormComponent(onSubmitCallback) {
         <input type="datetime-local" name="endsAt" id="endsAt" required min="${localISOTime}" class="mt-1 p-2 border rounded w-full" />
     </div>
     <div class="flex justify-end gap-4">
-        <button type="button" id="closeModalBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded">Close</button>
+        <button type="button" id="closeFormBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded">Close</button>
         <button type="submit" class="bg-primary text-white px-4 py-2 rounded">Create Listing</button>
     </div>
     `;
@@ -112,6 +112,13 @@ export function createListingFormComponent(onSubmitCallback) {
     // Call the callback with the collected data
     onSubmitCallback(data);
   });
+
+  const closeFormBtn = form.querySelector('#closeFormBtn');
+  if (closeFormBtn) {
+    closeFormBtn.addEventListener('click', () => {
+      modal.remove();
+    });
+  }
 
   return form;
 }

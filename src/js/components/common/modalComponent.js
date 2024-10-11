@@ -1,4 +1,4 @@
-export function modalComponent(contentElement) {
+export function modalComponent() {
   // Create modal elements
   const modalOverlay = document.createElement('div');
   modalOverlay.classList.add(
@@ -41,7 +41,6 @@ export function modalComponent(contentElement) {
   // Content wrapper
   const modalContent = document.createElement('div');
   modalContent.classList.add('modal-content');
-  modalContent.appendChild(contentElement);
 
   // Assemble modal
   modalContainer.appendChild(closeButton);

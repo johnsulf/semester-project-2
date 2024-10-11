@@ -8,7 +8,10 @@ export function createListingEventListener(container) {
   const createListingButton = container.querySelector('#createListingBtn');
   if (createListingButton) {
     createListingButton.addEventListener('click', () => {
-      // Create the form component
+      // Create the modal first
+      const modal = modalComponent();
+
+      // Create the form component and pass the modal
       const formComponent = createListingFormComponent(async (data) => {
         // Call createListing with the form data
         try {
@@ -25,10 +28,11 @@ export function createListingEventListener(container) {
             'An error occurred while creating the listing. Please try again.',
           );
         }
-      });
+      }, modal);
 
-      // Create the modal with the form
-      const modal = modalComponent(formComponent);
+      // Set the modal content
+      const modalContent = modal.querySelector('.modal-content');
+      modalContent.appendChild(formComponent);
 
       // Append modal to the container (or document body)
       document.body.appendChild(modal);
@@ -81,7 +85,7 @@ function displaySuccessMessage(listing, modal) {
     });
   }
 
-  // Add event listener to "Go to Listing" button to close modal
+  // Add event listener to "Go to Listing" button
   const goToListingBtn = successMessage.querySelector('#goToListingBtn');
   if (goToListingBtn) {
     goToListingBtn.addEventListener('click', () => {
