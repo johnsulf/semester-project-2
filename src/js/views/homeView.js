@@ -1,6 +1,6 @@
 import { getListings } from '../api/auction/getListings.js';
 import { listingComponent } from '../components/listings/listingComponent.js';
-import { createListingEventListener } from '../events/listings/createListing.js';
+import { createListingEventListener } from '../events/create-listing/createListing.js';
 
 export async function homeView(app) {
   app.innerHTML = `
@@ -39,16 +39,8 @@ export async function homeView(app) {
       listingsContainer.appendChild(listingCard);
     });
 
-    createListingEventListener(app, {
-      title: 'Test Listing',
-      media: [
-        {
-          url: 'https://images.unsplash.com/photo-1454493246676-c0e063828dce?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          alt: 'Test Listing Image',
-        },
-      ],
-      endsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-    });
+    // Initialize the create listing event listener
+    createListingEventListener(app);
   } catch (error) {
     listingsContainer.innerHTML = `<p class="text-error">Error loading listings: ${error.message}</p>`;
   }
