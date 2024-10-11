@@ -1,7 +1,6 @@
 import { createListingEventListener } from '../events/create-listing/createListing.js';
-import { getLatestListings } from '../api/auction/getLatestListings.js';
-import { carouselComponent } from '../components/listings/carouselComponent.js';
 import { searchListings } from '../api/auction/searchListings.js';
+import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 
 export async function homeView(app) {
   app.innerHTML = `
@@ -23,7 +22,7 @@ export async function homeView(app) {
       </div>
     </section>
 
-    <section class="mt-12">
+    <section class="mt-64">
       <h2 class="text-2xl font-semibold mb-4">Latest Listings</h2>
       <div id="latestListingsCarousel" class="relative">
         <!-- Carousel will be injected here -->
@@ -39,23 +38,6 @@ export async function homeView(app) {
 
   // Fetch and display latest listings in the carousel
   await initLatestListingsCarousel();
-}
-
-async function initLatestListingsCarousel() {
-  const carouselContainer = document.getElementById('latestListingsCarousel');
-
-  try {
-    const listings = await getLatestListings(10);
-    if (listings.length === 0) {
-      carouselContainer.innerHTML = '<p>No listings available.</p>';
-      return;
-    }
-
-    const carousel = carouselComponent(listings);
-    carouselContainer.appendChild(carousel);
-  } catch (error) {
-    carouselContainer.innerHTML = `<p class="text-error">Error loading latest listings: ${error.message}</p>`;
-  }
 }
 
 function initLiveSearch() {
