@@ -3,6 +3,7 @@ import { loginView } from '../views/loginView.js';
 import { registerView } from '../views/registerView.js';
 import { profileView } from '../views/profileView.js';
 import { listingView } from '../views/listingView.js';
+import { listingsView } from '../views/listingsView.js';
 
 // Main app container
 const app = document.getElementById('app');
@@ -22,6 +23,7 @@ function router() {
     { path: '#/login', view: loginView },
     { path: '#/register', view: registerView },
     { path: '#/profile', view: profileView },
+    { path: '#/listings', view: listingsView },
     { path: '#/listing/:id', view: listingView },
   ];
 
