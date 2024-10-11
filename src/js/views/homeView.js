@@ -1,6 +1,6 @@
 import { getListings } from '../api/auction/getListings.js';
 import { listingComponent } from '../components/listings/listingComponent.js';
-import { createListingEventListener } from '../events/listings/createListing.js';
+import { createListingEventListener } from '../events/create-listing/createListing.js';
 
 export async function homeView(app) {
   app.innerHTML = `
