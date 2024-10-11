@@ -28,3 +28,14 @@
     @apply font-body text-neutralDark;
   }
 }
+
+.loader {
+  border-top-color: #3498db;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

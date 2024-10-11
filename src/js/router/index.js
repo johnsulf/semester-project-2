@@ -1,8 +1,11 @@
+// src/js/router.js
+
 import { homeView } from '../views/homeView.js';
 import { loginView } from '../views/loginView.js';
 import { registerView } from '../views/registerView.js';
 import { profileView } from '../views/profileView.js';
 import { listingView } from '../views/listingView.js';
+import { listingsView } from '../views/listingsView.js';
 
 // Main app container
 const app = document.getElementById('app');
@@ -23,13 +26,14 @@ function router() {
     { path: '#/register', view: registerView },
     { path: '#/profile', view: profileView },
     { path: '#/listing/:id', view: listingView },
+    { path: '#/search/:query', view: listingsView },
   ];
 
   // Find matching route
   let match = null;
   for (const route of routes) {
     const routeRegex = new RegExp(
-      '^' + route.path.replace(/:[^\s/]+/g, '([\\w-]+)') + '$',
+      '^' + route.path.replace(/:[^\s/]+/g, '(.+?)') + '$',
     );
     const result = routeRegex.exec(hash);
     if (result) {
@@ -39,8 +43,12 @@ function router() {
   }
 
   if (match) {
-    if (match.params) {
-      match.view(app, ...match.params);
+    if (match.params && match.params.length > 0) {
+      // Decode URI components for parameters
+      const decodedParams = match.params.map((param) =>
+        decodeURIComponent(param),
+      );
+      match.view(app, ...decodedParams);
     } else {
       match.view(app);
     }

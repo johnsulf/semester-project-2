@@ -1,47 +1,41 @@
-import { getListings } from '../api/auction/getListings.js';
-import { listingComponent } from '../components/listings/listingComponent.js';
 import { createListingEventListener } from '../events/create-listing/createListing.js';
+import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
+import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
 export async function homeView(app) {
   app.innerHTML = `
-    <h1>Welcome to Trust Auction House</h1>
-    <section>
-      <h2>Browse active listings and start bidding on items</h2>
-      <button id="createListingBtn" class="bg-primary text-white px-4 py-2 my-4 rounded">Create a listing</button>
-      <div 
-        id="listings-container" 
-        class="
-          grid 
-          grid-cols-1 
-          gap-6
-          sm:grid-cols-2 
-          lg:grid-cols-3 
-          xl:grid-cols-4 
-        ">
-        <p>Loading listings...</p>
+    <section class="flex flex-col items-center">
+      <h1 class="text-4xl font-bold my-8">Welcome to Trust Auction House</h1>
+      <div class="w-full max-w-2xl relative">
+        <div class="flex">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search for listings..." 
+            class="w-full p-4 border border-gray-300 rounded-l-lg text-lg"
+          />
+          <button id="searchButton" class="bg-primary text-white px-4 py-2 rounded-r-lg">
+            Search
+          </button>
+        </div>
+        <div id="searchResults" class="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-b-lg z-10 hidden"></div>
+      </div>
+    </section>
+
+    <section class="mt-64">
+      <h2 class="text-2xl font-semibold mb-4">Latest Listings</h2>
+      <div id="latestListingsCarousel" class="relative">
+        <!-- Carousel will be injected here -->
       </div>
     </section>
   `;
 
-  // Fetch and display listings
-  const listingsContainer = document.getElementById('listings-container');
+  // Initialize the create listing event listener (if needed)
+  createListingEventListener(app);
 
-  try {
-    // Fetch listings from the API
-    let listings = await getListings();
+  // Initialize live search functionality
+  initLiveSearch();
 
-    // Clear any existing content (e.g., "Loading listings...")
-    listingsContainer.innerHTML = '';
-
-    // Loop through the listings and create listing cards
-    listings.forEach((listing) => {
-      const listingCard = listingComponent(listing);
-      listingsContainer.appendChild(listingCard);
-    });
-
-    // Initialize the create listing event listener
-    createListingEventListener(app);
-  } catch (error) {
-    listingsContainer.innerHTML = `<p class="text-error">Error loading listings: ${error.message}</p>`;
-  }
+  // Fetch and display latest listings in the carousel
+  await initLatestListingsCarousel();
 }

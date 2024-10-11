@@ -27,6 +27,12 @@ export function loginView(app) {
                 Login
             </button>
         </form>
+            <p class="mt-4">
+              New user? 
+              <a href="#/register" class="text-blue-500">
+                Register
+              </a>
+            </p>
     </section>
   `;
 
