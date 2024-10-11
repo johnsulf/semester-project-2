@@ -1,5 +1,6 @@
 import { addMediaEventListener } from '../../events/create-listing/addMedia.js';
-import { submitCreateListingForm } from '../../events/create-listing/submitCreateListingForm.js';
+import { closeFormEventListener } from '../../events/create-listing/closeForm.js';
+import { submitCreateListingForm } from '../../events/create-listing/submitForm.js';
 
 export function createListingFormComponent(onSubmitCallback, modal) {
   const form = document.createElement('form');
@@ -38,17 +39,10 @@ export function createListingFormComponent(onSubmitCallback, modal) {
     </div>
     `;
 
-  // After setting innerHTML, add event listeners for the media input
+  // After creating the HTML, event listeners are added
   addMediaEventListener(mediaUrls, form);
-
   submitCreateListingForm(form, mediaUrls, onSubmitCallback);
-
-  const closeFormBtn = form.querySelector('#closeFormBtn');
-  if (closeFormBtn) {
-    closeFormBtn.addEventListener('click', () => {
-      modal.remove();
-    });
-  }
+  closeFormEventListener(form, modal);
 
   return form;
 }
