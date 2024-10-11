@@ -1,5 +1,3 @@
-// src/js/api/auction/getLatestListings.js
-
 import { apiBase } from '../constants.js';
 import { listings } from '../endpoints.js';
 import { headers } from '../headers.js';

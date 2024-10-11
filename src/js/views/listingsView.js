@@ -1,5 +1,5 @@
 import { searchListings } from '../api/auction/searchListings.js';
-import { listingComponent } from '../components/listings/listingComponent.js';
+import { listingCardComponent } from '../components/listings/listingCardComponent.js';
 
 export async function listingsView(app, query) {
   app.innerHTML = `
@@ -21,7 +21,7 @@ export async function listingsView(app, query) {
     }
 
     results.forEach((listing) => {
-      const listingCard = listingComponent(listing);
+      const listingCard = listingCardComponent(listing);
       searchResultsContainer.appendChild(listingCard);
     });
   } catch (error) {
