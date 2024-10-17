@@ -810,6 +810,10 @@ p,
   max-width: 32rem;
 }
 
+.max-w-md {
+  max-width: 28rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1242,6 +1246,11 @@ p,
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(31 58 147 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
 .hover\:text-gray-700:hover {

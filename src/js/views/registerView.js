@@ -2,7 +2,7 @@ import { registerEventListener } from '../events/auth/register.js';
 
 export function registerView(app) {
   app.innerHTML = `
-        <section>
+        <section class="mx-auto max-w-md">
             <h1 class="text-2xl font-bold">Register</h1>
             <form id="register-form" class="mt-4">
                 <input 
