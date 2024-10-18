@@ -12,7 +12,6 @@ const app = document.getElementById('app');
 
 // Function to handle routing based on URL hash
 function router() {
-  console.log('Router function called');
   const hash = window.location.hash;
 
   // Clear the current content in the app container

@@ -3,7 +3,6 @@ import { initLatestListingsCarousel } from '../events/listings/initLatestListing
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
 export async function homeView(app) {
-  console.log('homeView function called');
   app.innerHTML = `
     <section class="flex flex-col items-center">
       <h1 class="text-4xl font-bold my-8">Welcome to Trust Auction House</h1>
