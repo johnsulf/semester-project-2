@@ -9,7 +9,7 @@ export function loggedInUserMenu(authLink) {
   const avatarUrl =
     userData.avatar && userData.avatar.url
       ? userData.avatar.url
-      : 'https://via.placeholder.com/40'; // Placeholder image URL
+      : 'https://via.placeholder.com/40';
 
   // Create the avatar image element
   const avatarImg = document.createElement('img');
@@ -19,9 +19,15 @@ export function loggedInUserMenu(authLink) {
 
   // Create a container for the avatar and menu
   const avatarContainer = document.createElement('div');
-  avatarContainer.classList.add('relative');
+  avatarContainer.classList.add('relative', 'flex', 'items-center');
 
-  // Append the avatar image to the container
+  // Display user credits
+  const creditsSpan = document.createElement('span');
+  creditsSpan.textContent = `Credits: ${userData.credits}`;
+  creditsSpan.classList.add('text-white', 'mr-4');
+
+  // Append credits and avatar to the container
+  avatarContainer.appendChild(creditsSpan);
   avatarContainer.appendChild(avatarImg);
 
   // Create the dropdown menu (hidden by default)
@@ -38,9 +44,9 @@ export function loggedInUserMenu(authLink) {
     'z-50',
   );
   menu.innerHTML = `
-          <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
-          <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
-        `;
+    <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+    <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
+  `;
 
   // Append the menu to the container
   avatarContainer.appendChild(menu);
