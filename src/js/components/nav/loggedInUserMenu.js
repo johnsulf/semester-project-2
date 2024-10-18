@@ -1,4 +1,5 @@
 import { logoutListener } from '../../events/auth/logout.js';
+import { createListingEventListener } from '../../events/create-listing/createListing.js';
 import { load } from '../../storage/load.js';
 
 export function loggedInUserMenu(authLink) {
@@ -35,6 +36,7 @@ export function loggedInUserMenu(authLink) {
   menu.classList.add(
     'absolute',
     'right-0',
+    'top-10',
     'mt-2',
     'w-48',
     'bg-white',
@@ -44,9 +46,12 @@ export function loggedInUserMenu(authLink) {
     'z-50',
   );
   menu.innerHTML = `
+    <button id="createListingBtn" class="block bg-green-500 text-white py-2 px-4 rounded w-full">+ Create Listing</button>
     <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
     <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
   `;
+
+  createListingEventListener(menu);
 
   // Append the menu to the container
   avatarContainer.appendChild(menu);
