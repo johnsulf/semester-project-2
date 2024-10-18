@@ -1,7 +1,6 @@
 import { apiBase } from '../constants.js';
 import { login as loginEp } from '../endpoints.js';
 import { headers } from '../headers.js';
-import { save } from '../../storage/save.js';
 
 /**
  * Login a user
@@ -23,11 +22,7 @@ export async function login(email, password) {
 
     if (response.ok) {
       const result = await response.json();
-      const profile = result.data;
-      save('token', profile.accessToken);
-      delete profile.accessToken;
-      save('profile', profile);
-      return profile;
+      return result.data;
     }
   } catch (error) {
     console.error(error);

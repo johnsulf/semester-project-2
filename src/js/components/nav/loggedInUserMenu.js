@@ -1,4 +1,5 @@
 import { logoutListener } from '../../events/auth/logout.js';
+import { createListingEventListener } from '../../events/create-listing/createListing.js';
 import { load } from '../../storage/load.js';
 
 export function loggedInUserMenu(authLink) {
@@ -9,7 +10,7 @@ export function loggedInUserMenu(authLink) {
   const avatarUrl =
     userData.avatar && userData.avatar.url
       ? userData.avatar.url
-      : 'https://via.placeholder.com/40'; // Placeholder image URL
+      : 'https://via.placeholder.com/40';
 
   // Create the avatar image element
   const avatarImg = document.createElement('img');
@@ -19,9 +20,15 @@ export function loggedInUserMenu(authLink) {
 
   // Create a container for the avatar and menu
   const avatarContainer = document.createElement('div');
-  avatarContainer.classList.add('relative');
+  avatarContainer.classList.add('relative', 'flex', 'items-center');
 
-  // Append the avatar image to the container
+  // Display user credits
+  const creditsSpan = document.createElement('span');
+  creditsSpan.textContent = `Credits: ${userData.credits}`;
+  creditsSpan.classList.add('text-white', 'mr-4');
+
+  // Append credits and avatar to the container
+  avatarContainer.appendChild(creditsSpan);
   avatarContainer.appendChild(avatarImg);
 
   // Create the dropdown menu (hidden by default)
@@ -29,6 +36,7 @@ export function loggedInUserMenu(authLink) {
   menu.classList.add(
     'absolute',
     'right-0',
+    'top-10',
     'mt-2',
     'w-48',
     'bg-white',
@@ -38,9 +46,12 @@ export function loggedInUserMenu(authLink) {
     'z-50',
   );
   menu.innerHTML = `
-          <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
-          <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
-        `;
+    <button id="createListingBtn" class="block bg-green-500 text-white py-2 px-4 rounded w-full">+ Create Listing</button>
+    <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+    <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
+  `;
+
+  createListingEventListener(menu);
 
   // Append the menu to the container
   avatarContainer.appendChild(menu);

@@ -1,5 +1,7 @@
 import * as auth from '../../api/auth/index.js';
+import { getUserProfile } from '../../api/profile/getUserProfile.js';
 import { updateNav } from '../../helpers/updateNav.js';
+import { save } from '../../storage/save.js';
 
 export async function loginEventListener() {
   const form = document.getElementById('login-form');
@@ -16,6 +18,12 @@ export async function loginEventListener() {
         alert(`Login failed: ${response.errors[0].message}`);
         return;
       }
+      console.log(response);
+      save('token', response.accessToken);
+      save('name', response.name);
+      const userProfile = await getUserProfile();
+      save('profile', userProfile);
+
       // Updates the navigation to reflect login state
       updateNav();
 
@@ -23,8 +31,8 @@ export async function loginEventListener() {
       location.href = '#/';
       // Shows success message
       alert('Login successful!');
-    } catch {
-      alert('Either your username was not found or your password is incorrect');
+    } catch (e) {
+      console.error(e);
     }
   });
 }
