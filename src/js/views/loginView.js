@@ -2,7 +2,7 @@ import { loginEventListener } from '../events/auth/login.js';
 
 export function loginView(app) {
   app.innerHTML = `
-    <section>
+    <section class="mx-auto max-w-md">
         <h1 class="text-2xl font-bold">Login</h1>
         <form id="login-form" class="mt-4">
             <input 
