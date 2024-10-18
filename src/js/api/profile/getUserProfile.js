@@ -3,10 +3,10 @@ import { headers } from '../headers.js';
 import { load } from '../../storage/load.js';
 
 export async function getUserProfile() {
-  const user = load('profile');
+  const name = load('name');
 
   try {
-    const response = await fetch(`${apiBase}/auction/profiles/${user.name}`, {
+    const response = await fetch(`${apiBase}/auction/profiles/${name}`, {
       method: 'GET',
       headers: headers('application/json'),
     });
