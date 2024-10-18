@@ -1,12 +1,13 @@
 import { apiBase } from '../constants.js';
 import { headers } from '../headers.js';
 import { load } from '../../storage/load.js';
+import { profiles } from '../endpoints.js';
 
 export async function getUserProfile() {
   const name = load('name');
 
   try {
-    const response = await fetch(`${apiBase}/auction/profiles/${name}`, {
+    const response = await fetch(`${apiBase + profiles}/${name}`, {
       method: 'GET',
       headers: headers('application/json'),
     });

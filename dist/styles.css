@@ -778,6 +778,10 @@ p,
   height: 100%;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .w-12 {
   width: 3rem;
 }
@@ -800,6 +804,10 @@ p,
 
 .w-full {
   width: 100%;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .max-w-2xl {
