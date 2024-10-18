@@ -12,6 +12,7 @@ const app = document.getElementById('app');
 
 // Function to handle routing based on URL hash
 function router() {
+  console.log('Router function called');
   const hash = window.location.hash;
 
   // Clear the current content in the app container
@@ -58,7 +59,6 @@ function router() {
 }
 
 // Initialize the router when the page loads and when the hash changes
-window.addEventListener('load', router);
 window.addEventListener('hashchange', router);
 
 export default router;
