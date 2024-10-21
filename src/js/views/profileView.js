@@ -1,9 +1,6 @@
 import { profile } from '../api/auth/authState.js';
-import { getProfileBids } from '../api/profile/getProfileBids.js';
 
 export async function profileView(app) {
-  const bids = await getProfileBids();
-  console.log(bids);
   const user = profile();
   app.innerHTML = `
     <section>
