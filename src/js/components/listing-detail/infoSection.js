@@ -15,7 +15,7 @@ export function infoSectionComponent(listing) {
   `;
 
   // Initialize event for the "Place a Bid" button
-  placeBidEventListener(infoContainer, listing.id);
+  placeBidEventListener(infoContainer, listing);
   deleteListingEventListener(infoContainer, listing.id);
 
   return infoContainer;
