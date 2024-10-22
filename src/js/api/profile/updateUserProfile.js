@@ -9,7 +9,6 @@ export async function updateUserProfile(avatarUrl) {
   if (!accessToken) {
     throw new Error('User is not authenticated.');
   }
-  console.log(profile().name);
   try {
     const response = await fetch(`${apiBase + profiles}/${profile().name}`, {
       method: 'PUT',
@@ -18,7 +17,6 @@ export async function updateUserProfile(avatarUrl) {
     });
 
     const responseData = await response.json();
-    console.log(responseData);
 
     if (!response.ok) {
       throw new Error(

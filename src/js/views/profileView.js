@@ -1,5 +1,5 @@
 import { profile } from '../api/auth/authState.js';
-import { openEditAvatarModal } from '../events/profile/editAvatar.js';
+import { openEditAvatarModalListener } from '../events/profile/openEditAvatarModal.js';
 
 export async function profileView(app) {
   const user = profile();
@@ -27,11 +27,5 @@ export async function profileView(app) {
     </section>
   `;
 
-  // Initialize event listener for the "Edit Avatar" button
-  const editAvatarButton = document.getElementById('editAvatarButton');
-  if (editAvatarButton) {
-    editAvatarButton.addEventListener('click', () => {
-      openEditAvatarModal();
-    });
-  }
+  openEditAvatarModalListener();
 }
