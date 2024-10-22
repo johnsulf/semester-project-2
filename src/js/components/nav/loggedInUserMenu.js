@@ -1,10 +1,14 @@
+import { profile } from '../../api/auth/authState.js';
 import { logoutListener } from '../../events/auth/logout.js';
 import { createListingEventListener } from '../../events/create-listing/createListing.js';
-import { load } from '../../storage/load.js';
 
 export function loggedInUserMenu(authLink) {
   // Get user data
-  const userData = load('profile');
+  const userData = profile();
+
+  // Create a container for the avatar, menu and button
+  const userContainer = document.createElement('div');
+  userContainer.classList.add('relative', 'flex', 'items-center', 'gap-2');
 
   // Get avatar URL or placeholder
   const avatarUrl =
@@ -16,11 +20,18 @@ export function loggedInUserMenu(authLink) {
   const avatarImg = document.createElement('img');
   avatarImg.src = avatarUrl;
   avatarImg.alt = `${userData.name}'s avatar`;
-  avatarImg.classList.add('w-8', 'h-8', 'rounded-full', 'cursor-pointer');
+  avatarImg.classList.add('w-10', 'h-10', 'rounded-full', 'cursor-pointer');
 
-  // Create a container for the avatar and menu
-  const avatarContainer = document.createElement('div');
-  avatarContainer.classList.add('relative', 'flex', 'items-center');
+  // Create listing button
+  const createListingBtn = document.createElement('button');
+  createListingBtn.textContent = '+ Create Listing';
+  createListingBtn.classList.add(
+    'bg-primary',
+    'text-white',
+    'py-2',
+    'px-4',
+    'rounded',
+  );
 
   // Display user credits
   const creditsSpan = document.createElement('span');
@@ -28,8 +39,8 @@ export function loggedInUserMenu(authLink) {
   creditsSpan.classList.add('text-white', 'mr-4');
 
   // Append credits and avatar to the container
-  avatarContainer.appendChild(creditsSpan);
-  avatarContainer.appendChild(avatarImg);
+  userContainer.appendChild(createListingBtn);
+  userContainer.appendChild(avatarImg);
 
   // Create the dropdown menu (hidden by default)
   const menu = document.createElement('div');
@@ -46,7 +57,7 @@ export function loggedInUserMenu(authLink) {
     'z-50',
   );
   menu.innerHTML = `
-    <button id="createListingBtn" class="block bg-green-500 text-white py-2 px-4 rounded w-full">+ Create Listing</button>
+    <p>${userData.name} - $${userData.credits}</p>
     <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
     <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
   `;
@@ -54,7 +65,7 @@ export function loggedInUserMenu(authLink) {
   createListingEventListener(menu);
 
   // Append the menu to the container
-  avatarContainer.appendChild(menu);
+  userContainer.appendChild(menu);
 
   // Add event listener to toggle the menu when the avatar is clicked
   avatarImg.addEventListener('click', (event) => {
@@ -70,14 +81,14 @@ export function loggedInUserMenu(authLink) {
 
   // Close the menu when clicking outside
   document.addEventListener('click', (event) => {
-    if (!avatarContainer.contains(event.target)) {
+    if (!userContainer.contains(event.target)) {
       menu.classList.add('hidden');
     }
   });
 
-  // Clear the authLink and append the avatarContainer
+  // Clear the authLink and append the userContainer
   authLink.innerHTML = '';
-  authLink.appendChild(avatarContainer);
+  authLink.appendChild(userContainer);
 
   // Handle logout
   logoutListener();
