@@ -58,7 +58,6 @@ function router() {
 }
 
 // Initialize the router when the page loads and when the hash changes
-window.addEventListener('load', router);
 window.addEventListener('hashchange', router);
 
 export default router;

@@ -7,10 +7,15 @@ export function showSearchResultsContainer() {
 
 export function hideSearchResultsContainer() {
   const searchResultsContainer = document.getElementById('searchResults');
-  searchResultsContainer.classList.add('hidden');
+  if (searchResultsContainer) {
+    searchResultsContainer.classList.add('hidden');
+  }
 }
 
-export function hideSearchResultsContainerOnClick(searchResultsContainer) {
+export function hideSearchResultsContainerOnClick(
+  searchResultsContainer,
+  searchInput,
+) {
   document.addEventListener('click', (event) => {
     if (
       !searchResultsContainer.contains(event.target) &&

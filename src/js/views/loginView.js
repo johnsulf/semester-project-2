@@ -2,25 +2,25 @@ import { loginEventListener } from '../events/auth/login.js';
 
 export function loginView(app) {
   app.innerHTML = `
-    <section>
+    <section class="mx-auto max-w-md">
         <h1 class="text-2xl font-bold">Login</h1>
         <form id="login-form" class="mt-4">
             <input 
               type="email" 
               name="email" 
               placeholder="Email" 
-              class="border p-2 mb-4 w-full" 
+              class="border p-2 mb-4 w-full rounded-md" 
               required>
             <input 
               type="password" 
               name="password" 
               placeholder="Password" 
-              class="border p-2 mb-4 w-full" 
+              class="border p-2 mb-4 w-full rounded-md" 
               required>
             <button 
               type="submit" 
               class="
-                bg-blue-500 
+                bg-primary
                 text-white 
                 py-2 px-4 
                 rounded">
@@ -29,7 +29,7 @@ export function loginView(app) {
         </form>
             <p class="mt-4">
               New user? 
-              <a href="#/register" class="text-blue-500">
+              <a href="#/register" class="text-primary">
                 Register
               </a>
             </p>

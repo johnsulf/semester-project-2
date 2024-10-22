@@ -1,6 +1,6 @@
-import { addMediaEventListener } from '../../events/create-listing/addMedia.js';
-import { closeFormEventListener } from '../../events/create-listing/closeForm.js';
-import { submitCreateListingForm } from '../../events/create-listing/submitForm.js';
+import { addMediaEventListener } from '../../events/nav/create-listing/addMedia.js';
+import { closeFormEventListener } from '../../events/nav/create-listing/closeForm.js';
+import { submitCreateListingForm } from '../../events/nav/create-listing/submitForm.js';
 
 export function createListingFormComponent(onSubmitCallback, modal) {
   const form = document.createElement('form');

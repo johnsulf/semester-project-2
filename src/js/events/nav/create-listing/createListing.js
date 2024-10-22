@@ -1,7 +1,7 @@
-import { modalComponent } from '../../components/common/modalComponent.js';
-import { createListingFormComponent } from '../../components/listings/createListingFormComponent.js';
-import { createListing } from '../../api/auction/createListing.js';
-import { displaySuccessMessage } from '../../components/listings/createListingSuccess.js';
+import { modalComponent } from '../../../components/common/modalComponent.js';
+import { createListingFormComponent } from '../../../components/listings/createListingFormComponent.js';
+import { createListing } from '../../../api/auction/createListing.js';
+import { displaySuccessMessage } from '../../../components/listings/createListingSuccess.js';
 
 export function createListingEventListener(container) {
   const createListingButton = container.querySelector('#createListingBtn');

@@ -1,5 +1,7 @@
 import * as auth from '../../api/auth/index.js';
-import { updateNav } from '../../helpers/updateNav.js';
+import { getUserProfile } from '../../api/profile/getUserProfile.js';
+import { buildNav } from '../../components/nav/nav.js';
+import { save } from '../../storage/save.js';
 
 export async function loginEventListener() {
   const form = document.getElementById('login-form');
@@ -10,15 +12,27 @@ export async function loginEventListener() {
     const password = data.get('password');
 
     try {
-      await auth.login(email, password);
+      const response = await auth.login(email, password);
+
+      if (response.errors) {
+        alert(`Login failed: ${response.errors[0].message}`);
+        return;
+      }
+      console.log(response);
+      save('token', response.accessToken);
+      save('name', response.name);
+      const userProfile = await getUserProfile();
+      save('profile', userProfile);
 
       // Updates the navigation to reflect login state
-      updateNav();
+      buildNav();
 
       // Redirects to home view
       location.href = '#/';
-    } catch {
-      alert('Either your username was not found or your password is incorrect');
+      // Shows success message
+      alert('Login successful!');
+    } catch (e) {
+      console.error(e);
     }
   });
 }
