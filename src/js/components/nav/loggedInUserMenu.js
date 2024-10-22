@@ -1,11 +1,7 @@
-import { profile } from '../../api/auth/authState.js';
 import { logoutListener } from '../../events/auth/logout.js';
 import { createListingEventListener } from '../../events/create-listing/createListing.js';
 
-export function loggedInUserMenu(authLink) {
-  // Get user data
-  const userData = profile();
-
+export function loggedInUserMenu(authSection, userData) {
   // Create a container for the avatar, menu and button
   const userContainer = document.createElement('div');
   userContainer.classList.add('relative', 'flex', 'items-center', 'gap-2');
@@ -24,6 +20,7 @@ export function loggedInUserMenu(authLink) {
 
   // Create listing button
   const createListingBtn = document.createElement('button');
+  createListingBtn.id = 'createListingBtn';
   createListingBtn.textContent = '+ Create Listing';
   createListingBtn.classList.add(
     'bg-primary',
@@ -33,14 +30,11 @@ export function loggedInUserMenu(authLink) {
     'rounded',
   );
 
-  // Display user credits
-  const creditsSpan = document.createElement('span');
-  creditsSpan.textContent = `Credits: ${userData.credits}`;
-  creditsSpan.classList.add('text-white', 'mr-4');
-
   // Append credits and avatar to the container
   userContainer.appendChild(createListingBtn);
   userContainer.appendChild(avatarImg);
+
+  createListingEventListener(userContainer);
 
   // Create the dropdown menu (hidden by default)
   const menu = document.createElement('div');
@@ -61,8 +55,6 @@ export function loggedInUserMenu(authLink) {
     <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
     <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
   `;
-
-  createListingEventListener(menu);
 
   // Append the menu to the container
   userContainer.appendChild(menu);
@@ -86,9 +78,9 @@ export function loggedInUserMenu(authLink) {
     }
   });
 
-  // Clear the authLink and append the userContainer
-  authLink.innerHTML = '';
-  authLink.appendChild(userContainer);
+  // Clear the authSection and append the userContainer
+  authSection.innerHTML = '';
+  authSection.appendChild(userContainer);
 
   // Handle logout
   logoutListener();

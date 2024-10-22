@@ -1,15 +1,13 @@
-import { isLoggedIn } from '../../api/auth/authState.js';
+import { profile } from '../../api/auth/authState.js';
 import { loggedInUserMenu } from './loggedInUserMenu.js';
+import { unauthenticatedNav } from './unauthenticatedNav.js';
 
 export function buildNav() {
-  const authLink = document.getElementById('auth-link');
+  const authSection = document.getElementById('authSection');
 
-  if (isLoggedIn()) {
-    loggedInUserMenu(authLink);
+  if (profile()) {
+    loggedInUserMenu(authSection, profile());
   } else {
-    authLink.innerHTML = `
-      <a href="#/login" class="text-white mr-4">Log In</a>
-      <a href="#/register" class="text-white">Register</a>
-    `;
+    unauthenticatedNav(authSection);
   }
 }
