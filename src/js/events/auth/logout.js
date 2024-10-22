@@ -1,8 +1,8 @@
 import * as auth from '../../api/auth/index.js';
 import { buildNav } from '../../components/nav/nav.js';
 
-export function logoutListener() {
-  document.getElementById('logout').addEventListener('click', async () => {
+export function logoutListener(logoutBtn) {
+  logoutBtn.addEventListener('click', async () => {
     try {
       await auth.logout();
       buildNav();
