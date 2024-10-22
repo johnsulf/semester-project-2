@@ -7,6 +7,6 @@ export function avatarImg(userData) {
   avatarImg.id = 'avatarImg';
   avatarImg.src = avatarUrl;
   avatarImg.alt = `${userData.name}'s avatar`;
-  avatarImg.classList.add('w-14', 'h-14', 'rounded-full', 'cursor-pointer');
+  avatarImg.classList.add('w-12', 'h-12', 'rounded-full', 'cursor-pointer');
   return avatarImg;
 }

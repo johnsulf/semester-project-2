@@ -5,8 +5,11 @@ export function userMenu(userData) {
     'absolute',
     'right-0',
     'top-10',
-    'mt-2',
-    'w-48',
+    'mt-3',
+    'p-2',
+    'w-64',
+    'border',
+    'border-gray-300',
     'bg-white',
     'rounded-md',
     'shadow-lg',
@@ -14,9 +17,22 @@ export function userMenu(userData) {
     'z-50',
   );
   userMenu.innerHTML = `
-          <p>${userData.name} - $${userData.credits}</p>
-          <a href="#/profile" id="profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
-          <a href="#" id="logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
+    <div class="flex justify-between items-center">
+        <p class="font-heading font-bold text-xl text-primary">${userData.name}</p>
+        <div class="flex gap-1 items-center">
+            <img src="src/assets/credits.png" alt="Coins" class="w-8 h-8" />
+            <p class="font-bold text-lg">${userData.credits}.00</p>
+        </div>
+    </div>
+    <hr class="m-2" />
+    <a href="#/profile" id="profile" class="flex gap-1 items-center p-2 rounded-md hover:bg-gray-100">
+        <img src="src/assets/settings.png" alt="Coins" class="w-6 h-6" />
+        Profile Settings
+    </a>
+    <a href="#" id="logout" class=" text-error flex gap-1 items-center p-2 rounded-md hover:bg-error hover:text-white">
+        <img src="src/assets/logout.png" alt="Coins" class="w-6 h-6" />
+        Log Out
+    </a>
       `;
   return userMenu;
 }

@@ -9,38 +9,38 @@ export function registerView(app) {
           type="text" 
           name="name"
           placeholder="Username" 
-          class="border p-2 mb-4 w-full" 
+          class="border p-2 mb-4 w-full rounded-md" 
           required
         >
         <input 
           type="email" 
           name="email"
           placeholder="Email" 
-          class="border p-2 mb-4 w-full" 
+          class="border p-2 mb-4 w-full rounded-md" 
           required
         >
         <input 
           type="password" 
           name="password"
           placeholder="Password" 
-          class="border p-2 mb-4 w-full" 
+          class="border p-2 mb-4 w-full rounded-md" 
           required
         >
         <input
           type="url"
           name="avatar"
           placeholder="Avatar URL (optional)"
-          class="border p-2 mb-4 w-full"
+          class="border p-2 mb-4 w-full rounded-md"
         >
         <button 
           type="submit" 
-          class="bg-green-500 text-white py-2 px-4 rounded">
+          class="bg-primary text-white py-2 px-4 rounded">
           Register
         </button>
       </form>
       <p class="mt-4">
         Already have an account? 
-        <a href="#/login" class="text-blue-500">
+        <a href="#/login" class="text-primary">
           Login
         </a>
       </p>
