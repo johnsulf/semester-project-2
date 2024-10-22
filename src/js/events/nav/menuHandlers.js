@@ -1,6 +1,6 @@
-import { logoutListener } from '../../events/auth/logout.js';
-
-export function loggedInUserMenu(authSection) {
+export function menuHandlers(container) {
+  const menu = container.querySelector('#userMenu');
+  const avatarImg = container.querySelector('#avatarImg');
   // Add event listener to toggle the menu when the avatar is clicked
   avatarImg.addEventListener('click', (event) => {
     event.stopPropagation(); // Prevent the click event from bubbling up
@@ -15,15 +15,8 @@ export function loggedInUserMenu(authSection) {
 
   // Close the menu when clicking outside
   document.addEventListener('click', (event) => {
-    if (!userContainer.contains(event.target)) {
+    if (!container.contains(event.target)) {
       menu.classList.add('hidden');
     }
   });
-
-  // Clear the authSection and append the userContainer
-  authSection.innerHTML = '';
-  authSection.appendChild(userContainer);
-
-  // Handle logout
-  logoutListener();
 }

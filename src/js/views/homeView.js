@@ -1,4 +1,3 @@
-import { createListingEventListener } from '../events/create-listing/createListing.js';
 import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
@@ -29,9 +28,6 @@ export async function homeView(app) {
       </div>
     </section>
   `;
-
-  // Initialize the create listing event listener (if needed)
-  createListingEventListener(app);
 
   // Initialize live search functionality
   initLiveSearch();
