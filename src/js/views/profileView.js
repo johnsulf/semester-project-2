@@ -2,8 +2,9 @@ import { profile } from '../api/auth/authState.js';
 import { openEditAvatarModalListener } from '../events/profile/openEditAvatarModal.js';
 
 export async function profileView(app) {
-  const user = profile();
+  const user = profile(); // Get the user profile from local storage
 
+  // Render the user profile
   app.innerHTML = `
     <section>
       <h1 class="text-2xl font-bold">Hi, ${user.name}</h1>
@@ -27,5 +28,6 @@ export async function profileView(app) {
     </section>
   `;
 
+  // Add the event listener to the edit avatar button
   openEditAvatarModalListener();
 }

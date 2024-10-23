@@ -2,6 +2,7 @@ import { initLatestListingsCarousel } from '../events/listings/initLatestListing
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
 export async function homeView(app) {
+  // Set the inner HTML of the app container
   app.innerHTML = `
     <section class="flex flex-col items-center">
       <h1 class="text-4xl font-bold my-8">Welcome to Fun Auction</h1>

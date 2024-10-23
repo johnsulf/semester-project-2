@@ -1,6 +1,7 @@
 import { loginEventListener } from '../events/auth/login.js';
 
 export function loginView(app) {
+  // Add the login form to the app
   app.innerHTML = `
     <section class="mx-auto max-w-md">
         <h1 class="text-2xl font-bold">Login</h1>
@@ -36,5 +37,6 @@ export function loginView(app) {
     </section>
   `;
 
+  // Add the event listener to the form
   loginEventListener();
 }

@@ -1,6 +1,7 @@
 import { registerEventListener } from '../events/auth/register.js';
 
 export function registerView(app) {
+  // Add the register form to the app
   app.innerHTML = `
     <section class="mx-auto max-w-md">
       <h1 class="text-2xl font-bold">Register</h1>
@@ -47,5 +48,6 @@ export function registerView(app) {
     </section>
   `;
 
+  // Add the event listener to the form
   registerEventListener();
 }
