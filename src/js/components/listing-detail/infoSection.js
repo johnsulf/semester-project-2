@@ -1,9 +1,9 @@
 import { placeBidEventListener } from '../../events/auction/placeBid.js';
 import { deleteListingEventListener } from '../../events/listing-detail/deleteListing.js';
 
+// Function to create the listing info section
 export function infoSectionComponent(listing) {
-  // Create a container for the listing info
-  const infoContainer = document.createElement('div');
+  const infoContainer = document.createElement('div'); // Create the info container
 
   // Build the listing info HTML
   infoContainer.innerHTML = `
@@ -14,7 +14,7 @@ export function infoSectionComponent(listing) {
     <button id="placeBidButton" class="bg-primary text-white px-4 py-2 rounded">Place a Bid</button>
   `;
 
-  // Initialize event for the "Place a Bid" button
+  // Add event listeners to the buttons
   placeBidEventListener(infoContainer, listing);
   deleteListingEventListener(infoContainer, listing.id);
 

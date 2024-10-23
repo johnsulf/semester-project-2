@@ -1,11 +1,12 @@
 import { submitBidOnListingForm } from '../../events/auction/submitForm.js';
 import { getHighestBid } from '../../helpers/bidOnListing.js';
 
+// Function to create the bid on listing form component
 export function bidOnListingFormComponent(user, listing, modal) {
-  // Create the bid form
-  const form = document.createElement('form');
-  form.classList.add('space-y-4');
+  const form = document.createElement('form'); // Create the form element
+  form.classList.add('space-y-4'); // Add classes to the form
 
+  // Set the form inner HTML
   form.innerHTML = `
     <h2 class="text-xl font-bold mb-4">Place a Bid</h2>
     <p>Your Credits: <strong>${user.credits}</strong></p>
@@ -18,7 +19,8 @@ export function bidOnListingFormComponent(user, listing, modal) {
       <button type="submit" class="bg-primary text-white px-4 py-2 rounded">Submit Bid</button>
     </div>
   `;
-  // add event listeners TODO
+
+  // add event listeners
   submitBidOnListingForm(user, form, listing, modal);
 
   return form;

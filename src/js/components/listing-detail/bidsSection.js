@@ -1,8 +1,9 @@
 import { initToggleBidsEvent } from '../../events/listing-detail/toggleBids.js';
 import { sortDescending } from '../../helpers/sortingLists.js';
 
+// Function to create the bids section
 export function bidsSectionComponent(listing) {
-  const bidsContainer = document.createElement('div');
+  const bidsContainer = document.createElement('div'); // Create the bids container
 
   if (listing.bids && listing.bids.length > 0) {
     // Sort bids in descending order

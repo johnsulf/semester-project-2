@@ -1,6 +1,6 @@
+// Function to create a media carousel
 export function mediaCarouselComponent(listing) {
-  // Creates a container for the media carousel
-  const mediaContainer = document.createElement('div');
+  const mediaContainer = document.createElement('div'); // Create the media container
 
   if (listing.media && listing.media.length > 0) {
     // Builds the HTML structure
@@ -56,6 +56,7 @@ function initCarouselEvents(container, listing) {
     // Add fade-out effect
     mainImage.classList.add('opacity-0');
 
+    // setTimeout to allow fade-out effect to take place
     setTimeout(() => {
       mainImage.src = listing.media[index].url;
       mainImage.alt = listing.media[index].alt;
@@ -73,6 +74,7 @@ function initCarouselEvents(container, listing) {
     }, 300);
   };
 
+  // Thumbnail click events
   thumbnails.forEach((thumbnail) => {
     thumbnail.addEventListener('click', () => {
       currentIndex = parseInt(thumbnail.getAttribute('data-index'), 10);
@@ -84,6 +86,7 @@ function initCarouselEvents(container, listing) {
   const prevButton = container.querySelector('#prevImage');
   const nextButton = container.querySelector('#nextImage');
 
+  // Add event listeners for navigation buttons
   prevButton.addEventListener('click', () => {
     currentIndex =
       (currentIndex - 1 + listing.media.length) % listing.media.length;
