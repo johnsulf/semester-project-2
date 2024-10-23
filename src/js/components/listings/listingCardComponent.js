@@ -1,7 +1,9 @@
+// Function to create a listing card component
 export function listingCardComponent(listing) {
-  const listingElement = document.createElement('div');
-  listingElement.classList.add('border', 'p-4', 'rounded-md');
+  const listingElement = document.createElement('div'); // Create the listing element
+  listingElement.classList.add('border', 'p-4', 'rounded-md'); // Add classes to the listing element
 
+  // Get the media from the listing data
   const media =
     listing.media && listing.media.length > 0
       ? listing.media
@@ -12,6 +14,7 @@ export function listingCardComponent(listing) {
           },
         ];
 
+  // Set the listing element inner HTML
   listingElement.innerHTML = `
       <a href="#/listing/${listing.id}" class="group">
         <div class="w-full h-64 overflow-hidden rounded-lg bg-gray-200">

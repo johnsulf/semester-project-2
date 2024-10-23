@@ -2,15 +2,17 @@ import { addMediaEventListener } from '../../events/nav/create-listing/addMedia.
 import { closeFormEventListener } from '../../events/nav/create-listing/closeForm.js';
 import { submitCreateListingForm } from '../../events/nav/create-listing/submitForm.js';
 
+// Function to create the create listing form component
 export function createListingFormComponent(onSubmitCallback, modal) {
-  const form = document.createElement('form');
-  form.classList.add('space-y-4');
+  const form = document.createElement('form'); // Create the form element
+  form.classList.add('space-y-4'); // Add classes to the form
 
-  const mediaUrls = [];
-  const now = new Date();
-  const tzOffset = now.getTimezoneOffset() * 60000;
-  const localISOTime = new Date(now - tzOffset).toISOString().slice(0, 16); // YYYY-MM-DDTHH:mm
+  const mediaUrls = []; // Create an empty array to store media URLs
+  const now = new Date(); // Get the current date and time
+  const tzOffset = now.getTimezoneOffset() * 60000; // Get the timezone offset in milliseconds
+  const localISOTime = new Date(now - tzOffset).toISOString().slice(0, 16); // Get the local ISO time
 
+  // Set the form inner HTML
   form.innerHTML = `
     <h2 class="text-xl font-semibold mb-4">Create a New Listing</h2>
     <div>

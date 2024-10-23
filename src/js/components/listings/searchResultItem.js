@@ -1,7 +1,10 @@
-import { hideSearchResultsContainer } from '../../helpers/searchResults.js';
+import { navigateToListing } from '../../events/listings/navigateToListingFromSearch.js';
 
+// Function to create a search result item
 export function searchResultItem(listing) {
-  const item = document.createElement('li');
+  const item = document.createElement('li'); // Create the list item element
+
+  // Add classes to the list item
   item.classList.add(
     'p-4',
     'flex',
@@ -10,11 +13,7 @@ export function searchResultItem(listing) {
     'hover:bg-gray-100',
   );
 
-  item.addEventListener('click', () => {
-    hideSearchResultsContainer();
-    window.location.hash = `#/listing/${listing.id}`;
-  });
-
+  // Get the media from the listing data
   const media =
     listing.media && listing.media.length > 0
       ? listing.media
@@ -25,6 +24,7 @@ export function searchResultItem(listing) {
           },
         ];
 
+  // Set the list item inner HTML
   item.innerHTML = `
         <img src="${media[0].url}" alt="${media[0].alt}" class="w-12 h-12 object-cover rounded mr-4" />
         <div class="flex-1">
@@ -34,6 +34,8 @@ export function searchResultItem(listing) {
           <path d="M9 18l6-6-6-6" />
         </svg>
       `;
+
+  navigateToListing(item, listing); // Add the click event to navigate to the listing
 
   return item;
 }
