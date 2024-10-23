@@ -1,63 +1,44 @@
-// src/js/router.js
-
-import { homeView } from '../views/homeView.js';
-import { loginView } from '../views/loginView.js';
-import { registerView } from '../views/registerView.js';
-import { profileView } from '../views/profileView.js';
-import { listingView } from '../views/listingView.js';
-import { listingsView } from '../views/listingsView.js';
+import routes from './routes.js';
 
 // Main app container
 const app = document.getElementById('app');
 
 // Function to handle routing based on URL hash
 function router() {
-  const hash = window.location.hash;
+  const hash = window.location.hash; // Get the URL hash
 
-  // Clear the current content in the app container
-  app.innerHTML = '';
-
-  // Route patterns
-  const routes = [
-    { path: '', view: homeView },
-    { path: '#/', view: homeView },
-    { path: '#', view: homeView },
-    { path: '#/login', view: loginView },
-    { path: '#/register', view: registerView },
-    { path: '#/profile', view: profileView },
-    { path: '#/listing/:id', view: listingView },
-    { path: '#/search/:query', view: listingsView },
-  ];
+  app.innerHTML = ''; // Clear the content of the app container
 
   // Find matching route
   let match = null;
   for (const route of routes) {
     const routeRegex = new RegExp(
-      '^' + route.path.replace(/:[^\s/]+/g, '(.+?)') + '$',
+      '^' + route.path.replace(/:[^\s/]+/g, '(.+?)') + '$', // Convert the route path to a regex since the path may contain parameters
     );
-    const result = routeRegex.exec(hash);
+    const result = routeRegex.exec(hash); // Check if the hash matches the route path
     if (result) {
-      match = { ...route, params: result.slice(1) };
+      match = { ...route, params: result.slice(1) }; // Store the matched route and parameters
       break;
     }
   }
 
+  // If a matching route is found, call the view function
   if (match) {
     if (match.params && match.params.length > 0) {
-      // Decode URI components for parameters
+      // Decode the parameters to handle special characters
       const decodedParams = match.params.map((param) =>
         decodeURIComponent(param),
       );
-      match.view(app, ...decodedParams);
+      match.view(app, ...decodedParams); // Call the view function with the app container and parameters
     } else {
-      match.view(app);
+      match.view(app); // Call the view function with the app container
     }
   } else {
     app.innerHTML = '<h1>404 - Page Not Found</h1>';
   }
 }
 
-// Initialize the router when the page loads and when the hash changes
+// Call the router function when the page loads
 window.addEventListener('hashchange', router);
 
 export default router;
