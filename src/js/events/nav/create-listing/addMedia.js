@@ -1,8 +1,11 @@
+// Function to add event listener to the "Add Media" button
 export function addMediaEventListener(mediaUrls, form) {
+  // Get the form elements
   const mediaUrlInput = form.querySelector('#mediaUrl');
   const addMediaBtn = form.querySelector('#addMediaBtn');
   const mediaList = form.querySelector('#mediaList');
 
+  // Add event listener to the "Add Media" button
   addMediaBtn.addEventListener('click', () => {
     const url = mediaUrlInput.value.trim();
     if (url) {
@@ -21,7 +24,7 @@ export function addMediaEventListener(mediaUrls, form) {
         'mb-2',
       );
 
-      // Inside the addMediaBtn event listener:
+      // Add the URL and remove button to the list item
       listItem.innerHTML = `
             <div class="flex justify-between items-center">
                 <a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-500 underline break-all">${url}</a>
@@ -29,17 +32,18 @@ export function addMediaEventListener(mediaUrls, form) {
             </div>
             `;
 
+      // Append the list item to the media list
       mediaList.appendChild(listItem);
 
       // Add event listener to the remove button
       listItem
         .querySelector('.remove-media-btn')
         .addEventListener('click', () => {
-          const index = mediaUrls.indexOf(url);
+          const index = mediaUrls.indexOf(url); // Find the index of the URL in the array
           if (index > -1) {
-            mediaUrls.splice(index, 1);
+            mediaUrls.splice(index, 1); // Remove the URL from the array
           }
-          listItem.remove();
+          listItem.remove(); // Remove the list item from the media list
         });
 
       // Clear the input

@@ -3,11 +3,12 @@ import { createListingFormComponent } from '../../../components/listings/createL
 import { createListing } from '../../../api/auction/createListing.js';
 import { displaySuccessMessage } from '../../../components/listings/createListingSuccess.js';
 
+// Function to create a new listing event listener
 export function createListingEventListener(container) {
   const createListingButton = container.querySelector('#createListingBtn');
   if (createListingButton) {
     createListingButton.addEventListener('click', () => {
-      // Create the modal first
+      // Create the modal component
       const modal = modalComponent();
 
       // Create the form component and pass the modal
@@ -30,7 +31,7 @@ export function createListingEventListener(container) {
       const modalContent = modal.querySelector('.modal-content');
       modalContent.appendChild(formComponent);
 
-      // Append modal to the container (or document body)
+      // Append modal to the container
       document.body.appendChild(modal);
     });
   }
