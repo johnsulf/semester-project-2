@@ -1,10 +1,11 @@
 import { submitEditAvatarFormListener } from '../../events/profile/submitForm.js';
 
+// Function to create the edit avatar form
 export function editAvatarFormComponent(modal) {
-  // Create the form
-  const form = document.createElement('form');
+  const form = document.createElement('form'); // Create the form element
   form.classList.add('space-y-4');
 
+  // Set the form inner HTML
   form.innerHTML = `
     <h2 class="text-xl font-bold mb-4">Update Avatar</h2>
     <div>
@@ -16,6 +17,8 @@ export function editAvatarFormComponent(modal) {
     </div>
   `;
 
+  // Add event listener to the form
   submitEditAvatarFormListener(form, modal);
+
   return form;
 }
