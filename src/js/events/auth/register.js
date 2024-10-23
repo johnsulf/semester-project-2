@@ -1,11 +1,15 @@
 import * as auth from '../../api/auth/index.js';
 import { buildNav } from '../../components/nav/nav.js';
 
+// Function to add event listener to the register form
 export async function registerEventListener() {
   const form = document.getElementById('register-form');
 
+  // Add event listener to the form
   form.addEventListener('submit', async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent the form from being submitted
+
+    // Collect form data
     const data = new FormData(form);
     const name = data.get('name').trim();
     const email = data.get('email').trim();
@@ -21,8 +25,8 @@ export async function registerEventListener() {
       // Call the register function with all required parameters
       const response = await auth.register(name, email, password, avatar);
 
+      // Check for errors in the response
       if (response.errors) {
-        // Display error messages
         alert(`Registration failed: ${response.errors[0].message}`);
         return;
       }
@@ -31,16 +35,15 @@ export async function registerEventListener() {
       // Proceed to log in the user
       const loginResponse = await auth.login(email, password);
 
+      // Check for errors in the login response
       if (loginResponse.errors) {
         alert(`Login failed: ${loginResponse.errors[0].message}`);
         return;
       }
 
-      // Updates the navigation to reflect login state
-      buildNav();
+      buildNav(); // Update the navbar to reflect login state
 
-      // Redirect to home view
-      location.href = '#/';
+      location.href = '#/'; // Redirect to home view
 
       // Show success message
       alert('Registration successful! You are now logged in.');
