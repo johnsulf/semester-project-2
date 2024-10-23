@@ -1,5 +1,5 @@
 import * as auth from '../../api/auth/index.js';
-import { updateNav } from '../../helpers/updateNav.js';
+import { buildNav } from '../../components/nav/nav.js';
 
 export async function registerEventListener() {
   const form = document.getElementById('register-form');
@@ -37,7 +37,7 @@ export async function registerEventListener() {
       }
 
       // Updates the navigation to reflect login state
-      updateNav();
+      buildNav();
 
       // Redirect to home view
       location.href = '#/';

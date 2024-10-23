@@ -1,6 +1,6 @@
 import * as auth from '../../api/auth/index.js';
 import { getUserProfile } from '../../api/profile/getUserProfile.js';
-import { updateNav } from '../../helpers/updateNav.js';
+import { buildNav } from '../../components/nav/nav.js';
 import { save } from '../../storage/save.js';
 
 export async function loginEventListener() {
@@ -25,7 +25,7 @@ export async function loginEventListener() {
       save('profile', userProfile);
 
       // Updates the navigation to reflect login state
-      updateNav();
+      buildNav();
 
       // Redirects to home view
       location.href = '#/';

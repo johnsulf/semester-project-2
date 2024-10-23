@@ -1,7 +1,7 @@
 import { bidOnListing } from '../../api/auction/bidOnListing.js';
 import { refreshUserData } from '../../helpers/refreshUserData.js';
 import { getListingById } from '../../api/auction/getListingById.js';
-import { updateNav } from '../../helpers/updateNav.js';
+import { buildNav } from '../../components/nav/nav.js';
 import {
   getHighestBid,
   updateBidsSection,
@@ -43,7 +43,7 @@ export function submitBidOnListingForm(user, form, listing, modal) {
 
       // Update the view
       window.location.reload();
-      updateNav();
+      buildNav();
     } catch (error) {
       alert(`Error placing bid: ${error.message}`);
     }

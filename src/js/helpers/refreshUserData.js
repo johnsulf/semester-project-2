@@ -1,6 +1,6 @@
 import { getUserProfile } from '../api/profile/getUserProfile.js';
 import { save } from '../storage/save.js';
-import { updateNav } from './updateNav.js';
+import { buildNav } from '../components/nav/nav.js';
 
 export async function refreshUserData() {
   try {
@@ -11,7 +11,7 @@ export async function refreshUserData() {
     save('profile', userProfile);
 
     // Update the navigation to reflect the new credits
-    updateNav();
+    buildNav();
 
     return userProfile;
   } catch (error) {

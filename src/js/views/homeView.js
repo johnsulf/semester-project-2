@@ -1,11 +1,10 @@
-import { createListingEventListener } from '../events/create-listing/createListing.js';
 import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
 export async function homeView(app) {
   app.innerHTML = `
     <section class="flex flex-col items-center">
-      <h1 class="text-4xl font-bold my-8">Welcome to Trust Auction House</h1>
+      <h1 class="text-4xl font-bold my-8">Welcome to Fun Auction</h1>
       <div class="w-full max-w-2xl relative">
         <div class="flex">
           <input 
@@ -29,9 +28,6 @@ export async function homeView(app) {
       </div>
     </section>
   `;
-
-  // Initialize the create listing event listener (if needed)
-  createListingEventListener(app);
 
   // Initialize live search functionality
   initLiveSearch();
