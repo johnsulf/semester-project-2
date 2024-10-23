@@ -4,10 +4,10 @@ import { avatarImg } from './avatarImg.js';
 import { createListingBtn } from './createListingBtn.js';
 import { userMenu } from './userMenu.js';
 
+// Function to build the authenticated navigation bar
 export function authenticatedNav(authSection, userData) {
-  // create a container for the content
-  const container = document.createElement('div');
-  container.classList.add('relative', 'flex', 'items-center', 'gap-2');
+  const container = document.createElement('div'); // Create a container element
+  container.classList.add('relative', 'flex', 'items-center', 'gap-2'); // Add classes to the container
 
   // append the elements to the container
   container.appendChild(createListingBtn());

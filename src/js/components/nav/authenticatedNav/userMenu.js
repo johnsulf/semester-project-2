@@ -1,6 +1,9 @@
+// Function to create the user menu
 export function userMenu(userData) {
-  const userMenu = document.createElement('div');
-  userMenu.id = 'userMenu';
+  const userMenu = document.createElement('div'); // Create the user menu container
+  userMenu.id = 'userMenu'; // Set the user menu ID
+
+  // Add classes and inner HTML to the user menu
   userMenu.classList.add(
     'absolute',
     'right-0',
@@ -16,6 +19,8 @@ export function userMenu(userData) {
     'hidden',
     'z-50',
   );
+
+  // Set the user menu inner HTML
   userMenu.innerHTML = `
     <div class="flex justify-between items-center">
         <p class="font-heading font-bold text-xl text-primary">${userData.name}</p>
@@ -34,5 +39,6 @@ export function userMenu(userData) {
         Log Out
     </a>
       `;
+
   return userMenu;
 }
