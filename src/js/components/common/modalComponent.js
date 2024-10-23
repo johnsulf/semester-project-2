@@ -1,5 +1,6 @@
+// Function to create a modal component
 export function modalComponent() {
-  // Create modal elements
+  // Modal overlay
   const modalOverlay = document.createElement('div');
   modalOverlay.classList.add(
     'fixed',
@@ -12,6 +13,7 @@ export function modalComponent() {
     'z-50',
   );
 
+  // Modal container
   const modalContainer = document.createElement('div');
   modalContainer.classList.add(
     'bg-white',
@@ -34,6 +36,7 @@ export function modalComponent() {
   );
   closeButton.innerHTML = '&times;';
 
+  // Close modal when close button is clicked
   closeButton.addEventListener('click', () => {
     modalOverlay.remove();
   });
