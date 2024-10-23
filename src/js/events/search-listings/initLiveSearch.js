@@ -5,6 +5,7 @@ import {
   searchSubmitEnterEventListener,
 } from './searchSubmit.js';
 
+// Function to initialize the live search functionality
 export function initLiveSearch() {
   const searchInput = document.getElementById('searchInput');
   const searchResultsContainer = document.getElementById('searchResults');
@@ -14,6 +15,7 @@ export function initLiveSearch() {
     return;
   }
 
+  // Add event listeners
   searchInputEventListener(searchInput, searchResultsContainer);
   searchSubmitEnterEventListener(searchInput);
   searchSubmitClickEventListener(searchInput);
