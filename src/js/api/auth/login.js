@@ -12,7 +12,9 @@ import { headers } from '../headers.js';
  * @see {@link https://docs.noroff.dev/docs/v2/auth/login|Noroff API v2 | Auth | Login}
  */
 
+// Function to log in a user
 export async function login(email, password) {
+  // Do a POST request to the API to log in the user
   try {
     const response = await fetch(`${apiBase + loginEp}`, {
       method: 'POST',
@@ -20,6 +22,7 @@ export async function login(email, password) {
       body: JSON.stringify({ email, password }),
     });
 
+    // Check if the response is OK
     if (response.ok) {
       const result = await response.json();
       return result.data;
