@@ -1,3 +1,5 @@
+import { endString, listingEnded } from '../../helpers/bidOnListing.js';
+
 // Function to create a listing card component
 export function listingCardComponent(listing) {
   const listingElement = document.createElement('div'); // Create the listing element
@@ -14,6 +16,9 @@ export function listingCardComponent(listing) {
           },
         ];
 
+  // Check if the listing has ended
+  const ended = listingEnded(listing);
+
   // Set the listing element inner HTML
   listingElement.innerHTML = `
       <a href="#/listing/${listing.id}" class="group">
@@ -24,9 +29,24 @@ export function listingCardComponent(listing) {
             class="w-full h-full object-cover object-center group-hover:opacity-75">
         </div>
         <h3 class="mt-4 text-lg font-semibold text-gray-700">${listing.title}</h3>
-        <p class="mt-1 text-sm text-gray-500">${listing.description}</p>
+        <p class="ends-at-text mt-1 text-sm text-gray-500">${endString(listing)}</p>
       </a>
     `;
 
+  // If the listing has ended, add a badge
+  if (ended) {
+    const badge = document.createElement('p');
+    badge.classList.add(
+      'bg-error',
+      'text-white',
+      'text-center',
+      'py-1',
+      'px-2',
+      'rounded-md',
+      'mt-2',
+    );
+    badge.textContent = 'Ended';
+    listingElement.appendChild(badge);
+  }
   return listingElement;
 }

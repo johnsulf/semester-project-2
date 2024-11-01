@@ -22,3 +22,10 @@ export function updateBidsSection(updatedListing) {
 export function listingEnded(listing) {
   return new Date(listing.endsAt) < new Date();
 }
+
+export function endString(listing) {
+  const dateString = new Date(listing.endsAt).toLocaleString();
+  return listingEnded(listing)
+    ? `Auction ended on: ${dateString}`
+    : `Auction ends at: ${dateString}`;
+}
