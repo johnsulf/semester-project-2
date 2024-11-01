@@ -1,4 +1,5 @@
 import { initToggleBidsEvent } from '../../events/listing-detail/toggleBids.js';
+import { listingEnded } from '../../helpers/bidOnListing.js';
 import { sortDescending } from '../../helpers/sortingLists.js';
 
 // Function to create the bids section
@@ -58,8 +59,12 @@ export function bidsSectionComponent(listing) {
     // Initializes event listener for toggle button
     initToggleBidsEvent(bidsContainer, additionalBidsCount);
   } else {
-    bidsContainer.innerHTML =
-      '<p class="mt-8">No bids yet. Be the first to bid!</p>';
+    if (listingEnded(listing)) {
+      bidsContainer.innerHTML = '<p class="mt-8">No bids.</p>';
+    } else {
+      bidsContainer.innerHTML =
+        '<p class="mt-8">No bids yet. Be the first to bid!</p>';
+    }
   }
 
   return bidsContainer;
