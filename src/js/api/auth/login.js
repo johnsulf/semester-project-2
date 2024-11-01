@@ -16,18 +16,16 @@ import { headers } from '../headers.js';
 export async function login(email, password) {
   // Do a POST request to the API to log in the user
   try {
+    console.log(password);
     const response = await fetch(`${apiBase + loginEp}`, {
       method: 'POST',
-      headers: headers('application/json'),
+      headers: headers('application/json', false),
       body: JSON.stringify({ email, password }),
     });
 
-    // Check if the response is OK
-    if (response.ok) {
-      const result = await response.json();
-      return result.data;
-    }
+    const result = await response.json();
+    return result;
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 }

@@ -1,5 +1,6 @@
 import * as auth from '../../api/auth/index.js';
 import { buildNav } from '../../components/nav/nav.js';
+import { disableButton, enableButton } from '../../helpers/buttonState.js';
 
 // Function to add event listener to the register form
 export async function registerEventListener() {
@@ -8,6 +9,12 @@ export async function registerEventListener() {
   // Add event listener to the form
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent the form from being submitted
+    disableButton(
+      form.querySelector('button'),
+      'Registering...',
+      'bg-primary',
+      'bg-gray-400',
+    );
 
     // Collect form data
     const data = new FormData(form);
@@ -27,19 +34,19 @@ export async function registerEventListener() {
 
       // Check for errors in the response
       if (response.errors) {
+        enableButton(
+          form.querySelector('button'),
+          'Register',
+          'bg-gray-400',
+          'bg-primary',
+        );
         alert(`Registration failed: ${response.errors[0].message}`);
         return;
       }
 
       // Registration successful
       // Proceed to log in the user
-      const loginResponse = await auth.login(email, password);
-
-      // Check for errors in the login response
-      if (loginResponse.errors) {
-        alert(`Login failed: ${loginResponse.errors[0].message}`);
-        return;
-      }
+      await auth.login(email, password);
 
       buildNav(); // Update the navbar to reflect login state
 
@@ -47,8 +54,8 @@ export async function registerEventListener() {
 
       // Show success message
       alert('Registration successful! You are now logged in.');
-    } catch (error) {
-      alert(`An error occurred: ${error.message}`);
+    } catch (e) {
+      alert(`An error occurred: ${e.message}`);
     }
   });
 }

@@ -2,8 +2,11 @@ import * as storage from '../storage/index.js';
 import { API_KEY } from './constants.js';
 
 // Function to create headers for API requests
-export const headers = (contentType) => {
-  const token = storage.load('token'); // Load the token from local storage
+export const headers = (contentType, includeToken = true) => {
+  let token;
+  if (includeToken) {
+    token = storage.load('token'); // Load the token from local storage
+  }
   const headers = {}; // Create an empty object for headers
 
   // Add the API key to the headers

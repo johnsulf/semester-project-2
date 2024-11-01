@@ -16,13 +16,6 @@ export async function getUserProfile() {
 
     const data = await response.json(); // Parse the JSON from the response
 
-    // Check if the response is OK
-    if (!response.ok) {
-      throw new Error(
-        data.errors ? data.errors[0].message : 'Failed to fetch user profile',
-      );
-    }
-
     // Return the data
     return data.data;
   } catch (error) {

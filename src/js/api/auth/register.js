@@ -20,7 +20,6 @@ import { headers } from '../headers.js';
 
 // Function to register a new user
 export async function register(name, email, password, avatar) {
-  // Do a POST request to the API to register the user
   try {
     const response = await fetch(`${apiBase + regEp}`, {
       method: 'POST',
@@ -28,11 +27,9 @@ export async function register(name, email, password, avatar) {
       body: JSON.stringify({ name, email, password, avatar }),
     });
 
-    // Check if the response is OK
-    if (response.ok) {
-      const result = await response.json();
-      return result.data;
-    }
+    const result = await response.json();
+
+    return result;
   } catch (error) {
     throw new Error(error);
   }

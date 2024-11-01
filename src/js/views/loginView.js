@@ -9,7 +9,7 @@ export function loginView(app) {
             <input 
               type="email" 
               name="email" 
-              placeholder="Email" 
+              placeholder="Noroff Email"
               class="border p-2 mb-4 w-full rounded-md" 
               required>
             <input 
@@ -20,6 +20,7 @@ export function loginView(app) {
               required>
             <button 
               type="submit" 
+              id="loginBtn"
               class="
                 bg-primary
                 text-white 
