@@ -3,7 +3,7 @@ import { loginEventListener } from '../events/auth/login.js';
 export function loginView(app) {
   // Add the login form to the app
   app.innerHTML = `
-    <section class="mx-auto max-w-md">
+    <section class="mx-auto max-w-md bg-white p-6 rounded-lg">
         <h1 class="text-2xl font-bold">Login</h1>
         <form id="login-form" class="mt-4">
             <input 
