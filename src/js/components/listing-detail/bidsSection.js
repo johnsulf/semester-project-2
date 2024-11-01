@@ -18,10 +18,16 @@ export function bidsSectionComponent(listing) {
     // Number of additional bids
     const additionalBidsCount = otherBids.length;
 
+    let ended = false;
+    if (new Date(listing.endsAt) < new Date()) {
+      ended = true;
+    }
+
     // Build the bids HTML
     bidsContainer.innerHTML = `
         <h2 class="text-2xl font-semibold mt-8 mb-4">Latest Bid</h2>
         <div class="mb-4 p-4 border rounded bg-gray-100">
+          <p class="bg-success text-white w-fit py-2 px-4 rounded-md">${ended ? 'Winning bid 🤝' : ''}</p>
           <p><strong>${latestBid.bidder.name}</strong> bid <span class="text-primary">${latestBid.amount} credits</span></p>
           <p class="text-sm text-gray-500">on ${new Date(latestBid.created).toLocaleString()}</p>
         </div>

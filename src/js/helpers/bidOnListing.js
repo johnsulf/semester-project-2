@@ -17,3 +17,8 @@ export function updateBidsSection(updatedListing) {
     bidsSectionContainer.appendChild(newBidsSection); // Add the bids section component to the container
   }
 }
+
+// function to check if a listing has ended
+export function listingEnded(listing) {
+  return new Date(listing.endsAt) < new Date();
+}
