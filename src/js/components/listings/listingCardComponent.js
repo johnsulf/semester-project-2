@@ -1,9 +1,10 @@
+import { placeBidEventListener } from '../../events/auction/placeBid.js';
 import { endString, listingEnded } from '../../helpers/bidOnListing.js';
 
 // Function to create a listing card component
 export function listingCardComponent(listing) {
   const listingElement = document.createElement('div'); // Create the listing element
-  listingElement.classList.add('border', 'p-4', 'rounded-md'); // Add classes to the listing element
+  listingElement.classList.add('p-4', 'rounded-md', 'mx-1', 'bg-white'); // Add classes to the listing element
 
   // Get the media from the listing data
   const media =
@@ -21,8 +22,8 @@ export function listingCardComponent(listing) {
 
   // Set the listing element inner HTML
   listingElement.innerHTML = `
-      <a href="#/listing/${listing.id}" class="group">
-        <div class="w-full h-64 overflow-hidden rounded-lg bg-gray-200">
+      <a href="#/listing/${listing.id}">
+        <div class="w-full h-64 overflow-hidden rounded-lg">
           <img 
             src="${media[0].url}" 
             alt="${media[0].alt}" 
@@ -33,20 +34,27 @@ export function listingCardComponent(listing) {
       </a>
     `;
 
-  // If the listing has ended, add a badge
-  if (ended) {
-    const badge = document.createElement('p');
-    badge.classList.add(
-      'bg-error',
-      'text-white',
-      'text-center',
-      'py-1',
-      'px-2',
-      'rounded-md',
-      'mt-2',
-    );
-    badge.textContent = 'Ended';
-    listingElement.appendChild(badge);
+  // Create a Place bid button that will be disabled if the listing has ended
+  const placeBidButton = document.createElement('button');
+  placeBidButton.id = 'placeBidButton';
+  placeBidButton.classList.add(
+    'text-white',
+    'py-2',
+    'w-full',
+    'rounded',
+    'mt-2',
+  );
+
+  // If the listing has not ended, add a Place bid button
+  if (!ended) {
+    placeBidButton.classList.add('bg-primary');
+    placeBidButton.textContent = 'Place a Bid';
+  } else {
+    placeBidButton.classList.add('bg-error', 'cursor-not-allowed');
+    placeBidButton.textContent = 'Ended';
+    placeBidButton.disabled = true;
   }
+  listingElement.appendChild(placeBidButton);
+  placeBidEventListener(listingElement, listing);
   return listingElement;
 }
