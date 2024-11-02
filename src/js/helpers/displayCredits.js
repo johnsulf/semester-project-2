@@ -2,7 +2,7 @@ import { getHighestBid } from './bidOnListing.js';
 
 export function displayCredits(leadingText, credits, listing = null) {
   return `
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center">
             <p>${leadingText}</p>
             <div class="
                     flex 
@@ -11,10 +11,10 @@ export function displayCredits(leadingText, credits, listing = null) {
                     px-2 py-1 
                     rounded 
                     ${listing ? creditsColor(credits, listing) : ''}">
-                <img src="src/assets/credits.png" alt="Credits icon" width="20">
                 <p class="font-bold ${listing ? 'text-white' : ''}">
                     ${credits}
                 </p>
+                <img src="src/assets/credits.png" alt="Credits icon" width="20">
             </div>
         </div>
     `;

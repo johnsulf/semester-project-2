@@ -17,7 +17,7 @@ export function bidOnListingFormComponent(user, listing, modal) {
       <input type="number" name="bidAmount" id="bidAmount" min="1" class="mt-1 p-2 border rounded w-full" required>
     </div>
     <div class="flex justify-end">
-      <button type="submit" class="bg-primary text-white px-4 py-2 rounded">Submit Bid</button>
+      <button type="submit" id="placeBidBtn" class="bg-primary text-white px-4 py-2 rounded">Submit Bid</button>
     </div>
   `;
 

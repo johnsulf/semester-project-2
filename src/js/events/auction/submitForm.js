@@ -6,9 +6,12 @@ import {
   getHighestBid,
   updateBidsSection,
 } from '../../helpers/bidOnListing.js';
+import { disableButton, enableButton } from '../../helpers/buttonState.js';
 
 // Function to submit the bid on listing form
 export function submitBidOnListingForm(user, form, listing, modal) {
+  const placeBidBtn = form.querySelector('#placeBidBtn'); // Get the place bid button
+
   // Handle form submission
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent the form from being submitted
@@ -31,19 +34,21 @@ export function submitBidOnListingForm(user, form, listing, modal) {
       return;
     }
 
+    disableButton(placeBidBtn, 'Bidding...', 'bg-primary', 'bg-gray-400');
+
     try {
       await bidOnListing(listing.id, bidAmount); // Call the bidOnListing function
 
       await refreshUserData(); // Refresh user data to get the updated credits
 
       const updatedListing = await getListingById(listing.id); // Get the updated listing
-
+      enableButton(placeBidBtn, 'Submit Bid', 'bg-gray-400', 'bg-primary');
       modal.remove(); // Close the modal
 
       updateBidsSection(updatedListing); // Update the bids section with the new bid
 
       buildNav(); // Update the navbar to reflect the new credits
-
+      alert('Bid placed successfully!'); // Show a success message
       window.location.reload(); // Reload the page to reflect the new bid
     } catch (error) {
       alert(`Error placing bid: ${error.message}`);

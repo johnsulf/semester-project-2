@@ -4,7 +4,7 @@ export function getHighestBid(bids) {
     const sortedBids = bids.sort((a, b) => b.amount - a.amount); // Sort the bids in descending order
     return sortedBids[0].amount; // Return the highest bid amount
   }
-  return 0; // Return 0 if there are no bids
+  return 'No bids yet'; // Return 0 if there are no bids
 }
 
 // function to update the bids section component
