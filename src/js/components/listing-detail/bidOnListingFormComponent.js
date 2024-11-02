@@ -1,5 +1,6 @@
 import { submitBidOnListingForm } from '../../events/auction/submitForm.js';
 import { getHighestBid } from '../../helpers/bidOnListing.js';
+import { displayCredits } from '../../helpers/displayCredits.js';
 
 // Function to create the bid on listing form component
 export function bidOnListingFormComponent(user, listing, modal) {
@@ -9,7 +10,7 @@ export function bidOnListingFormComponent(user, listing, modal) {
   // Set the form inner HTML
   form.innerHTML = `
     <h2 class="text-xl font-bold mb-4">Place a Bid</h2>
-    <p>Your Credits: <strong>${user.credits}</strong></p>
+    ${displayCredits('Your Credits: ', user.credits, listing)}
     <p>Current Highest Bid: <strong>${getHighestBid(listing.bids)}</strong></p>
     <div>
       <label for="bidAmount" class="block text-sm font-medium text-gray-700">Bid Amount</label>
