@@ -9,6 +9,14 @@ export function addMediaEventListener(mediaUrls, form) {
   addMediaBtn.addEventListener('click', () => {
     const url = mediaUrlInput.value.trim();
     if (url) {
+      // check if url starts with http:// or https://, and display error if not
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        mediaUrlInput.setCustomValidity(
+          'Please enter a valid URL starting with http:// or https://',
+        );
+        mediaUrlInput.reportValidity();
+        return;
+      }
       // Add the URL to the mediaUrls array
       mediaUrls.push(url);
 

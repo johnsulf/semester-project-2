@@ -26,7 +26,13 @@ export function createListingFormComponent(onSubmitCallback, modal) {
     <div>
         <label for="mediaUrl" class="block text-sm font-medium text-gray-700">Media URL</label>
         <div class="flex space-x-2 mt-1">
-        <input type="text" name="mediaUrl" id="mediaUrl" class="p-2 border rounded w-full" />
+        <input 
+            type="url" 
+            placeholder="Must start with http:// or https://"
+            name="mediaUrl" 
+            id="mediaUrl" 
+            class="p-2 border rounded w-full" 
+        />
         <button type="button" id="addMediaBtn" class="text-primary px-4 py-2 rounded">Add</button>
     </div>
         <ul id="mediaList" class="mt-2"></ul>
@@ -37,7 +43,7 @@ export function createListingFormComponent(onSubmitCallback, modal) {
     </div>
     <div class="flex justify-end gap-4">
         <button type="button" id="closeFormBtn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded">Close</button>
-        <button type="submit" class="bg-primary text-white px-4 py-2 rounded">Create Listing</button>
+        <button type="submit" id="submitFormBtn" class="bg-primary text-white px-4 py-2 rounded">Create Listing</button>
     </div>
     `;
 

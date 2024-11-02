@@ -2,6 +2,7 @@ import { modalComponent } from '../../../components/common/modalComponent.js';
 import { createListingFormComponent } from '../../../components/listings/createListingFormComponent.js';
 import { createListing } from '../../../api/auction/createListing.js';
 import { displaySuccessMessage } from '../../../components/listings/createListingSuccess.js';
+import { disableButton } from '../../../helpers/buttonState.js';
 
 // Function to create a new listing event listener
 export function createListingEventListener(container) {
@@ -13,8 +14,16 @@ export function createListingEventListener(container) {
 
       // Create the form component and pass the modal
       const formComponent = createListingFormComponent(async (data) => {
+        const submitFormButton = document.querySelector('#submitFormBtn');
+        console.log(submitFormButton);
         // Call createListing with the form data
         try {
+          disableButton(
+            submitFormButton,
+            'Creating Listing...',
+            'bg-primary',
+            'bg-gray-400',
+          );
           const listing = await createListing(data);
 
           // Replace modal content with success message
