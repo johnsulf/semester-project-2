@@ -8,23 +8,23 @@ import { headers } from '../headers.js';
  * @param {string} password - The password of the user
  * @returns {Promise} - The profile of the user
  * @example
- * login('kalle_kanin@stud.noroff.no', '12345678');
+ * await login('kalle_kanin@stud.noroff.no', '12345678');
  * @see {@link https://docs.noroff.dev/docs/v2/auth/login|Noroff API v2 | Auth | Login}
  */
 
+// Function to log in a user
 export async function login(email, password) {
+  // Do a POST request to the API to log in the user
   try {
     const response = await fetch(`${apiBase + loginEp}`, {
       method: 'POST',
-      headers: headers('application/json'),
+      headers: headers('application/json', false),
       body: JSON.stringify({ email, password }),
     });
 
-    if (response.ok) {
-      const result = await response.json();
-      return result.data;
-    }
+    const result = await response.json();
+    return result;
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 }

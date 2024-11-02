@@ -1,6 +1,7 @@
+// Function to submit the create listing form
 export function submitCreateListingForm(form, mediaUrls, onSubmitCallback) {
   form.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent the form from being submitted
 
     // Collect form data
     const formData = new FormData(form);
@@ -14,6 +15,7 @@ export function submitCreateListingForm(form, mediaUrls, onSubmitCallback) {
     // Ensure endsAt is in ISO format
     const endsAt = new Date(endsAtInput).toISOString();
 
+    // Prepare the data object
     const data = {
       title,
       description,
@@ -21,7 +23,7 @@ export function submitCreateListingForm(form, mediaUrls, onSubmitCallback) {
       endsAt,
     };
 
-    // Call the callback with the collected data
+    // Call the onSubmitCallback with the form data
     onSubmitCallback(data);
   });
 }

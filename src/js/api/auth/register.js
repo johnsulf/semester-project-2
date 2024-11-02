@@ -18,15 +18,26 @@ import { headers } from '../headers.js';
  * @see {@link https://docs.noroff.dev/docs/v2/auth/register|Noroff API v2 | Auth | Register}
  */
 
+// Function to register a new user
 export async function register(name, email, password, avatar) {
   try {
+    // Build the request body
+    const requestBody = { name, email, password };
+
+    // Include avatar only if it's provided
+    if (avatar) {
+      requestBody.avatar = avatar;
+    }
+
     const response = await fetch(`${apiBase + regEp}`, {
       method: 'POST',
-      headers: headers('application/json'),
-      body: JSON.stringify({ name, email, password, avatar }),
+      headers: headers('application/json', false),
+      body: JSON.stringify(requestBody),
     });
-    const data = await response.json();
-    return data;
+
+    const result = await response.json();
+
+    return result;
   } catch (error) {
     throw new Error(error);
   }

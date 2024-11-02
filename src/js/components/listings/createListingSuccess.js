@@ -1,8 +1,9 @@
-// Function to display success message with options
+// Function to display a success message when a listing is created
 export function displaySuccessMessage(listing, modal) {
-  const successMessage = document.createElement('div');
-  successMessage.classList.add('text-center');
+  const successMessage = document.createElement('div'); // Create the success message element
+  successMessage.classList.add('text-center'); // Add classes to the success message element
 
+  // Set the success message inner HTML
   successMessage.innerHTML = `
       <h2 class="text-xl font-semibold mb-4">Listing Created Successfully!</h2>
       <p>Your listing <strong>${listing.title}</strong> has been created.</p>

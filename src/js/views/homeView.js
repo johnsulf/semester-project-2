@@ -2,6 +2,7 @@ import { initLatestListingsCarousel } from '../events/listings/initLatestListing
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
 export async function homeView(app) {
+  // Set the inner HTML of the app container
   app.innerHTML = `
     <section class="flex flex-col items-center">
       <h1 class="text-4xl font-bold my-8">Welcome to Fun Auction</h1>
@@ -21,8 +22,8 @@ export async function homeView(app) {
       </div>
     </section>
 
-    <section class="mt-64">
-      <h2 class="text-2xl font-semibold mb-4">Latest Listings</h2>
+    <section class="mt-12 bg-primary bg-opacity-20 py-6 px-4 rounded">
+      <h2 class="text-2xl font-semibold mb-4">Latest added Listings</h2>
       <div id="latestListingsCarousel" class="relative">
         <!-- Carousel will be injected here -->
       </div>

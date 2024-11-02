@@ -1,6 +1,7 @@
-// Helper function to initialize toggle bids event
+// Functions that handle events in the listing detail page
 export function initToggleBidsEvent(container, additionalBidsCount) {
   const toggleBidsButton = container.querySelector('#toggleBidsButton');
+
   if (toggleBidsButton) {
     toggleBidsButton.addEventListener('click', () => {
       const allBidsList = container.querySelector('#allBidsList');

@@ -1,6 +1,7 @@
 import { register } from './register';
 import 'jest-localstorage-mock';
 
+// Test to check if the function register works
 describe('register', () => {
   test('should return a response', async () => {
     const data = await register(

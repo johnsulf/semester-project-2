@@ -1,12 +1,15 @@
 import { logoutListener } from '../auth/logout.js';
 
+// Function that adds event listeners to different elements in the user menu
 export function menuHandlers(container) {
+  // Get the menu elements
   const menu = container.querySelector('#userMenu');
   const avatarImg = container.querySelector('#avatarImg');
   const logoutBtn = container.querySelector('#logout');
+
   // Add event listener to toggle the menu when the avatar is clicked
   avatarImg.addEventListener('click', (event) => {
-    event.stopPropagation(); // Prevent the click event from bubbling up
+    event.stopPropagation(); // Prevent the event from bubbling up to the document
     menu.classList.toggle('hidden');
   });
 
@@ -23,5 +26,6 @@ export function menuHandlers(container) {
     }
   });
 
+  // Add event listener to the logout button
   logoutListener(logoutBtn);
 }

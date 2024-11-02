@@ -2,7 +2,9 @@ import { apiBase } from '../constants.js';
 import { headers } from '../headers.js';
 import { listings as listingsEp } from '../endpoints.js';
 
+// Function to get a listing by ID
 export async function getListingById(listingId) {
+  // Do a GET request to the API to get the listing by ID
   try {
     const response = await fetch(
       `${apiBase + listingsEp}/${listingId}?_seller=true&_bids=true`,
@@ -12,9 +14,9 @@ export async function getListingById(listingId) {
       },
     );
 
+    // Check if the response is OK
     if (response.ok) {
       const result = await response.json();
-      console.log(result);
       return result.data;
     }
   } catch (error) {

@@ -1,14 +1,15 @@
 import { loginEventListener } from '../events/auth/login.js';
 
 export function loginView(app) {
+  // Add the login form to the app
   app.innerHTML = `
-    <section class="mx-auto max-w-md">
+    <section class="mx-auto max-w-md bg-white p-6 rounded-lg">
         <h1 class="text-2xl font-bold">Login</h1>
         <form id="login-form" class="mt-4">
             <input 
               type="email" 
               name="email" 
-              placeholder="Email" 
+              placeholder="Noroff Email"
               class="border p-2 mb-4 w-full rounded-md" 
               required>
             <input 
@@ -19,6 +20,7 @@ export function loginView(app) {
               required>
             <button 
               type="submit" 
+              id="loginBtn"
               class="
                 bg-primary
                 text-white 
@@ -36,5 +38,6 @@ export function loginView(app) {
     </section>
   `;
 
+  // Add the event listener to the form
   loginEventListener();
 }

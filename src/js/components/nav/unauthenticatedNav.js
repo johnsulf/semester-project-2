@@ -1,3 +1,4 @@
+// Function that sets the nav bar for unauthenticated users
 export function unauthenticatedNav(authSection) {
   authSection.innerHTML = `
    <section>
@@ -10,6 +11,5 @@ export function unauthenticatedNav(authSection) {
           <p class="font-heading font-bold text-primary">Log In</p>
         </a>
       </section>
-
     `;
 }
