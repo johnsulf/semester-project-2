@@ -1,10 +1,12 @@
+import { displayCredits } from './displayCredits.js';
+
 // function to get the current leading bid on a listing
 export function getHighestBid(bids) {
   if (bids && bids.length > 0) {
     const sortedBids = bids.sort((a, b) => b.amount - a.amount); // Sort the bids in descending order
-    return sortedBids[0].amount; // Return the highest bid amount
+    return displayCredits('Current Highest Bid: ', sortedBids[0].amount); // Return the highest bid amount
   }
-  return 'No bids yet'; // Return 0 if there are no bids
+  return displayCredits('Current Highest Bid: ', 0); // Return No bids yet if there are no bids
 }
 
 // function to update the bids section component
