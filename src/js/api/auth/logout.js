@@ -12,6 +12,7 @@ export async function logout() {
   try {
     remove('token');
     remove('profile');
+    remove('name');
   } catch (error) {
     throw new Error(error);
   }

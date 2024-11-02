@@ -12,11 +12,15 @@ export function registerView(app) {
           placeholder="Username" 
           class="border p-2 mb-4 w-full rounded-md" 
           required
+          pattern="[A-Za-z0-9_]+"
+          title="Username can only contain English letters, numbers, and underscores"
         >
         <input 
           type="email" 
           name="email"
           placeholder="Email" 
+          title="Email must end with @stud.noroff.no or @noroff.no"
+          pattern=".*(@stud\.noroff\.no|@noroff\.no)$"   
           class="border p-2 mb-4 w-full rounded-md" 
           required
         >
@@ -24,6 +28,8 @@ export function registerView(app) {
           type="password" 
           name="password"
           placeholder="Password" 
+          minlength="8"
+          title="Password must contain at least 8 characters"
           class="border p-2 mb-4 w-full rounded-md" 
           required
         >
@@ -32,6 +38,8 @@ export function registerView(app) {
           name="avatar"
           placeholder="Avatar URL (optional)"
           class="border p-2 mb-4 w-full rounded-md"
+          pattern="|https?://.+"
+          title="Please enter a valid URL starting with http:// or https://"
         >
         <button 
           type="submit" 

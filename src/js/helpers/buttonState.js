@@ -8,6 +8,6 @@ export function disableButton(button, innerText, removeBg, addBg) {
 export function enableButton(button, innerText, removeBg, addBg) {
   button.disabled = false;
   button.innerText = innerText;
-  button.classList.remove(removeBg);
+  button.classList.remove('cursor-not-allowed', removeBg);
   button.classList.add(addBg);
 }

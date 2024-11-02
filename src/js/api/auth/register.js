@@ -21,10 +21,18 @@ import { headers } from '../headers.js';
 // Function to register a new user
 export async function register(name, email, password, avatar) {
   try {
+    // Build the request body
+    const requestBody = { name, email, password };
+
+    // Include avatar only if it's provided
+    if (avatar) {
+      requestBody.avatar = avatar;
+    }
+
     const response = await fetch(`${apiBase + regEp}`, {
       method: 'POST',
-      headers: headers('application/json'),
-      body: JSON.stringify({ name, email, password, avatar }),
+      headers: headers('application/json', false),
+      body: JSON.stringify(requestBody),
     });
 
     const result = await response.json();

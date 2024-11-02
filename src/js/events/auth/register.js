@@ -1,6 +1,7 @@
 import * as auth from '../../api/auth/index.js';
-import { buildNav } from '../../components/nav/nav.js';
 import { disableButton, enableButton } from '../../helpers/buttonState.js';
+import { handleSuccessfulLogin } from '../../helpers/handleSuccessfulLogin.js';
+import { handleErrors } from '../../helpers/handleErrors.js';
 
 // Function to add event listener to the register form
 export async function registerEventListener() {
@@ -9,8 +10,9 @@ export async function registerEventListener() {
   // Add event listener to the form
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent the form from being submitted
+    const registerButton = form.querySelector('button');
     disableButton(
-      form.querySelector('button'),
+      registerButton,
       'Registering...',
       'bg-primary',
       'bg-gray-400',
@@ -23,38 +25,41 @@ export async function registerEventListener() {
     const password = data.get('password').trim();
     const avatarUrl = data.get('avatar').trim();
 
-    // Prepare avatar object if avatar URL is provided
-    const avatar = avatarUrl
-      ? { url: avatarUrl, alt: `${name}'s avatar` }
-      : null;
+    // Prepare avatar object only if avatar URL is provided
+    let avatar;
+    if (avatarUrl) {
+      avatar = { url: avatarUrl, alt: `${name}'s avatar` };
+    }
 
     try {
       // Call the register function with all required parameters
-      const response = await auth.register(name, email, password, avatar);
+      const registerResponse = await auth.register(
+        name,
+        email,
+        password,
+        avatar,
+      );
 
-      // Check for errors in the response
-      if (response.errors) {
-        enableButton(
-          form.querySelector('button'),
-          'Register',
-          'bg-gray-400',
-          'bg-primary',
-        );
-        alert(`Registration failed: ${response.errors[0].message}`);
+      // handle errors in the registration response
+      if (handleErrors(registerResponse, registerButton, 'Registration'))
         return;
-      }
 
-      // Registration successful
-      // Proceed to log in the user
-      await auth.login(email, password);
+      // Registration successful, proceed to log in the user
+      const loginResponse = await auth.login(email, password);
 
-      buildNav(); // Update the navbar to reflect login state
+      // handle errors in the login response
+      if (
+        handleErrors(loginResponse, registerButton, 'Login after registration')
+      )
+        return;
 
-      location.href = '#/'; // Redirect to home view
+      // Handle successful login
+      await handleSuccessfulLogin(loginResponse);
 
       // Show success message
       alert('Registration successful! You are now logged in.');
     } catch (e) {
+      enableButton(registerButton, 'Register', 'bg-gray-400', 'bg-primary');
       alert(`An error occurred: ${e.message}`);
     }
   });

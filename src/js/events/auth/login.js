@@ -1,8 +1,7 @@
 import * as auth from '../../api/auth/index.js';
-import { getUserProfile } from '../../api/profile/getUserProfile.js';
-import { buildNav } from '../../components/nav/nav.js';
 import { disableButton, enableButton } from '../../helpers/buttonState.js';
-import { save } from '../../storage/save.js';
+import { handleErrors } from '../../helpers/handleErrors.js';
+import { handleSuccessfulLogin } from '../../helpers/handleSuccessfulLogin.js';
 
 // Function to add event listener to the login form
 export async function loginEventListener() {
@@ -16,34 +15,20 @@ export async function loginEventListener() {
 
     // Collect form data
     const data = new FormData(form);
-    const email = data.get('email');
-    const password = data.get('password');
-    console.log(email);
-    // Call the login function with the form data
+    const email = data.get('email').trim();
+    const password = data.get('password').trim();
+
     try {
+      // Call the login function with the form data
       const response = await auth.login(email, password);
 
-      if (response.errors) {
-        enableButton(loginButton, 'Login', 'bg-gray-400', 'bg-primary');
-        alert(`Login failed: ${response.errors[0].message}`);
-        return;
-      }
-      // Save the token and name to local storage
-      save('token', response.data.accessToken);
-      save('name', response.data.name); // Save the user's name to use in the api call from getUserProfile()
+      // handle errors
+      if (handleErrors(response, loginButton, 'Login')) return;
 
-      // Fetch the user profile and save it to local storage
-      const userProfile = await getUserProfile();
-      save('profile', userProfile);
-
-      // Updates the navbar to reflect login state
-      buildNav();
-
-      // Redirects to home view
-      location.href = '#/';
-      // Shows success message
-      alert('Login successful!');
+      // Handle successful login
+      await handleSuccessfulLogin(response);
     } catch (e) {
+      enableButton(loginButton, 'Login', 'bg-gray-400', 'bg-primary');
       alert(`An error occurred: ${e.message}`);
     }
   });

@@ -16,7 +16,6 @@ import { headers } from '../headers.js';
 export async function login(email, password) {
   // Do a POST request to the API to log in the user
   try {
-    console.log(password);
     const response = await fetch(`${apiBase + loginEp}`, {
       method: 'POST',
       headers: headers('application/json', false),
