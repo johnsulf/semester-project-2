@@ -1,3 +1,4 @@
+import { creditsAndActions } from '../components/listings/creditsAndActions.js';
 import { listingCategories } from '../components/listings/listingCategories.js';
 import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
@@ -23,6 +24,7 @@ export async function homeView(app) {
       </div>
     </section>
     <hr class="my-16" />
+    ${creditsAndActions()}
     <section class="mt-12 bg-secondary bg-opacity-20 py-6 px-4 rounded">
       <h2 class="mb-4">Browse Categories</h2>
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">

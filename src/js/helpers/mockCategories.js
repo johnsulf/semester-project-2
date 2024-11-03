@@ -24,4 +24,9 @@ export const categories = [
     query: 'sofa',
     emoji: '🛋️',
   },
+  {
+    name: 'Chairs',
+    query: 'chair',
+    emoji: '🪑',
+  },
 ];
