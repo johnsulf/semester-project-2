@@ -1,5 +1,5 @@
 import { searchListings } from '../../api/auction/searchListings.js';
-import { spinner } from '../../components/loaders/spinner.js';
+import { bouncer } from '../../components/loaders/bouncer.js';
 import {
   showSearchResultsContainer,
   hideSearchResultsContainer,
@@ -17,8 +17,8 @@ export function searchInputEventListener(searchInput, searchResultsContainer) {
     if (searchInput.value.trim().length > 0) {
       showSearchResultsContainer();
 
-      // Show loading spinner while waiting for search results
-      searchResultsContainer.innerHTML = spinner();
+      // Show loading bouncer while waiting for search results
+      searchResultsContainer.innerHTML = bouncer();
     } else {
       hideSearchResultsContainer(); // Hide search results container if there is no input
       return;

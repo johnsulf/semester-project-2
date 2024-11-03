@@ -2,11 +2,11 @@ import { getListingById } from '../../api/auction/getListingById.js';
 import { mediaCarouselComponent } from '../../components/listing-detail/mediaCarousel.js';
 import { infoSectionComponent } from '../../components/listing-detail/infoSection.js';
 import { bidsSectionComponent } from '../../components/listing-detail/bidsSection.js';
-import { spinner } from '../../components/loaders/spinner.js';
+import { bouncer } from '../../components/loaders/bouncer.js';
 
 export async function initListingDetailView(app, listingId) {
   // Show a loading indicator
-  app.innerHTML = spinner();
+  app.innerHTML = bouncer();
 
   try {
     // Fetch listing details

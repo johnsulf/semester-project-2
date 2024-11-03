@@ -1,8 +1,8 @@
-export function spinner() {
+export function bouncer() {
   return `
-        <div class="flex flex-col items-center justify-center p-4">
+        <div class="bouncer-container flex flex-col items-center justify-center p-4">
             <div class="
-              loader 
+              bouncer 
               ease-linear 
               rounded-full 
               bg-primary
