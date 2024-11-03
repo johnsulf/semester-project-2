@@ -1,12 +1,13 @@
+import { listingCategories } from '../components/listings/listingCategories.js';
 import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
 export async function homeView(app) {
   // Set the inner HTML of the app container
   app.innerHTML = `
+    <h1 class="text-center my-8">Welcome to Fun Auction</h1>
     <section class="flex flex-col items-center">
-      <h1 class="text-4xl font-bold my-8">Welcome to Fun Auction</h1>
-      <div class="w-full max-w-2xl relative">
+      <div class="w-full max-w-2xl  relative">
         <div class="flex">
           <input 
             type="text" 
@@ -21,9 +22,14 @@ export async function homeView(app) {
         <div id="searchResults" class="absolute top-full left-0 w-full bg-white border border-gray-300 rounded-b-lg z-10 hidden"></div>
       </div>
     </section>
-
+    <hr class="my-16" />
+    <section class="mt-12 bg-secondary bg-opacity-20 py-6 px-4 rounded">
+      <h2 class="mb-4">Browse Categories</h2>
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      ${listingCategories()}
+    </section>
     <section class="mt-12 bg-primary bg-opacity-20 py-6 px-4 rounded">
-      <h2 class="text-2xl font-semibold mb-4">Latest added Listings</h2>
+      <h2 class="mb-4">Latest added Listings</h2>
       <div id="latestListingsCarousel" class="relative">
         <!-- Carousel will be injected here -->
       </div>
