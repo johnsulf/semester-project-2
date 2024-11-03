@@ -1,6 +1,6 @@
 import { listingCardLoader } from '../components/loaders/listingCardLoader.js';
 
-export const displayLatestListingsLoader = (carouselContainer) => {
+export function displayLatestListingsLoader(carouselContainer) {
   const loadersContainer = document.createElement('div');
   loadersContainer.classList.add('overflow-hidden', 'relative');
 
@@ -31,4 +31,6 @@ export const displayLatestListingsLoader = (carouselContainer) => {
 
   // Append the loaders to the carousel container
   carouselContainer.appendChild(loadersContainer);
-};
+}
+
+export function displayListingDetailLoader() {}
