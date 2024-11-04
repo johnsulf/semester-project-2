@@ -5,8 +5,8 @@ import { displaySuccessMessage } from '../../../components/listings/createListin
 import { disableButton, enableButton } from '../../../helpers/buttonState.js';
 
 // Function to create a new listing event listener
-export function createListingEventListener(container) {
-  const createListingButton = container.querySelector('#createListingBtn');
+export function createListingEventListener(container, btnId) {
+  const createListingButton = container.querySelector(`#${btnId}`);
   if (createListingButton) {
     createListingButton.addEventListener('click', () => {
       // Create the modal component

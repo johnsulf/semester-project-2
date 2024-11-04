@@ -40,11 +40,14 @@ export function searchResultItem(listing) {
       `;
 
   const endAtText = item.querySelector('.end-at-text');
-  endAtText.classList.add('text-white', 'px-2', 'rounded', 'w-fit');
   if (ended) {
-    endAtText.classList.add('bg-error');
-  } else {
-    endAtText.classList.add('bg-primary');
+    endAtText.classList.add(
+      'bg-error',
+      'text-white',
+      'px-2',
+      'rounded',
+      'w-fit',
+    );
   }
   navigateToListing(item, listing); // Add the click event to navigate to the listing
 

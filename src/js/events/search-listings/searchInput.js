@@ -1,4 +1,6 @@
 import { searchListings } from '../../api/auction/searchListings.js';
+import { bouncer } from '../../components/loaders/bouncer.js';
+import { listingEnded } from '../../helpers/bidOnListing.js';
 import {
   showSearchResultsContainer,
   hideSearchResultsContainer,
@@ -16,12 +18,8 @@ export function searchInputEventListener(searchInput, searchResultsContainer) {
     if (searchInput.value.trim().length > 0) {
       showSearchResultsContainer();
 
-      // Show loading spinner while waiting for search results
-      searchResultsContainer.innerHTML = `
-              <div class="flex items-center justify-center p-4">
-                <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-8 w-8"></div>
-              </div>
-            `;
+      // Show loading bouncer while waiting for search results
+      searchResultsContainer.innerHTML = bouncer();
     } else {
       hideSearchResultsContainer(); // Hide search results container if there is no input
       return;
@@ -34,7 +32,10 @@ export function searchInputEventListener(searchInput, searchResultsContainer) {
       // If there is input, send the search request
       if (query.length > 0) {
         const results = await searchListings(query);
-        displaySearchResults(results, searchResultsContainer);
+        const sortedResults = results.sort(
+          (a, b) => listingEnded(a) - listingEnded(b),
+        );
+        displaySearchResults(sortedResults, searchResultsContainer);
 
         // If there is no input, clear the search results and hide the container
       } else {
