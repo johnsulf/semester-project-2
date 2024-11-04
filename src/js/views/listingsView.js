@@ -4,10 +4,15 @@ import { bouncer } from '../components/loaders/bouncer.js';
 import { listingEnded } from '../helpers/bidOnListing.js';
 
 export async function listingsView(app, query) {
+  let h1Content = `Results for "<span class="italic">${query}</span> "`;
+  if (query == '.') {
+    h1Content = 'Listings';
+  }
+
   // Set the inner HTML of the app container
   app.innerHTML = `
     <div class="flex flex-col items-center">
-      <h1 class="text-2xl font-semibold mb-4">Results for "<span class="italic">${query}</span> "</h1>
+      <h1 class="text-2xl font-semibold mb-4">${h1Content}</h1>
         ${bouncer()}
         <div id="searchResultsContainer" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
     </div>
