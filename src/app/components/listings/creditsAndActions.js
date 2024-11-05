@@ -53,6 +53,8 @@ function loggedInContent(credits) {
   contentDiv.classList.add(
     'flex',
     'flex-col',
+    'bg-white',
+    'p-4',
     'md:flex-row',
     'md:gap-24',
     'items-center',
