@@ -4,7 +4,7 @@ import { initListingDetailView } from '../events/listing-detail/initListingDetai
 export async function listingView(app, listingId) {
   // Check if the user is logged in
   if (!isLoggedIn()) {
-    alert('You must be logged in to view listings.');
+    alert('You must be logged in to view listing details.');
     window.location.hash = '#/login';
     return;
   }

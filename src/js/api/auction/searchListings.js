@@ -14,15 +14,10 @@ export async function searchListings(query) {
       },
     );
 
-    // Check if the response is OK
-    if (response.ok) {
-      const result = await response.json();
-      return result.data;
-    } else {
-      throw new Error('Failed to fetch search results');
-    }
+    const result = await response.json();
+
+    return result.data;
   } catch (error) {
-    console.error('Search error:', error);
-    return [];
+    throw new Error(error);
   }
 }

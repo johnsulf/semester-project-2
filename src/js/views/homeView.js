@@ -8,7 +8,7 @@ export async function homeView(app) {
   app.innerHTML = `
     <h1 class="text-center my-8">Welcome to Fun Auction</h1>
     <section class="flex flex-col items-center">
-      <div class="w-full max-w-2xl  relative">
+      <div class="w-full max-w-2xl relative">
         <div class="flex">
           <input 
             type="text" 
@@ -24,7 +24,9 @@ export async function homeView(app) {
       </div>
     </section>
     <hr class="my-4" />
-    <section id="creditsAndActionsContainer" class="mt-4 bg-success bg-opacity-20 py-6 px-4 rounded"></section>
+    <section id="creditsAndActionsContainer" class="mt-4 bg-success bg-opacity-20 py-6 px-4 rounded">
+      <!-- Credits And Actions content will be injected here -->
+    </section>
     <section class="mt-4 bg-secondary bg-opacity-20 py-6 px-4 rounded">
       <h2 class="mb-4">Browse Categories</h2>
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -32,7 +34,7 @@ export async function homeView(app) {
     </section>
     <section class="mt-4 bg-primary bg-opacity-20 py-6 px-4 rounded">
       <h2 class="mb-4">Latest added Listings</h2>
-      <div id="latestListingsCarousel" class="relative">
+      <div id="latestListingsCarousel" class="carousel">
         <!-- Carousel will be injected here -->
       </div>
     </section>

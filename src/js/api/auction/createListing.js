@@ -12,21 +12,10 @@ export async function createListing(data) {
       body: JSON.stringify(data),
     });
 
-    // Check if the response is OK
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(
-        errorData.errors
-          ? errorData.errors[0].message
-          : 'Failed to create listing',
-      );
-    }
-
     const result = await response.json(); // Parse the JSON from the response
 
     return result.data;
   } catch (error) {
-    console.error('API Error:', error);
-    throw error;
+    throw new Error(error);
   }
 }
