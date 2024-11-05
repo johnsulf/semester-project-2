@@ -14,12 +14,10 @@ export async function getListingById(listingId) {
       },
     );
 
-    // Check if the response is OK
-    if (response.ok) {
-      const result = await response.json();
-      return result.data;
-    }
+    const result = await response.json();
+
+    return result.data;
   } catch (error) {
-    console.error(error);
+    throw new Error(error);
   }
 }

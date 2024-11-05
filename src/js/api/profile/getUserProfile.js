@@ -22,7 +22,6 @@ export async function getUserProfile() {
     // Return the data
     return data.data;
   } catch (error) {
-    console.error('Error fetching user profile:', error);
-    throw error;
+    throw new Error(error);
   }
 }

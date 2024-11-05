@@ -14,15 +14,10 @@ export async function getLatestListings(limit = 10) {
       },
     );
 
-    // Check if the response is OK
-    if (response.ok) {
-      const result = await response.json();
-      return result.data;
-    } else {
-      throw new Error('Failed to fetch latest listings');
-    }
+    const result = await response.json();
+
+    return result.data;
   } catch (error) {
-    console.error('Fetch error:', error);
-    return [];
+    throw new Error(error);
   }
 }
