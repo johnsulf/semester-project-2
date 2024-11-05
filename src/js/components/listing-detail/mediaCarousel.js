@@ -6,15 +6,28 @@ export function mediaCarouselComponent(listing) {
     // Builds the HTML structure
     mediaContainer.innerHTML = `
         <div class="relative mb-4">
-          <img id="mainImage" src="${listing.media[0].url}" alt="${listing.media[0].alt}" class="w-full h-auto rounded transition-opacity duration-300">
-          <!-- Left Arrow -->
-          <button id="prevImage" class="hidden md:block absolute left-0 top-1/2 transform -translate-y-1/2 bg-secondary text-white py-2 px-4 rounded-full">
-            &#10094;
-          </button>
-          <!-- Right Arrow -->
-          <button id="nextImage" class="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 bg-secondary text-white py-2 px-4 rounded-full">
-            &#10095;
-          </button>
+          <div class="relative">
+            <img
+              id="mainImage"
+              src="${listing.media[0].url}"
+              alt="${listing.media[0].alt}"
+              class="w-full mx-auto rounded transition-opacity duration-300"
+            />
+            <!-- Left Arrow -->
+            <button
+              id="prevImage"
+              class="hidden md:block absolute left-0 top-1/2 transform -translate-y-1/2 bg-secondary text-white py-2 px-4 rounded-full"
+            >
+              &#10094;
+            </button>
+            <!-- Right Arrow -->
+            <button
+              id="nextImage"
+              class="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 bg-secondary text-white py-2 px-4 rounded-full"
+            >
+              &#10095;
+            </button>
+          </div>
         </div>
         <div class="flex space-x-2 overflow-x-auto">
           ${listing.media

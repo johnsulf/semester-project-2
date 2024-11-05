@@ -24,7 +24,9 @@ export async function homeView(app) {
       </div>
     </section>
     <hr class="my-4" />
-    <section id="creditsAndActionsContainer" class="mt-4 bg-success bg-opacity-20 py-6 px-4 rounded"></section>
+    <section id="creditsAndActionsContainer" class="mt-4 bg-success bg-opacity-20 py-6 px-4 rounded">
+      <!-- Credits And Actions content will be injected here -->
+    </section>
     <section class="mt-4 bg-secondary bg-opacity-20 py-6 px-4 rounded">
       <h2 class="mb-4">Browse Categories</h2>
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
