@@ -30,3 +30,7 @@ a {
 .container {
   @apply m-auto px-4 py-6;
 }
+
+.carousel {
+  @apply relative;
+}

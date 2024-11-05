@@ -11,7 +11,6 @@ export async function initListingDetailView(app, listingId) {
   try {
     // Fetch listing details
     const listing = await getListingById(listingId);
-    console.log(listing);
 
     // Create the listing detail element
     const listingDetailElement = document.createElement('div');

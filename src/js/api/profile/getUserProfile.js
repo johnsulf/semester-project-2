@@ -9,10 +9,13 @@ export async function getUserProfile() {
 
   // Do a GET request to the API to get the user profile
   try {
-    const response = await fetch(`${apiBase + profiles}/${name}`, {
-      method: 'GET',
-      headers: headers('application/json'),
-    });
+    const response = await fetch(
+      `${apiBase + profiles}/${name}?_listings=true&_wins=true`,
+      {
+        method: 'GET',
+        headers: headers('application/json'),
+      },
+    );
 
     const data = await response.json(); // Parse the JSON from the response
 
