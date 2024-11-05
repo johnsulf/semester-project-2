@@ -2,7 +2,23 @@ import { addMediaEventListener } from '../../events/nav/create-listing/addMedia.
 import { closeFormEventListener } from '../../events/nav/create-listing/closeForm.js';
 import { submitCreateListingForm } from '../../events/nav/create-listing/submitForm.js';
 
-// Function to create the create listing form component
+/**
+ * Creates a form component for creating a new listing, including fields for title, description, media URLs, and end date/time.
+ * Sets up event listeners for adding media URLs, submitting the form, and closing the form.
+ *
+ * @param {Function} onSubmitCallback - Callback function to handle form submission with the form data.
+ * @param {HTMLElement} modal - The modal element in which the form is displayed.
+ * @returns {HTMLFormElement} - The form element ready to be appended to the DOM.
+ *
+ * @example
+ * // Usage example:
+ * const modal = modalComponent();
+ * const formComponent = createListingFormComponent((formData) => {
+ *   // Handle form submission
+ * }, modal);
+ * modal.querySelector('.modal-content').appendChild(formComponent);
+ * document.body.appendChild(modal);
+ */
 export function createListingFormComponent(onSubmitCallback, modal) {
   const form = document.createElement('form'); // Create the form element
   form.classList.add('space-y-4'); // Add classes to the form

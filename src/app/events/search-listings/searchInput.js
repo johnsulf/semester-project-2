@@ -7,7 +7,25 @@ import {
 } from '../../helpers/searchResults.js';
 import { displaySearchResults } from '../../helpers/searchResults.js';
 
-// Function to add an event listener to the search input
+/**
+ * Adds an input event listener to the search input field to handle live search functionality.
+ *
+ * This function implements a debounce mechanism to wait for a specified delay before sending
+ * a search request. It displays a loading indicator while fetching results and updates the
+ * search results container with the fetched listings. It also handles hiding the search results
+ * when the input is cleared or when clicking outside the search area.
+ *
+ * @param {HTMLInputElement} searchInput - The search input element where users type their queries.
+ * @param {HTMLElement} searchResultsContainer - The container element where search results will be displayed.
+ *
+ * @example
+ * // Assuming you have elements with IDs 'searchInput' and 'searchResults'
+ * const searchInput = document.getElementById('searchInput');
+ * const searchResultsContainer = document.getElementById('searchResults');
+ *
+ * // Initialize the live search functionality
+ * searchInputEventListener(searchInput, searchResultsContainer);
+ */
 export function searchInputEventListener(searchInput, searchResultsContainer) {
   let typingTimer;
   const typingDelay = 500; // Delay in milliseconds to wait before sending the search request
@@ -31,13 +49,17 @@ export function searchInputEventListener(searchInput, searchResultsContainer) {
 
       // If there is input, send the search request
       if (query.length > 0) {
-        const results = await searchListings(query);
-        const sortedResults = results.sort(
-          (a, b) => listingEnded(a) - listingEnded(b),
-        );
-        displaySearchResults(sortedResults, searchResultsContainer);
-
-        // If there is no input, clear the search results and hide the container
+        try {
+          const results = await searchListings(query);
+          const sortedResults = results.sort(
+            (a, b) => listingEnded(a) - listingEnded(b),
+          );
+          displaySearchResults(sortedResults, searchResultsContainer);
+        } catch (error) {
+          console.error('Error fetching search listings:', error);
+          searchResultsContainer.innerHTML =
+            '<p class="text-error">An error occurred while fetching search results.</p>';
+        }
       } else {
         searchResultsContainer.innerHTML = '';
         hideSearchResultsContainer();

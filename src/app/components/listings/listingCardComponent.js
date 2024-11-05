@@ -1,7 +1,54 @@
 import { placeBidEventListener } from '../../events/auction/placeBid.js';
 import { endString, listingEnded } from '../../helpers/bidOnListing.js';
 
-// Function to create a listing card component
+/**
+ * Creates a listing card component that displays listing details and a bid button.
+ *
+ * This function generates a DOM element representing a single listing card, including the
+ * listing's image, title, end time, and a button to place a bid. If the listing has ended,
+ * the bid button is disabled and styled accordingly. It also attaches the necessary event
+ * listeners to handle bid actions.
+ *
+ * @param {Object} listing - The listing object containing details about the auction.
+ * @param {number|string} listing.id - The unique identifier of the listing.
+ * @param {string} listing.title - The title of the listing.
+ * @param {string} listing.description - The description of the listing.
+ * @param {Object[]} listing.media - An array of media objects associated with the listing.
+ * @param {Object[]} listing.bids - An array of bid objects associated with the listing.
+ * @param {Date|string} listing.endsAt - The end date and time of the listing.
+ * @param {Object} listing._count - An object containing count properties related to the user.
+ * @param {number} listing._count.listings - The number of listings the user has created.
+ * @param {number} listing._count.wins - The number of auction wins the user has.
+ *
+ * @returns {HTMLDivElement} - The DOM element representing the listing card.
+ *
+ * @example
+ * // Assuming you have a listing object
+ * const listing = {
+ *   id: 123,
+ *   title: 'Vintage Clock',
+ *   description: 'A beautiful vintage clock in excellent condition.',
+ *   media: [
+ *     { url: 'https://example.com/image1.jpg', alt: 'Vintage Clock Image 1' },
+ *     { url: 'https://example.com/image2.jpg', alt: 'Vintage Clock Image 2' },
+ *   ],
+ *   bids: [
+ *     { bidder: { name: 'Alice' }, amount: 100, created: '2024-04-01T10:00:00Z' },
+ *     { bidder: { name: 'Bob' }, amount: 150, created: '2024-04-02T12:00:00Z' },
+ *   ],
+ *   endsAt: '2024-04-10T12:00:00Z',
+ *   _count: {
+ *     listings: 5,
+ *     wins: 2,
+ *   },
+ * };
+ *
+ * // Create the listing card component
+ * const listingCard = listingCardComponent(listing);
+ *
+ * // Append the listing card to a container
+ * document.getElementById('listingsContainer').appendChild(listingCard);
+ */
 export function listingCardComponent(listing) {
   const listingElement = document.createElement('div'); // Create the listing element
   listingElement.classList.add('p-4', 'rounded-md', 'mx-1', 'bg-white'); // Add classes to the listing element

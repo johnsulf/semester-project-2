@@ -3,7 +3,25 @@ import { disableButton, enableButton } from '../../helpers/buttonState.js';
 import { handleErrors } from '../../helpers/handleErrors.js';
 import { handleSuccessfulLogin } from '../../helpers/handleSuccessfulLogin.js';
 
-// Function to add event listener to the login form
+/**
+ * Adds a submit event listener to the login form to handle user authentication.
+ *
+ * This function performs the following actions:
+ * 1. Prevents the default form submission behavior.
+ * 2. Disables the login button and updates its text to indicate that the login process is ongoing.
+ * 3. Collects the email and password from the form inputs.
+ * 4. Attempts to log in the user using the provided credentials.
+ * 5. Handles any errors that occur during the login process.
+ * 6. On successful login, handles post-login actions such as updating the navigation bar and redirecting the user.
+ *
+ * @async
+ * @function loginEventListener
+ * @returns {Promise<void>} - A promise that resolves when the event listener is set up.
+ *
+ * @example
+ * // Initialize the login event listener after rendering the login form
+ * loginEventListener();
+ */
 export async function loginEventListener() {
   const form = document.getElementById('login-form');
   const loginButton = document.getElementById('loginBtn');

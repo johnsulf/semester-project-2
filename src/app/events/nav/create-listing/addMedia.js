@@ -1,4 +1,18 @@
-// Function to add event listener to the "Add Media" button
+/**
+ * Adds an event listener to the "Add Media" button within a form, allowing users to add media URLs to a list.
+ * Validates the URL format, updates the media URLs array, and manages the display and removal of added media items.
+ *
+ * @param {string[]} mediaUrls - An array to store the media URLs added by the user.
+ * @param {HTMLFormElement} form - The form element containing the media input, add button, and media list.
+ *
+ * @example
+ * // Initialize media URLs array and form element
+ * const mediaUrls = [];
+ * const formElement = document.querySelector('#createListingForm');
+ *
+ * // Add event listener to handle media URLs
+ * addMediaEventListener(mediaUrls, formElement);
+ */
 export function addMediaEventListener(mediaUrls, form) {
   // Get the form elements
   const mediaUrlInput = form.querySelector('#mediaUrl');
@@ -9,14 +23,18 @@ export function addMediaEventListener(mediaUrls, form) {
   addMediaBtn.addEventListener('click', () => {
     const url = mediaUrlInput.value.trim();
     if (url) {
-      // check if url starts with http:// or https://, and display error if not
+      // Check if URL starts with http:// or https://, and display error if not
       if (!url.startsWith('http://') && !url.startsWith('https://')) {
         mediaUrlInput.setCustomValidity(
           'Please enter a valid URL starting with http:// or https://',
         );
         mediaUrlInput.reportValidity();
         return;
+      } else {
+        // Clear any previous custom validity messages
+        mediaUrlInput.setCustomValidity('');
       }
+
       // Add the URL to the mediaUrls array
       mediaUrls.push(url);
 

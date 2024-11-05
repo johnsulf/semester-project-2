@@ -3,7 +3,43 @@ import { listingEnded } from '../../helpers/bidOnListing.js';
 import { sortDescending } from '../../helpers/sortingLists.js';
 import { displayCredits } from '../../helpers/displayCredits.js';
 
-// Function to create the bids section
+/**
+ * Creates the bids section for a listing, displaying the latest bid and additional bids if available.
+ *
+ * This function generates an HTML structure that shows the latest bid on the listing, along with a button to toggle
+ * the display of all additional bids. If the listing has ended, it highlights the winning bid. It also handles
+ * cases where there are no bids yet or the listing has ended without any bids.
+ *
+ * @param {Object} listing - The listing object containing details about the auction.
+ * @param {Object[]} listing.bids - An array of bid objects associated with the listing.
+ * @param {string} listing.endsAt - The end date and time of the listing.
+ * @param {Object} listing._count - An object containing count properties related to the user.
+ * @param {number} listing._count.listings - The number of listings the user has created.
+ * @param {number} listing._count.wins - The number of auction wins the user has.
+ *
+ * @returns {HTMLDivElement} - The DOM element containing the bids section.
+ *
+ * @example
+ * // Assuming you have a listing object with bids
+ * const listing = {
+ *   bids: [
+ *     { bidder: { name: 'Alice' }, amount: 100, created: '2024-04-01T10:00:00Z' },
+ *     { bidder: { name: 'Bob' }, amount: 150, created: '2024-04-02T12:00:00Z' },
+ *     // more bids...
+ *   ],
+ *   endsAt: '2024-04-10T12:00:00Z',
+ *   _count: {
+ *     listings: 5,
+ *     wins: 2,
+ *   },
+ * };
+ *
+ * // Create the bids section
+ * const bidsSection = bidsSectionComponent(listing);
+ *
+ * // Append the bids section to a container
+ * document.getElementById('bidsSectionContainer').appendChild(bidsSection);
+ */
 export function bidsSectionComponent(listing) {
   const bidsContainer = document.createElement('div'); // Create the bids container
 

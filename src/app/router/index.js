@@ -1,15 +1,33 @@
 import routes from './routes.js';
 
-// Main app container
+/**
+ * The main application container where views will be rendered.
+ * @type {HTMLElement}
+ */
 const app = document.getElementById('app');
 
-// Function to handle routing based on URL hash
+/**
+ * Handles client-side routing based on the URL hash.
+ *
+ * This function checks the current URL hash, matches it against defined routes,
+ * extracts any parameters, and renders the corresponding view.
+ *
+ * @function router
+ *
+ * @example
+ * // Add event listener to call router when the hash changes
+ * window.addEventListener('hashchange', router);
+ *
+ * // Manually call router on page load
+ * window.addEventListener('load', router);
+ */
+
 function router() {
   const hash = window.location.hash; // Get the URL hash
 
   app.innerHTML = ''; // Clear the content of the app container
 
-  // Find matching route
+  // Find a matching route
   let match = null;
   for (const route of routes) {
     const routeRegex = new RegExp(
@@ -38,7 +56,17 @@ function router() {
   }
 }
 
-// Call the router function when the page loads
+// Call the router function when the hash changes
 window.addEventListener('hashchange', router);
 
+/**
+ * Exports the router function for initialization.
+ *
+ * @exports router
+ *
+ * @example
+ * // In your main entry file
+ * import router from './router.js';
+ * router(); // Initialize the router
+ */
 export default router;

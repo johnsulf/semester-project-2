@@ -1,5 +1,22 @@
 import { loginEventListener } from '../events/auth/login.js';
 
+/**
+ * Renders the login view by injecting the login form into the provided app container
+ * and attaching the necessary event listeners for user authentication.
+ *
+ * This function performs the following actions:
+ * 1. Sets the inner HTML of the `app` element to display the login form.
+ * 2. Attaches the `loginEventListener` to handle form submissions.
+ *
+ * @param {HTMLElement} app - The main application container where the login view will be rendered.
+ *
+ * @example
+ * // Assuming you have an element with the ID 'app' in your HTML
+ * const appContainer = document.getElementById('app');
+ *
+ * // Render the login view
+ * loginView(appContainer);
+ */
 export function loginView(app) {
   // Add the login form to the app
   app.innerHTML = `

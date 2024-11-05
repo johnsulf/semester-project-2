@@ -4,8 +4,19 @@ import { createListingEventListener } from '../../events/nav/create-listing/crea
 import { creditsAndActionsStates } from '../../helpers/creditsAndActionsStates.js';
 import { createListingBtn } from '../common/createListingBtn.js';
 
-// Function to create the credits and actions section
-export function creditsAndActions() {
+/**
+ * Creates and populates the credits and actions section based on the user's authentication state.
+ *
+ * If the user is logged in, it displays their credits and relevant actions.
+ * If the user is not logged in, it displays prompts to register or log in.
+ *
+ * @returns {HTMLElement} - The populated credits and actions container element.
+ *
+ * @example
+ * // Assuming you have an element with the ID 'creditsAndActionsContainer' in your HTML
+ * creditsAndActions();
+ */
+export async function creditsAndActions() {
   const creditsAndActionsContainer = document.getElementById(
     'creditsAndActionsContainer',
   );
@@ -45,6 +56,16 @@ export function creditsAndActions() {
   return creditsAndActionsContainer;
 }
 
+/**
+ * Generates the content for the credits and actions section for authenticated users.
+ *
+ * @param {number} credits - The number of credits the user has.
+ * @returns {HTMLElement} - The content element containing credits information and actions.
+ *
+ * @example
+ * const content = loggedInContent(user.credits);
+ * creditsAndActionsContainer.appendChild(content);
+ */
 function loggedInContent(credits) {
   const state = contentState(credits);
 
@@ -150,7 +171,18 @@ function loggedInContent(credits) {
   return contentDiv;
 }
 
-// Function to return the appropriate state based on credits
+/**
+ * Determines the appropriate state for the credits and actions section based on the user's credits.
+ *
+ * @param {number} credits - The number of credits the user has.
+ * @returns {Object|undefined} - The state object matching the user's credits range, or undefined if no match is found.
+ *
+ * @example
+ * const state = contentState(user.credits);
+ * if (state) {
+ *   // Use the state to render content
+ * }
+ */
 function contentState(credits) {
   return creditsAndActionsStates.find(
     (state) => credits >= state.minCredits && credits <= state.maxCredits,

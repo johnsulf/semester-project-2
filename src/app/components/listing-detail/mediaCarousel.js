@@ -1,4 +1,32 @@
-// Function to create a media carousel
+/**
+ * Creates a media carousel component for a given listing.
+ *
+ * This function generates a carousel that displays the listing's media (images),
+ * including navigation arrows for cycling through the images and thumbnail previews.
+ * It also initializes event listeners to handle carousel interactions.
+ *
+ * @param {Object} listing - The listing object containing media information.
+ * @param {Object[]} listing.media - An array of media objects associated with the listing.
+ * @param {string} listing.media[].url - The URL of the media item.
+ * @param {string} listing.media[].alt - The alt text for the media item.
+ * @returns {HTMLDivElement} - The DOM element containing the media carousel.
+ *
+ * @example
+ * // Assuming you have a listing object with media
+ * const listing = {
+ *   media: [
+ *     { url: 'https://example.com/image1.jpg', alt: 'Image 1' },
+ *     { url: 'https://example.com/image2.jpg', alt: 'Image 2' },
+ *     // more media items...
+ *   ],
+ * };
+ *
+ * // Create the media carousel component
+ * const carousel = mediaCarouselComponent(listing);
+ *
+ * // Append the carousel to a container
+ * document.getElementById('mediaCarouselContainer').appendChild(carousel);
+ */
 export function mediaCarouselComponent(listing) {
   const mediaContainer = document.createElement('div'); // Create the media container
 
@@ -59,12 +87,39 @@ export function mediaCarouselComponent(listing) {
   return mediaContainer;
 }
 
-// Helper function to initialize carousel events
+/**
+ * Initializes the event listeners for the media carousel, including thumbnail clicks and navigation buttons.
+ *
+ * @param {HTMLDivElement} container - The DOM element containing the media carousel.
+ * @param {Object} listing - The listing object containing media information.
+ * @param {Object[]} listing.media - An array of media objects associated with the listing.
+ * @param {string} listing.media[].url - The URL of the media item.
+ * @param {string} listing.media[].alt - The alt text for the media item.
+ *
+ * @example
+ * // Assuming you have a media container and a listing object
+ * const container = document.getElementById('mediaCarouselContainer');
+ * const listing = {
+ *   media: [
+ *     { url: 'https://example.com/image1.jpg', alt: 'Image 1' },
+ *     { url: 'https://example.com/image2.jpg', alt: 'Image 2' },
+ *     // more media items...
+ *   ],
+ * };
+ *
+ * // Initialize carousel events
+ * initCarouselEvents(container, listing);
+ */
 function initCarouselEvents(container, listing) {
   let currentIndex = 0;
   const mainImage = container.querySelector('#mainImage');
   const thumbnails = container.querySelectorAll('[data-index]');
 
+  /**
+   * Updates the main image in the carousel and highlights the corresponding thumbnail.
+   *
+   * @param {number} index - The index of the media item to display.
+   */
   const updateMainImage = (index) => {
     // Add fade-out effect
     mainImage.classList.add('opacity-0');

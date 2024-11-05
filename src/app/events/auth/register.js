@@ -1,9 +1,27 @@
 import * as auth from '../../api/auth/index.js';
 import { disableButton, enableButton } from '../../helpers/buttonState.js';
-import { handleSuccessfulLogin } from '../../helpers/handleSuccessfulLogin.js';
 import { handleErrors } from '../../helpers/handleErrors.js';
+import { handleSuccessfulLogin } from '../../helpers/handleSuccessfulLogin.js';
 
-// Function to add event listener to the register form
+/**
+ * Attaches a submit event listener to the registration form to handle user registration.
+ *
+ * This function performs the following actions:
+ * 1. Prevents the default form submission behavior.
+ * 2. Disables the register button and updates its text to indicate the registration process is ongoing.
+ * 3. Collects the form data, including optional avatar URL.
+ * 4. Attempts to register the user with the provided credentials.
+ * 5. Handles any errors that occur during the registration process.
+ * 6. On successful registration, automatically logs in the user and handles post-login actions.
+ *
+ * @async
+ * @function registerEventListener
+ * @returns {Promise<void>} - A promise that resolves when the event listener is set up.
+ *
+ * @example
+ * // Initialize the registration event listener after rendering the registration form
+ * registerEventListener();
+ */
 export async function registerEventListener() {
   const form = document.getElementById('register-form');
 

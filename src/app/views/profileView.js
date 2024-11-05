@@ -3,9 +3,24 @@ import { initAuctionWinsCarousel } from '../events/profile/initAuctionWinsCarous
 import { initCreatedListingsCarousel } from '../events/profile/initCreatedListingsCarousel.js';
 import { openEditAvatarModalListener } from '../events/profile/openEditAvatarModal.js';
 
+/**
+ * Renders the user profile view, displaying user information, created listings, and auction wins.
+ * Initializes carousels for created listings and auction wins, and sets up the edit avatar modal.
+ *
+ * @async
+ * @param {HTMLElement} app - The main application container where the profile view will be rendered.
+ *
+ * @example
+ * // Assuming you have an element with the ID 'app' in your HTML
+ * const appContainer = document.getElementById('app');
+ *
+ * // Render the profile view
+ * profileView(appContainer);
+ */
 export async function profileView(app) {
   const user = profile(); // Get the user profile from local storage
   console.log(user);
+
   // Render the user profile
   app.innerHTML = `
       <h1>Hi, ${user.name}</h1>
@@ -53,8 +68,10 @@ export async function profileView(app) {
 
   // Initialize the created listings carousel
   initCreatedListingsCarousel();
+
   // Initialize the auction wins carousel
   initAuctionWinsCarousel();
+
   // Add the event listener to the edit avatar button
   openEditAvatarModalListener();
 }

@@ -2,7 +2,29 @@ import { modalComponent } from '../../components/common/modalComponent.js';
 import { isLoggedIn, profile } from '../../api/auth/authState.js';
 import { bidOnListingFormComponent } from '../../components/listing-detail/bidOnListingFormComponent.js';
 
-// Function to add an event listener to the place bid button
+/**
+ * Attaches a click event listener to the "Place Bid" button within a listing.
+ *
+ * This function performs the following actions:
+ * 1. Selects the "Place Bid" button from the provided container.
+ * 2. Checks if the user is logged in and retrieves the user's listing IDs.
+ * 3. Attaches a click event listener to the "Place Bid" button that:
+ *    - Alerts the user and redirects to the login page if not logged in.
+ *    - Prevents the user from bidding on their own listings.
+ *    - Opens a modal with a bid form if the user is eligible to place a bid.
+ *
+ * @param {HTMLElement} container - The DOM element containing the "Place Bid" button.
+ * @param {Object} listing - The listing object on which the user can place a bid.
+ * @param {number|string} listing.id - The unique identifier of the listing.
+ *
+ * @example
+ * // Assuming you have a container element and a listing object
+ * const container = document.getElementById('listingInfoContainer');
+ * const listing = { id: 123, title: 'Vintage Clock', };
+ *
+ * // Initialize the place bid event listener
+ * placeBidEventListener(container, listing);
+ */
 export function placeBidEventListener(container, listing) {
   const placeBidButton = container.querySelector('#placeBidButton');
   let listingIds = [];

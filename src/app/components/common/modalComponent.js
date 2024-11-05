@@ -1,4 +1,21 @@
-// Function to create a modal component
+/**
+ * Creates a modal component that includes an overlay, a container, a close button, and a content wrapper.
+ *
+ * The modal can be appended to the document body or any other container.
+ * It includes functionality to close the modal when the close button is clicked.
+ *
+ * @returns {HTMLDivElement} - The modal overlay element containing the modal content.
+ *
+ * @example
+ * // To use the modal component:
+ * const modal = modalComponent();
+ * document.body.appendChild(modal);
+ *
+ * // Then append content to the modal's content area:
+ * const content = document.createElement('div');
+ * content.textContent = 'This is the modal content.';
+ * modal.querySelector('.modal-content').appendChild(content);
+ */
 export function modalComponent() {
   // Modal overlay
   const modalOverlay = document.createElement('div');

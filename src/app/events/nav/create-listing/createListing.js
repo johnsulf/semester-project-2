@@ -4,7 +4,17 @@ import { createListing } from '../../../api/auction/createListing.js';
 import { displaySuccessMessage } from '../../../components/listings/createListingSuccess.js';
 import { disableButton, enableButton } from '../../../helpers/buttonState.js';
 
-// Function to create a new listing event listener
+/**
+ * Adds an event listener to a button that, when clicked, opens a modal for creating a new listing.
+ * Handles form submission, button state, and displays success or error messages.
+ *
+ * @param {HTMLElement} container - The DOM element containing the button.
+ * @param {string} btnId - The ID of the button to attach the event listener to.
+ *
+ * @example
+ * // Assuming you have a container element and a button with ID 'createListingBtn'
+ * createListingEventListener(container, 'createListingBtn');
+ */
 export function createListingEventListener(container, btnId) {
   const createListingButton = container.querySelector(`#${btnId}`);
   if (createListingButton) {
@@ -15,7 +25,6 @@ export function createListingEventListener(container, btnId) {
       // Create the form component and pass the modal
       const formComponent = createListingFormComponent(async (data) => {
         const submitFormButton = document.querySelector('#submitFormBtn');
-        console.log(submitFormButton);
         // Call createListing with the form data
         try {
           disableButton(

@@ -3,6 +3,22 @@ import { listingCategories } from '../components/listings/listingCategories.js';
 import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
+/**
+ * Renders the home view of the application, including the search bar, credits and actions section,
+ * listing categories, and the latest listings carousel. Initializes necessary functionalities
+ * such as credits and actions, live search, and the latest listings carousel.
+ *
+ * @async
+ * @param {HTMLElement} app - The main application container where the home view will be rendered.
+ *
+ * @example
+ * // Assuming you have an element with the ID 'app' in your HTML
+ * const appContainer = document.getElementById('app');
+ *
+ * // Render the home view
+ * homeView(appContainer);
+ */
+
 export async function homeView(app) {
   // Set the inner HTML of the app container
   app.innerHTML = `
