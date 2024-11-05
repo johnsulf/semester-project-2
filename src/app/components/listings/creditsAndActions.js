@@ -20,6 +20,12 @@ export function creditsAndActions() {
       credits = user.credits;
     }
 
+    // Create h2 header
+    const header = document.createElement('h2');
+    header.classList.add('mb-4');
+    header.textContent = 'Your Wallet';
+    creditsAndActionsContainer.appendChild(header);
+
     // Create content based on credits
     content = loggedInContent(credits);
   } else {
@@ -45,20 +51,16 @@ function loggedInContent(credits) {
   // Create the main content container
   const contentDiv = document.createElement('div');
   contentDiv.classList.add(
-    'grid',
-    'grid-cols-1',
-    'md:grid-cols-2',
-    'gap-6',
+    'flex',
+    'flex-col',
+    'md:flex-row',
+    'md:gap-24',
     'items-center',
-    'justify-items-center',
+    'justify-center',
   );
 
   // Common container classes
   const containerClasses = [
-    'bg-white',
-    'p-6',
-    'rounded',
-    'shadow',
     'flex',
     'flex-col',
     'justify-center',
@@ -78,8 +80,8 @@ function loggedInContent(credits) {
   // Credits text
   const creditsAmount = document.createElement('p');
   creditsAmount.classList.add(
-    'text-5xl',
-    'md:text-7xl',
+    'text-3xl',
+    'md:text-5xl',
     'font-extrabold',
     'text-primary',
     'text-center',
@@ -87,7 +89,7 @@ function loggedInContent(credits) {
   creditsAmount.textContent = credits;
 
   const creditsLabel = document.createElement('p');
-  creditsLabel.classList.add('text-xl', 'md:text-2xl', 'text-gray-600', 'mt-2');
+  creditsLabel.classList.add('text-normal');
   creditsLabel.textContent = 'Your Credits';
 
   // Append elements to credits container
@@ -101,20 +103,16 @@ function loggedInContent(credits) {
 
   const actionMessage = document.createElement('p');
   actionMessage.classList.add(
-    'text-3xl',
-    'mb-4',
+    'text-2xl',
+    'my-4',
+    'md:max-w-44',
     'font-semibold',
     'text-center',
   );
   actionMessage.textContent = state.message;
 
   const actionDescription = document.createElement('p');
-  actionDescription.classList.add(
-    'text-lg',
-    'mb-6',
-    'text-center',
-    'text-gray-700',
-  );
+  actionDescription.classList.add('text-lg', 'mb-4', 'text-center');
   actionDescription.textContent = state.action;
 
   let button;
@@ -126,21 +124,7 @@ function loggedInContent(credits) {
     // Button that navigates to a route
     button = document.createElement('button');
     button.id = state.buttonId;
-    button.classList.add(
-      'bg-primary',
-      'text-white',
-      'px-6',
-      'py-3',
-      'rounded',
-      'hover:bg-primary-dark',
-      'transition-colors',
-      'duration-300',
-      'ease-in-out',
-      'focus:outline-none',
-      'focus:ring-2',
-      'focus:ring-primary',
-      'focus:ring-opacity-50',
-    );
+    button.classList.add('bg-primary', 'text-white', 'px-6', 'py-3', 'rounded');
     button.textContent = state.buttonText;
     button.addEventListener('click', () => {
       location.href = state.buttonRoute;
