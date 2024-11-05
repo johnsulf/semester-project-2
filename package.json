@@ -63,7 +63,7 @@
   },
   "jest": {
     "setupFiles": [
-      "<rootDir>/jestMocks.js"
+      "<rootDir>/src/app/helpers/test/jestMocks.js"
     ]
   },
   "dependencies": {
