@@ -10,7 +10,7 @@ export function avatarImg(userData) {
   avatarImg.id = 'avatarImg'; // Set the image ID
   avatarImg.src = avatarUrl; // Set the image source
   avatarImg.alt = `${userData.name}'s avatar`; // Set the image alt text
-  avatarImg.classList.add('w-12', 'h-12', 'rounded-full', 'cursor-pointer'); // Add classes to the image
+  avatarImg.classList.add('w-14', 'h-14', 'rounded-full', 'cursor-pointer'); // Add classes to the image
 
   return avatarImg;
 }

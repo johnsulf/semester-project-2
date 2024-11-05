@@ -2,7 +2,7 @@ import { isLoggedIn } from '../../api/auth/authState.js';
 import { profile } from '../../api/auth/authState.js';
 import { createListingEventListener } from '../../events/nav/create-listing/createListing.js';
 import { creditsAndActionsStates } from '../../helpers/creditsAndActionsStates.js';
-import { createListingBtn } from '../nav/authenticatedNav/createListingBtn.js';
+import { createListingBtn } from '../common/createListingBtn.js';
 
 // Function to create the credits and actions section
 export function creditsAndActions() {
