@@ -2,6 +2,6 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    // setupNodeEvents(on, config) {},
+    baseUrl: 'https://johnsulf.github.io/semester-project-2/',
   },
 });
