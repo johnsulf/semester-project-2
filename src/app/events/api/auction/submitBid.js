@@ -1,12 +1,12 @@
-import { bidOnListing } from '../../api/auction/bidOnListing.js';
-import { refreshUserData } from '../../helpers/refreshUserData.js';
-import { getListingById } from '../../api/auction/getListingById.js';
-import { buildNav } from '../../components/nav/nav.js';
+import { bidOnListing } from '../../../api/auction/bidOnListing.js';
+import { refreshUserData } from '../../../helpers/refreshUserData.js';
+import { getListingById } from '../../../api/auction/getListingById.js';
+import { buildNav } from '../../../components/nav/nav.js';
 import {
   updateBidsSection,
   validateBidInput,
-} from '../../helpers/bidOnListing.js';
-import { disableButton, enableButton } from '../../helpers/buttonState.js';
+} from '../../../helpers/bidOnListing.js';
+import { disableButton, enableButton } from '../../../helpers/buttonState.js';
 
 /**
  * Handles the submission of the bid on listing form.
@@ -24,7 +24,7 @@ import { disableButton, enableButton } from '../../helpers/buttonState.js';
  * 10. Handles any errors that occur during the bidding process by re-enabling the button and alerting the user.
  *
  * @async
- * @function submitBidOnListingForm
+ * @function submitBid
  * @param {Object} user - The user object containing user information.
  * @param {number} user.credits - The number of credits the user currently has.
  * @param {HTMLFormElement} form - The form element where the user submits their bid.
@@ -41,9 +41,9 @@ import { disableButton, enableButton } from '../../helpers/buttonState.js';
  * const modal = document.getElementById('bidModal');
  *
  * // Initialize the bid submission listener
- * submitBidOnListingForm(user, form, listing, modal);
+ * submitBid(user, form, listing, modal);
  */
-export function submitBidOnListingForm(user, form, listing, modal) {
+export function submitBid(user, form, listing, modal) {
   const placeBidBtn = form.querySelector('#placeBidBtn'); // Get the place bid button
 
   // Handle form submission

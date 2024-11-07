@@ -1,4 +1,4 @@
-import { submitBidOnListingForm } from '../../events/auction/submitForm.js';
+import { submitBid } from '../../events/api/auction/submitBid.js';
 import { getHighestBid } from '../../helpers/bidOnListing.js';
 import { displayCredits } from '../../helpers/displayCredits.js';
 
@@ -25,12 +25,12 @@ import { displayCredits } from '../../helpers/displayCredits.js';
  * const modal = document.createElement('div');
  *
  * // Create the bid on listing form component
- * const bidForm = bidOnListingFormComponent(user, listing, modal);
+ * const bidForm = bidFormComponent(user, listing, modal);
  *
  * // Append the form to the modal
  * modal.querySelector('.modal-content').appendChild(bidForm);
  */
-export function bidOnListingFormComponent(user, listing, modal) {
+export function bidFormComponent(user, listing, modal) {
   const form = document.createElement('form'); // Create the form element
   form.classList.add('space-y-4'); // Add classes to the form
 
@@ -51,7 +51,7 @@ export function bidOnListingFormComponent(user, listing, modal) {
   `;
 
   // Add event listeners
-  submitBidOnListingForm(user, form, listing, modal);
+  submitBid(user, form, listing, modal);
 
   return form;
 }

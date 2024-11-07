@@ -1,4 +1,4 @@
-import { placeBidEventListener } from '../../events/auction/placeBid.js';
+import { openBidModal } from '../../events/auction/openBidModal.js';
 import { endString, listingEnded } from '../../helpers/bidOnListing.js';
 
 /**
@@ -102,6 +102,6 @@ export function listingCardComponent(listing) {
     placeBidButton.disabled = true;
   }
   listingElement.appendChild(placeBidButton);
-  placeBidEventListener(listingElement, listing);
+  openBidModal(listingElement, listing);
   return listingElement;
 }

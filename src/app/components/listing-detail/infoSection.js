@@ -1,4 +1,4 @@
-import { placeBidEventListener } from '../../events/auction/placeBid.js';
+import { openBidModal } from '../../events/auction/openBidModal.js';
 import { endString, listingEnded } from '../../helpers/bidOnListing.js';
 
 /**
@@ -49,7 +49,7 @@ export function infoSectionComponent(listing) {
   }
 
   // Add event listeners to the buttons
-  placeBidEventListener(infoContainer, listing);
+  openBidModal(infoContainer, listing);
 
   return infoContainer;
 }

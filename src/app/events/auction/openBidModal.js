@@ -1,6 +1,6 @@
 import { modalComponent } from '../../components/common/modalComponent.js';
 import { isLoggedIn, profile } from '../../helpers/authState.js';
-import { bidOnListingFormComponent } from '../../components/common/bidOnListingFormComponent.js';
+import { bidFormComponent } from '../../components/common/bidFormComponent.js';
 
 /**
  * Attaches a click event listener to the "Place Bid" button within a listing.
@@ -23,9 +23,9 @@ import { bidOnListingFormComponent } from '../../components/common/bidOnListingF
  * const listing = { id: 123, title: 'Vintage Clock', };
  *
  * // Initialize the place bid event listener
- * placeBidEventListener(container, listing);
+ * openBidModal(container, listing);
  */
-export function placeBidEventListener(container, listing) {
+export function openBidModal(container, listing) {
   const placeBidButton = container.querySelector('#placeBidButton');
   let listingIds = [];
 
@@ -49,7 +49,7 @@ export function placeBidEventListener(container, listing) {
       } else {
         const modal = modalComponent(); // Create a modal
         const user = profile(); // Get the user profile
-        const form = bidOnListingFormComponent(user, listing, modal); // Create the form
+        const form = bidFormComponent(user, listing, modal); // Create the form
 
         // Add the form to the modal content
         const modalContent = modal.querySelector('.modal-content');
