@@ -1,4 +1,4 @@
-import { listingCardComponent } from '../listings/listingCardComponent.js';
+import { listingCardComponent } from './listingCardComponent.js';
 
 // Function to create a carousel component
 export function imgCarouselComponent(listings) {

@@ -1,5 +1,5 @@
 import { searchListings } from '../api/auction/searchListings.js';
-import { listingCardComponent } from '../components/listings/listingCardComponent.js';
+import { listingCardComponent } from '../components/common/listingCardComponent.js';
 import { bouncer } from '../components/loaders/bouncer.js';
 import { listingEnded } from '../helpers/bidOnListing.js';
 

@@ -1,5 +1,5 @@
-import { creditsAndActions } from '../components/listings/creditsAndActions.js';
-import { listingCategories } from '../components/listings/listingCategories.js';
+import { creditsAndActions } from '../components/home/creditsAndActions.js';
+import { listingCategories } from '../components/home/listingCategories.js';
 import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 

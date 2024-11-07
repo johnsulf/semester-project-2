@@ -1,4 +1,4 @@
-import { searchResultItem } from '../components/listings/searchResultItem.js';
+import { searchResultItem } from '../components/home/searchResultItem.js';
 
 /**
  * Shows the search results container by removing the 'hidden' class.
