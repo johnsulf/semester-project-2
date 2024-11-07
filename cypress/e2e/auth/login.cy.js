@@ -1,7 +1,6 @@
 // successful login
 describe('User Authentication', () => {
   beforeEach(() => {
-    // Runs before each test in the block
     cy.visit('/#/login'); // Uses baseUrl from cypress.config.js
   });
 
@@ -49,7 +48,7 @@ describe('User Authentication', () => {
       cy.get('#loginBtn').click();
 
       cy.on('window:alert', (str) => {
-        expect(str).to.equal('An error occurred: Invalid email or password');
+        expect(str).to.equal('Login failed: Invalid email or password');
       });
     });
   });
