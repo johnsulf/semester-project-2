@@ -39,7 +39,7 @@ export function bidOnListingFormComponent(user, listing, modal) {
     <h2 class="text-xl font-bold mb-4">Place a Bid</h2>
     <div class="px-4 py-2 rounded bg-gray-100 border">
       ${displayCredits('Your Credits: ', user.credits, listing)}
-      ${getHighestBid(listing.bids)}
+      <p>Current highest bid: <span>${getHighestBid(listing.bids)}</span></p>
     </div>
     <div>
       <label for="bidAmount" class="block text-sm font-medium text-gray-700">Bid Amount</label>

@@ -14,8 +14,12 @@ export async function createListing(data) {
 
     const result = await response.json(); // Parse the JSON from the response
 
+    if (!response.ok) {
+      throw new Error(result.errors[0].message);
+    }
+
     return result.data;
   } catch (error) {
-    throw new Error(error);
+    throw Error(error);
   }
 }

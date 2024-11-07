@@ -1,7 +1,7 @@
 import { modalComponent } from '../../../components/common/modalComponent.js';
 import { createListingFormComponent } from '../../../components/listings/createListingFormComponent.js';
 import { createListing } from '../../../api/auction/createListing.js';
-import { displaySuccessMessage } from '../../../components/listings/createListingSuccess.js';
+import { successModal } from '../../../components/listings/createListingSuccess.js';
 import { disableButton, enableButton } from '../../../helpers/buttonState.js';
 
 /**
@@ -33,20 +33,20 @@ export function createListingEventListener(container, btnId) {
             'bg-primary',
             'bg-gray-400',
           );
+
+          // Do the HTTP POST request to create the listing
           const listing = await createListing(data);
 
+          // Replace modal content with success message
+          successModal(listing, modal);
+        } catch (error) {
+          alert('An error occurred while creating the listing: ' + error);
+        } finally {
           enableButton(
             submitFormButton,
             'Create Listing',
             'bg-gray-400',
             'bg-primary',
-          );
-          // Replace modal content with success message
-          displaySuccessMessage(listing, modal);
-        } catch (error) {
-          console.error('Error creating listing:', error);
-          alert(
-            'An error occurred while creating the listing. Please try again.',
           );
         }
       }, modal);

@@ -1,6 +1,4 @@
 /**
- * Displays a success message when a listing is successfully created.
- *
  * This function replaces the content of the provided modal with a success message,
  * including options to go to the newly created listing or close the modal.
  * It also sets up event listeners for the buttons within the success message.
@@ -10,9 +8,9 @@
  *
  * @example
  * // After creating a listing and receiving the listing object and modal:
- * displaySuccessMessage(listing, modal);
+ * successModal(listing, modal);
  */
-export function displaySuccessMessage(listing, modal) {
+export function successModal(listing, modal) {
   const successMessage = document.createElement('div'); // Create the success message element
   successMessage.classList.add('text-center'); // Add classes to the success message element
 

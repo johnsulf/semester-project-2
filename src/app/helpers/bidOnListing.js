@@ -1,5 +1,3 @@
-import { displayCredits } from './displayCredits.js';
-
 /**
  * Retrieves the current highest bid from a list of bids and formats it for display.
  *
@@ -15,9 +13,9 @@ import { displayCredits } from './displayCredits.js';
 export function getHighestBid(bids) {
   if (bids && bids.length > 0) {
     const sortedBids = bids.sort((a, b) => b.amount - a.amount); // Sort the bids in descending order
-    return displayCredits('Current Highest Bid: ', sortedBids[0].amount); // Return the highest bid amount
+    return sortedBids[0].amount; // Return the highest bid amount
   }
-  return displayCredits('Current Highest Bid: ', 0); // Return zero if there are no bids
+  return 0; // Return zero if there are no bids
 }
 
 /**
@@ -75,3 +73,29 @@ export function endString(listing) {
     ? `Auction ended on: ${dateString}`
     : `Auction ends at: ${dateString}`;
 }
+
+export const validateBidInput = (bidAmount, credits, bids) => {
+  console.log(bidAmount);
+  console.log(credits);
+  console.log(bids);
+
+  if (bidAmount > credits) {
+    alert('You cannot bid more than your available credits.');
+    console.log('Bid amount is higher than available credits');
+    return false;
+  }
+
+  // Ensure bid is higher than current highest bid
+  const highestBid = getHighestBid(bids);
+  console.log(highestBid);
+  // Compare the bid amount with the highest bid and show an alert if the bid is not higher
+  if (bidAmount <= highestBid) {
+    alert(
+      `Your bid must be higher than the current highest bid of ${highestBid} credits.`,
+    );
+    console.log('Bid amount is not higher than current highest bid');
+    return false;
+  }
+  console.log('Bid input is valid');
+  return true;
+};
