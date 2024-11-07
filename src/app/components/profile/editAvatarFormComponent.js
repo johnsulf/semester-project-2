@@ -1,4 +1,4 @@
-import { submitEditAvatar } from '../../events/api/profile/submitForm.js';
+import { submitEditAvatar } from '../../events/api/profile/submitEditAvatar.js';
 
 /**
  * Creates the edit avatar form component within a modal.

@@ -1,6 +1,6 @@
 import { updateUserProfile } from '../../../api/profile/updateUserProfile.js';
 import { disableButton, enableButton } from '../../../helpers/buttonState.js';
-import { refreshUserData } from '../../../helpers/refreshUserData.js';
+import { refreshUserData } from './refreshUserData.js';
 
 /**
  * Attaches a submit event listener to the edit avatar form to handle avatar updates.

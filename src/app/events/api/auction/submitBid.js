@@ -1,7 +1,7 @@
 import { bidOnListing } from '../../../api/auction/bidOnListing.js';
-import { refreshUserData } from '../../../helpers/refreshUserData.js';
+import { refreshUserData } from '../profile/refreshUserData.js';
 import { getListingById } from '../../../api/auction/getListingById.js';
-import { buildNav } from '../../../components/nav/nav.js';
+import { buildNav } from '../../../components/nav/buildNav.js';
 import {
   updateBidsSection,
   validateBidInput,

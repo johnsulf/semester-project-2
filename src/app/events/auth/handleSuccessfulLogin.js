@@ -1,6 +1,6 @@
-import { save } from '../storage/save.js';
-import { buildNav } from '../components/nav/nav.js';
-import { getUserProfile } from '../api/profile/getUserProfile.js';
+import { save } from '../../storage/save.js';
+import { buildNav } from '../../components/nav/buildNav.js';
+import { getUserProfile } from '../../api/profile/getUserProfile.js';
 
 /**
  * Handles the actions to be performed after a successful login, including saving user data,
