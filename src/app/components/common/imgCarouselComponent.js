@@ -1,7 +1,7 @@
-import { listingCardComponent } from './listingCardComponent.js';
+import { listingCardComponent } from '../listings/listingCardComponent.js';
 
 // Function to create a carousel component
-export function carouselComponent(listings) {
+export function imgCarouselComponent(listings) {
   const carouselWrapper = document.createElement('div'); // Create the carousel wrapper
   carouselWrapper.classList.add('overflow-scroll', 'relative'); // Add classes to the carousel wrapper
 

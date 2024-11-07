@@ -1,5 +1,5 @@
 import { getListingById } from '../../api/auction/getListingById.js';
-import { mediaCarouselComponent } from '../../components/listing-detail/mediaCarousel.js';
+import { imgSectionComponent } from '../../components/listing-detail/imgSectionComponent.js';
 import { infoSectionComponent } from '../../components/listing-detail/infoSection.js';
 import { bidsSectionComponent } from '../../components/listing-detail/bidsSection.js';
 import { bouncer } from '../../components/loaders/bouncer.js';
@@ -42,7 +42,7 @@ export async function initListingDetailView(app, listingId) {
     listingDetailElement.classList.add('p-4');
 
     // Create the media carousel component
-    const mediaCarousel = mediaCarouselComponent(listing);
+    const mediaCarousel = imgSectionComponent(listing);
 
     // Create the info section component
     const infoSection = infoSectionComponent(listing);

@@ -1,6 +1,6 @@
 import { modalComponent } from '../../components/common/modalComponent.js';
 import { isLoggedIn, profile } from '../../helpers/authState.js';
-import { bidOnListingFormComponent } from '../../components/listing-detail/bidOnListingFormComponent.js';
+import { bidOnListingFormComponent } from '../../components/common/bidOnListingFormComponent.js';
 
 /**
  * Attaches a click event listener to the "Place Bid" button within a listing.

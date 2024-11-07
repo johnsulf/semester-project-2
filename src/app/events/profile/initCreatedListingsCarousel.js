@@ -1,5 +1,5 @@
 import { profile } from '../../helpers/authState.js';
-import { carouselComponent } from '../../components/listings/carouselComponent.js';
+import { imgCarouselComponent } from '../../components/common/imgCarouselComponent.js';
 import { listingEnded } from '../../helpers/bidOnListing.js';
 
 /**
@@ -29,7 +29,7 @@ export function initCreatedListingsCarousel() {
 
   listings.sort((a, b) => listingEnded(a) - listingEnded(b)); // Sort the listings by end date
 
-  const carousel = carouselComponent(listings); // Create the carousel component
+  const carousel = imgCarouselComponent(listings); // Create the carousel component
 
   carouselContainer.appendChild(carousel); // Append the carousel to the container
 }

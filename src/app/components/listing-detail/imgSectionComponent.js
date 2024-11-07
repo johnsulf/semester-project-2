@@ -22,12 +22,12 @@
  * };
  *
  * // Create the media carousel component
- * const carousel = mediaCarouselComponent(listing);
+ * const carousel = imgSectionComponent(listing);
  *
  * // Append the carousel to a container
  * document.getElementById('mediaCarouselContainer').appendChild(carousel);
  */
-export function mediaCarouselComponent(listing) {
+export function imgSectionComponent(listing) {
   const mediaContainer = document.createElement('div'); // Create the media container
 
   if (listing.media && listing.media.length > 0) {

@@ -1,5 +1,5 @@
 import { getLatestListings } from '../../api/auction/getLatestListings.js';
-import { carouselComponent } from '../../components/listings/carouselComponent.js';
+import { imgCarouselComponent } from '../../components/common/imgCarouselComponent.js';
 import { displayLatestListingsLoader } from '../../helpers/displayLoaders.js';
 
 /**
@@ -41,7 +41,7 @@ export async function initLatestListingsCarousel() {
     }
 
     // Create and Append the Carousel Component
-    const carousel = carouselComponent(listings);
+    const carousel = imgCarouselComponent(listings);
     carouselContainer.appendChild(carousel);
   } catch (error) {
     // Handle Errors and Remove Loaders
