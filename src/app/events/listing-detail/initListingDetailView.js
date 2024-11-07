@@ -2,7 +2,7 @@ import { getListingById } from '../../api/auction/getListingById.js';
 import { imgSectionComponent } from '../../components/listing-detail/imgSectionComponent.js';
 import { infoSectionComponent } from '../../components/listing-detail/infoSection.js';
 import { bidsSectionComponent } from '../../components/listing-detail/bidsSection.js';
-import { bouncer } from '../../components/loaders/bouncer.js';
+import { bouncer } from '../../components/common/loaders/bouncer.js';
 
 /**
  * Initializes the listing detail view by fetching listing details, creating and assembling

@@ -1,5 +1,5 @@
 import { searchListings } from '../../api/auction/searchListings.js';
-import { bouncer } from '../../components/loaders/bouncer.js';
+import { bouncer } from '../../components/common/loaders/bouncer.js';
 import { listingEnded } from '../../helpers/bidOnListing.js';
 import {
   showSearchResultsContainer,

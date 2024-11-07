@@ -1,4 +1,4 @@
-import { listingCardLoader } from '../components/loaders/listingCardLoader.js';
+import { listingCardLoader } from '../components/common/loaders/listingCardLoader.js';
 
 /**
  * Displays skeleton loader elements in the latest listings carousel container while data is being fetched.
