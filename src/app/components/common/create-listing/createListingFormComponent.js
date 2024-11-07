@@ -1,5 +1,5 @@
 import { addMediaEventListener } from '../../../events/auction/helpers/addMedia.js';
-import { closeFormEventListener } from '../../../events/auction/helpers/closeForm.js';
+import { closeCreateListingModal } from '../../../events/auction/helpers/createListingModalHandlers.js';
 import { submitCreateListing } from '../../../events/api/auction/submitCreateListing.js';
 
 /**
@@ -64,7 +64,7 @@ export function createListingFormComponent(modal) {
 
   // After creating the HTML, event listeners are added
   addMediaEventListener(form);
-  closeFormEventListener(form, modal);
+  closeCreateListingModal(form, modal);
   submitCreateListing(form, modal);
 
   return form;

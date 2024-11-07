@@ -1,3 +1,8 @@
+import {
+  closeSuccesModal,
+  goToListingFromSuccessModal,
+} from '../../../events/auction/helpers/createListingModalHandlers.js';
+
 /**
  * This function replaces the content of the provided modal with a success message,
  * including options to go to the newly created listing or close the modal.
@@ -29,19 +34,6 @@ export function successModal(listing, modal) {
   modalContent.innerHTML = '';
   modalContent.appendChild(successMessage);
 
-  // Add event listener to close the modal
-  const closeModalBtn = successMessage.querySelector('#closeModalBtn');
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', () => {
-      modal.remove();
-    });
-  }
-
-  // Add event listener to "Go to Listing" button
-  const goToListingBtn = successMessage.querySelector('#goToListingBtn');
-  if (goToListingBtn) {
-    goToListingBtn.addEventListener('click', () => {
-      modal.remove();
-    });
-  }
+  closeSuccesModal(successMessage, modal);
+  goToListingFromSuccessModal(successMessage, modal);
 }
