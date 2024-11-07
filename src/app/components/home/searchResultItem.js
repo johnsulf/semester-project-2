@@ -1,4 +1,4 @@
-import { navigateToListing } from '../../events/listings/navigateToListingFromSearch.js';
+import { navigateToListing } from '../../events/home/navigateToListingFromSearch.js';
 import { endString, listingEnded } from '../../helpers/bidOnListing.js';
 
 // Function to create a search result item

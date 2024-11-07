@@ -17,7 +17,7 @@ import { bouncer } from '../../components/common/loaders/bouncer.js';
  * 6. Handles any errors that occur during the fetching or rendering process by displaying an error message.
  *
  * @async
- * @function initListingDetailView
+ * @function buildListingDetailView
  * @param {HTMLElement} app - The main application container where the listing details will be rendered.
  * @param {string|number} listingId - The unique identifier of the listing to display.
  *
@@ -27,9 +27,9 @@ import { bouncer } from '../../components/common/loaders/bouncer.js';
  * const listingId = 123;
  *
  * // Initialize the listing detail view
- * initListingDetailView(appContainer, listingId);
+ * buildListingDetailView(appContainer, listingId);
  */
-export async function initListingDetailView(app, listingId) {
+export async function buildListingDetailView(app, listingId) {
   // Show a loading indicator
   app.innerHTML = bouncer();
 

@@ -1,4 +1,4 @@
-import { hideSearchResultsContainerOnClick } from '../../helpers/searchResults.js';
+import { hideSearchResults } from '../home/hideSearchResults.js';
 import { searchInputEventListener } from './searchInput.js';
 import {
   searchSubmitClickEventListener,
@@ -34,5 +34,5 @@ export function initLiveSearch() {
   searchInputEventListener(searchInput, searchResultsContainer);
   searchSubmitEnterEventListener(searchInput);
   searchSubmitClickEventListener(searchInput);
-  hideSearchResultsContainerOnClick(searchResultsContainer, searchInput);
+  hideSearchResults(searchResultsContainer, searchInput);
 }

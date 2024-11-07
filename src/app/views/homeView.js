@@ -1,6 +1,6 @@
 import { wallet } from '../components/home/wallet.js';
 import { listingCategories } from '../components/home/listingCategories.js';
-import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
+import { initLatestListingsCarousel } from '../events/home/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
 
 /**
