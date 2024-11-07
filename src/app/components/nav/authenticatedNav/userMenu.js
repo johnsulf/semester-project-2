@@ -42,7 +42,7 @@ export function userMenu(userData) {
   // Then, append the rest of the elements
   const menuLinks = `
     <a href="#/profile" id="profile" class="flex gap-1 items-center p-2 rounded-md hover:bg-gray-100">
-      <p class="w-6 h-6">👤</p>
+      <img src="src/assets/profile.png" alt="Profile Icon" class="w-6 h-6" />
       Profile
     </a>
     <a href="#" id="logout" class="text-error flex gap-1 items-center p-2 rounded-md hover:bg-error hover:text-white">
