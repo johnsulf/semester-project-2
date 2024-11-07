@@ -1,4 +1,4 @@
-import { profile } from '../api/auth/authState.js';
+import { profile } from '../helpers/authState.js';
 import { initAuctionWinsCarousel } from '../events/profile/initAuctionWinsCarousel.js';
 import { initCreatedListingsCarousel } from '../events/profile/initCreatedListingsCarousel.js';
 import { openEditAvatarModalListener } from '../events/profile/openEditAvatarModal.js';

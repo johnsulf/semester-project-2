@@ -1,4 +1,4 @@
-import { isLoggedIn } from '../api/auth/authState.js';
+import { isLoggedIn } from '../helpers/authState.js';
 import { initListingDetailView } from '../events/listing-detail/initListingDetailView.js';
 
 /**

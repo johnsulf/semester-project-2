@@ -1,7 +1,7 @@
 import { apiBase } from '../constants.js';
 import { headers } from '../headers.js';
 import { profiles } from '../endpoints.js';
-import { profile } from '../auth/authState.js';
+import { profile } from '../../helpers/authState.js';
 
 // Function to update the user profile
 export async function updateUserProfile(avatarUrl) {

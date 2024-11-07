@@ -1,5 +1,5 @@
 import { modalComponent } from '../../components/common/modalComponent.js';
-import { isLoggedIn, profile } from '../../api/auth/authState.js';
+import { isLoggedIn, profile } from '../../helpers/authState.js';
 import { bidOnListingFormComponent } from '../../components/listing-detail/bidOnListingFormComponent.js';
 
 /**

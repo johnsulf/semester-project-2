@@ -1,4 +1,4 @@
-import { profile } from '../../api/auth/authState.js';
+import { profile } from '../../helpers/authState.js';
 import { authenticatedNav } from './authenticatedNav/authenticatedNav.js';
 import { unauthenticatedNav } from './unauthenticatedNav.js';
 

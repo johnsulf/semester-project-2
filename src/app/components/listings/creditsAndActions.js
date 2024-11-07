@@ -1,5 +1,5 @@
-import { isLoggedIn } from '../../api/auth/authState.js';
-import { profile } from '../../api/auth/authState.js';
+import { isLoggedIn } from '../../helpers/authState.js';
+import { profile } from '../../helpers/authState.js';
 import { createListingEventListener } from '../../events/nav/create-listing/createListing.js';
 import { creditsAndActionsStates } from '../../helpers/creditsAndActionsStates.js';
 import { createListingBtn } from '../common/createListingBtn.js';

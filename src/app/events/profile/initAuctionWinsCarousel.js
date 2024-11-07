@@ -1,4 +1,4 @@
-import { profile } from '../../api/auth/authState.js';
+import { profile } from '../../helpers/authState.js';
 import { carouselComponent } from '../../components/listings/carouselComponent.js';
 import { listingEnded } from '../../helpers/bidOnListing.js';
 

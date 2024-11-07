@@ -1,4 +1,4 @@
-import { load } from '../../storage/index.js';
+import { load } from '../storage/load.js';
 
 /**
  * Determines whether the user is currently logged in by checking for the presence of an authentication token.
