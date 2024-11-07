@@ -1,4 +1,4 @@
-export const creditsAndActionsStates = [
+export const walletStates = [
   {
     minCredits: 0,
     maxCredits: 0,

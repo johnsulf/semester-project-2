@@ -1,7 +1,7 @@
 import { isLoggedIn } from '../../helpers/authState.js';
 import { profile } from '../../helpers/authState.js';
 import { createListingEventListener } from '../../events/nav/create-listing/createListing.js';
-import { creditsAndActionsStates } from '../../helpers/creditsAndActionsStates.js';
+import { walletStates } from '../../helpers/walletStates.js';
 import { createListingBtn } from '../common/create-listing/createListingBtn.js';
 
 /**
@@ -13,13 +13,11 @@ import { createListingBtn } from '../common/create-listing/createListingBtn.js';
  * @returns {HTMLElement} - The populated credits and actions container element.
  *
  * @example
- * // Assuming you have an element with the ID 'creditsAndActionsContainer' in your HTML
- * creditsAndActions();
+ * // Assuming you have an element with the ID 'walletContainer' in your HTML
+ * wallet();
  */
-export async function creditsAndActions() {
-  const creditsAndActionsContainer = document.getElementById(
-    'creditsAndActionsContainer',
-  );
+export async function wallet() {
+  const walletContainer = document.getElementById('walletContainer');
 
   let content = document.createElement('div');
 
@@ -35,7 +33,7 @@ export async function creditsAndActions() {
     const header = document.createElement('h2');
     header.classList.add('mb-4');
     header.textContent = 'Your Wallet';
-    creditsAndActionsContainer.appendChild(header);
+    walletContainer.appendChild(header);
 
     // Create content based on credits
     content = loggedInContent(credits);
@@ -51,9 +49,9 @@ export async function creditsAndActions() {
     `;
   }
 
-  creditsAndActionsContainer.appendChild(content);
+  walletContainer.appendChild(content);
 
-  return creditsAndActionsContainer;
+  return walletContainer;
 }
 
 /**
@@ -64,7 +62,7 @@ export async function creditsAndActions() {
  *
  * @example
  * const content = loggedInContent(user.credits);
- * creditsAndActionsContainer.appendChild(content);
+ * walletContainer.appendChild(content);
  */
 function loggedInContent(credits) {
   const state = contentState(credits);
@@ -184,7 +182,7 @@ function loggedInContent(credits) {
  * }
  */
 function contentState(credits) {
-  return creditsAndActionsStates.find(
+  return walletStates.find(
     (state) => credits >= state.minCredits && credits <= state.maxCredits,
   );
 }

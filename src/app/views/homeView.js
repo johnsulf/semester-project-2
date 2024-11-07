@@ -1,4 +1,4 @@
-import { creditsAndActions } from '../components/home/creditsAndActions.js';
+import { wallet } from '../components/home/wallet.js';
 import { listingCategories } from '../components/home/listingCategories.js';
 import { initLatestListingsCarousel } from '../events/listings/initLatestListingsCarousel.js';
 import { initLiveSearch } from '../events/search-listings/initLiveSearch.js';
@@ -40,7 +40,7 @@ export async function homeView(app) {
       </div>
     </section>
     <hr class="my-4" />
-    <section id="creditsAndActionsContainer" class="mt-4 bg-success bg-opacity-20 py-6 px-4 rounded">
+    <section id="walletContainer" class="mt-4 bg-success bg-opacity-20 py-6 px-4 rounded">
       <!-- Credits And Actions content will be injected here -->
     </section>
     <section class="mt-4 bg-secondary bg-opacity-20 py-6 px-4 rounded">
@@ -57,7 +57,7 @@ export async function homeView(app) {
   `;
 
   // Initialize credits and actions section
-  creditsAndActions();
+  wallet();
 
   // Initialize live search functionality
   initLiveSearch();
