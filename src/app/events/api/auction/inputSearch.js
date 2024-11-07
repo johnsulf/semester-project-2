@@ -1,11 +1,11 @@
-import { searchListings } from '../../api/auction/searchListings.js';
-import { bouncer } from '../../components/common/loaders/bouncer.js';
-import { listingEnded } from '../../helpers/bidOnListing.js';
+import { searchListings } from '../../../api/auction/searchListings.js';
+import { bouncer } from '../../../components/common/loaders/bouncer.js';
+import { listingEnded } from '../../../helpers/bidOnListing.js';
 import {
   showSearchResultsContainer,
   hideSearchResultsContainer,
-} from '../../helpers/searchResults.js';
-import { displaySearchResults } from '../../helpers/searchResults.js';
+} from '../../../helpers/searchResults.js';
+import { displaySearchResults } from '../../../helpers/searchResults.js';
 
 /**
  * Adds an input event listener to the search input field to handle live search functionality.
@@ -24,9 +24,9 @@ import { displaySearchResults } from '../../helpers/searchResults.js';
  * const searchResultsContainer = document.getElementById('searchResults');
  *
  * // Initialize the live search functionality
- * searchInputEventListener(searchInput, searchResultsContainer);
+ * inputSearch(searchInput, searchResultsContainer);
  */
-export function searchInputEventListener(searchInput, searchResultsContainer) {
+export function inputSearch(searchInput, searchResultsContainer) {
   let typingTimer;
   const typingDelay = 500; // Delay in milliseconds to wait before sending the search request
   searchInput.addEventListener('input', () => {

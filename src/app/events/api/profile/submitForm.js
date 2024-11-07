@@ -1,6 +1,6 @@
-import { updateUserProfile } from '../../api/profile/updateUserProfile.js';
-import { disableButton, enableButton } from '../../helpers/buttonState.js';
-import { refreshUserData } from '../../helpers/refreshUserData.js';
+import { updateUserProfile } from '../../../api/profile/updateUserProfile.js';
+import { disableButton, enableButton } from '../../../helpers/buttonState.js';
+import { refreshUserData } from '../../../helpers/refreshUserData.js';
 
 /**
  * Attaches a submit event listener to the edit avatar form to handle avatar updates.
@@ -15,7 +15,7 @@ import { refreshUserData } from '../../helpers/refreshUserData.js';
  * 7. Handles any errors that occur during the update process by re-enabling the button and alerting the user.
  *
  * @async
- * @function submitEditAvatarFormListener
+ * @function submitEditAvatar
  * @param {HTMLFormElement} form - The form element for editing the avatar.
  * @param {HTMLElement} modal - The modal element containing the form.
  *
@@ -25,9 +25,9 @@ import { refreshUserData } from '../../helpers/refreshUserData.js';
  * const modal = document.getElementById('editAvatarModal');
  *
  * // Initialize the form submission listener
- * submitEditAvatarFormListener(form, modal);
+ * submitEditAvatar(form, modal);
  */
-export async function submitEditAvatarFormListener(form, modal) {
+export async function submitEditAvatar(form, modal) {
   const updateAvatarBtn = form.querySelector('#updateBtn');
 
   // Listen for the form submission

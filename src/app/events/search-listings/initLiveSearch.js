@@ -1,5 +1,5 @@
 import { hideSearchResults } from '../home/hideSearchResults.js';
-import { searchInputEventListener } from './searchInput.js';
+import { inputSearch } from '../api/auction/inputSearch.js  ';
 import {
   searchSubmitClickEventListener,
   searchSubmitEnterEventListener,
@@ -31,7 +31,7 @@ export function initLiveSearch() {
   }
 
   // Add event listeners
-  searchInputEventListener(searchInput, searchResultsContainer);
+  inputSearch(searchInput, searchResultsContainer);
   searchSubmitEnterEventListener(searchInput);
   searchSubmitClickEventListener(searchInput);
   hideSearchResults(searchResultsContainer, searchInput);

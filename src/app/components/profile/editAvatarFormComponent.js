@@ -1,4 +1,4 @@
-import { submitEditAvatarFormListener } from '../../events/profile/submitForm.js';
+import { submitEditAvatar } from '../../events/api/profile/submitForm.js';
 
 /**
  * Creates the edit avatar form component within a modal.
@@ -54,7 +54,7 @@ export function editAvatarFormComponent(modal) {
   `;
 
   // Attach the form submission event listener
-  submitEditAvatarFormListener(form, modal);
+  submitEditAvatar(form, modal);
 
   return form;
 }
