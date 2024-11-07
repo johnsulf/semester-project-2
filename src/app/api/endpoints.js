@@ -1,5 +1,5 @@
 // API endpoints
-export const login = '/auth/login';
-export const register = '/auth/register';
-export const listings = '/auction/listings';
-export const profiles = '/auction/profiles';
+export const LOGIN = '/auth/login';
+export const REGISTER = '/auth/register';
+export const LISTINGS = '/auction/listings';
+export const PROFILES = '/auction/profiles';

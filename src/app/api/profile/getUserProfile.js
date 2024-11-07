@@ -1,7 +1,7 @@
-import { apiBase } from '../constants.js';
+import { API_BASE } from '../constants.js';
 import { headers } from '../headers.js';
 import { load } from '../../storage/load.js';
-import { profiles } from '../endpoints.js';
+import { PROFILES } from '../endpoints.js';
 
 // Function to get the user profile
 export async function getUserProfile() {
@@ -10,7 +10,7 @@ export async function getUserProfile() {
   // Do a GET request to the API to get the user profile
   try {
     const response = await fetch(
-      `${apiBase + profiles}/${name}?_listings=true&_wins=true`,
+      `${API_BASE + PROFILES}/${name}?_listings=true&_wins=true`,
       {
         method: 'GET',
         headers: headers('application/json'),

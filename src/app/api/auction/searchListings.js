@@ -1,5 +1,5 @@
-import { apiBase } from '../constants.js';
-import { listings } from '../endpoints.js';
+import { API_BASE } from '../constants.js';
+import { LISTINGS } from '../endpoints.js';
 import { headers } from '../headers.js';
 
 // Function to search listings
@@ -7,7 +7,7 @@ export async function searchListings(query) {
   // Do a GET request to the API to search for listings
   try {
     const response = await fetch(
-      `${apiBase + listings}/search?q=${encodeURIComponent(query)}&_seller=true&_bids=true`,
+      `${API_BASE + LISTINGS}/search?q=${encodeURIComponent(query)}&_seller=true&_bids=true`,
       {
         method: 'GET',
         headers: headers('application/json'),

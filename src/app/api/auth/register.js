@@ -1,5 +1,5 @@
-import { apiBase } from '../constants.js';
-import { register as regEp } from '../endpoints.js';
+import { API_BASE } from '../constants.js';
+import { REGISTER } from '../endpoints.js';
 import { headers } from '../headers.js';
 
 /**
@@ -29,7 +29,7 @@ export async function register(name, email, password, avatar) {
       requestBody.avatar = avatar;
     }
 
-    const response = await fetch(`${apiBase + regEp}`, {
+    const response = await fetch(`${API_BASE + REGISTER}`, {
       method: 'POST',
       headers: headers('application/json', false),
       body: JSON.stringify(requestBody),

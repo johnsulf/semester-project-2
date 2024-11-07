@@ -1,5 +1,5 @@
-import { apiBase } from '../constants.js';
-import { login as loginEp } from '../endpoints.js';
+import { API_BASE } from '../constants.js';
+import { LOGIN } from '../endpoints.js';
 import { headers } from '../headers.js';
 
 /**
@@ -16,7 +16,7 @@ import { headers } from '../headers.js';
 export async function login(email, password) {
   // Do a POST request to the API to log in the user
   try {
-    const response = await fetch(`${apiBase + loginEp}`, {
+    const response = await fetch(`${API_BASE + LOGIN}`, {
       method: 'POST',
       headers: headers('application/json', false),
       body: JSON.stringify({ email, password }),
