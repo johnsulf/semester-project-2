@@ -1,5 +1,5 @@
-import { addMediaEventListener } from '../../../events/helpers/create-listing/addMedia.js';
-import { closeFormEventListener } from '../../../events/helpers/create-listing/closeForm.js';
+import { addMediaEventListener } from '../../../events/helpers/auction/addMedia.js';
+import { closeFormEventListener } from '../../../events/helpers/auction/closeForm.js';
 import { submitCreateListing } from '../../../events/api/auction/submitCreateListing.js';
 
 /**

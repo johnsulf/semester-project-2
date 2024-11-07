@@ -1,4 +1,4 @@
-import { mediaUrls } from '../../helpers/create-listing/addMedia.js';
+import { mediaUrls } from '../../helpers/auction/addMedia.js';
 import { disableButton, enableButton } from '../../../helpers/buttonState.js';
 import { successModal } from '../../../components/common/create-listing/createListingSuccess.js';
 import { createListing } from '../../../api/auction/createListing.js';
