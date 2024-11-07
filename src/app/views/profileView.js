@@ -19,7 +19,6 @@ import { openEditAvatarModalListener } from '../events/profile/openEditAvatarMod
  */
 export async function profileView(app) {
   const user = profile(); // Get the user profile from local storage
-  console.log(user);
 
   // Render the user profile
   app.innerHTML = `

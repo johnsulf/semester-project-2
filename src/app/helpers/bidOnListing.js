@@ -75,27 +75,19 @@ export function endString(listing) {
 }
 
 export const validateBidInput = (bidAmount, credits, bids) => {
-  console.log(bidAmount);
-  console.log(credits);
-  console.log(bids);
-
   if (bidAmount > credits) {
     alert('You cannot bid more than your available credits.');
-    console.log('Bid amount is higher than available credits');
     return false;
   }
 
   // Ensure bid is higher than current highest bid
   const highestBid = getHighestBid(bids);
-  console.log(highestBid);
   // Compare the bid amount with the highest bid and show an alert if the bid is not higher
   if (bidAmount <= highestBid) {
     alert(
       `Your bid must be higher than the current highest bid of ${highestBid} credits.`,
     );
-    console.log('Bid amount is not higher than current highest bid');
     return false;
   }
-  console.log('Bid input is valid');
   return true;
 };

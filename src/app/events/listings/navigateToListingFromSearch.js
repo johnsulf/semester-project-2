@@ -23,7 +23,6 @@ import { hideSearchResultsContainer } from '../../helpers/searchResults.js';
 export function navigateToListing(item, listing) {
   // Ensure that both `item` and `listing` are provided
   if (!item || !listing || !listing.id) {
-    console.error('navigateToListing: Invalid arguments provided.');
     return;
   }
 

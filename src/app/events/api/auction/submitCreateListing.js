@@ -25,11 +25,11 @@ import { createListing } from '../../../api/auction/createListing.js';
  * submitCreateListing(formElement, mediaUrls, handleFormSubmit);
  */
 export function submitCreateListing(form, modal) {
-  const submitFormButton = document.querySelector('#submitFormBtn'); // Get the submit button
-
   // handle form submission
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent the form from being submitted
+
+    const submitFormButton = document.querySelector('#submitFormBtn'); // Get the submit button
 
     // Collect form data
     const formData = new FormData(form);
