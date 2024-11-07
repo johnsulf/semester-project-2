@@ -32,9 +32,9 @@ export async function loginEventListener() {
     disableButton(loginButton, 'Logging in...', 'bg-primary', 'bg-gray-400');
 
     // Collect form data
-    const data = new FormData(form);
-    const email = data.get('email').trim();
-    const password = data.get('password').trim();
+    const formdata = new FormData(form);
+    const email = formdata.get('email').trim();
+    const password = formdata.get('password').trim();
 
     try {
       // Call the login function with the form data

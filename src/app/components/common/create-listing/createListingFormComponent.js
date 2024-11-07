@@ -1,6 +1,6 @@
-import { addMediaEventListener } from '../../../events/nav/create-listing/addMedia.js';
-import { closeFormEventListener } from '../../../events/nav/create-listing/closeForm.js';
-import { submitCreateListingForm } from '../../../events/nav/create-listing/submitForm.js';
+import { addMediaEventListener } from '../../../events/helpers/create-listing/addMedia.js';
+import { closeFormEventListener } from '../../../events/helpers/create-listing/closeForm.js';
+import { submitCreateListing } from '../../../events/api/auction/submitCreateListing.js';
 
 /**
  * Creates a form component for creating a new listing, including fields for title, description, media URLs, and end date/time.
@@ -19,11 +19,10 @@ import { submitCreateListingForm } from '../../../events/nav/create-listing/subm
  * modal.querySelector('.modal-content').appendChild(formComponent);
  * document.body.appendChild(modal);
  */
-export function createListingFormComponent(onSubmitCallback, modal) {
+export function createListingFormComponent(modal) {
   const form = document.createElement('form'); // Create the form element
   form.classList.add('space-y-4'); // Add classes to the form
 
-  const mediaUrls = []; // Create an empty array to store media URLs
   const now = new Date(); // Get the current date and time
   const tzOffset = now.getTimezoneOffset() * 60000; // Get the timezone offset in milliseconds
   const localISOTime = new Date(now - tzOffset).toISOString().slice(0, 16); // Get the local ISO time
@@ -64,9 +63,9 @@ export function createListingFormComponent(onSubmitCallback, modal) {
     `;
 
   // After creating the HTML, event listeners are added
-  addMediaEventListener(mediaUrls, form);
+  addMediaEventListener(form);
   closeFormEventListener(form, modal);
-  submitCreateListingForm(form, mediaUrls, onSubmitCallback);
+  submitCreateListing(form, modal);
 
   return form;
 }

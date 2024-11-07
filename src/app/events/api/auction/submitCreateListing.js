@@ -1,3 +1,8 @@
+import { mediaUrls } from '../../helpers/create-listing/addMedia.js';
+import { disableButton, enableButton } from '../../../helpers/buttonState.js';
+import { successModal } from '../../../components/common/create-listing/createListingSuccess.js';
+import { createListing } from '../../../api/auction/createListing.js';
+
 /**
  * Attaches a submit event listener to the form, processes the form data upon submission,
  * and invokes the provided callback function with the prepared data object.
@@ -17,10 +22,13 @@
  * }
  *
  * // Attach the submit event listener
- * submitCreateListingForm(formElement, mediaUrls, handleFormSubmit);
+ * submitCreateListing(formElement, mediaUrls, handleFormSubmit);
  */
-export function submitCreateListingForm(form, mediaUrls, onSubmitCallback) {
-  form.addEventListener('submit', (event) => {
+export function submitCreateListing(form, modal) {
+  const submitFormButton = document.querySelector('#submitFormBtn'); // Get the submit button
+
+  // handle form submission
+  form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent the form from being submitted
 
     // Collect form data
@@ -43,7 +51,26 @@ export function submitCreateListingForm(form, mediaUrls, onSubmitCallback) {
       endsAt,
     };
 
-    // Call the onSubmitCallback with the form data
-    onSubmitCallback(data);
+    disableButton(
+      submitFormButton,
+      'Creating Listing...',
+      'bg-primary',
+      'bg-gray-400',
+    );
+
+    try {
+      const listing = await createListing(data); // Do the HTTP POST request to create the listing
+
+      successModal(listing, modal); // Replace modal content with success message if the above doesnt throw an error
+    } catch (error) {
+      alert('An error occurred while creating the listing: ' + error);
+    } finally {
+      enableButton(
+        submitFormButton,
+        'Create Listing',
+        'bg-gray-400',
+        'bg-primary',
+      );
+    }
   });
 }

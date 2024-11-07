@@ -1,8 +1,5 @@
 import { modalComponent } from '../../components/common/modalComponent.js';
 import { createListingFormComponent } from '../../components/common/create-listing/createListingFormComponent.js';
-import { createListing } from '../../api/auction/createListing.js';
-import { successModal } from '../../components/common/create-listing/createListingSuccess.js';
-import { disableButton, enableButton } from '../../helpers/buttonState.js';
 
 /**
  * Adds an event listener to a button that, when clicked, opens a modal for creating a new listing.
@@ -19,41 +16,12 @@ export function openCreateListingModal(container, btnId) {
   const createListingButton = container.querySelector(`#${btnId}`);
   if (createListingButton) {
     createListingButton.addEventListener('click', () => {
-      // Create the modal component
-      const modal = modalComponent();
-
-      // Create the form component and pass the modal
-      const formComponent = createListingFormComponent(async (data) => {
-        const submitFormButton = document.querySelector('#submitFormBtn');
-        // Call createListing with the form data
-        try {
-          disableButton(
-            submitFormButton,
-            'Creating Listing...',
-            'bg-primary',
-            'bg-gray-400',
-          );
-
-          // Do the HTTP POST request to create the listing
-          const listing = await createListing(data);
-
-          // Replace modal content with success message
-          successModal(listing, modal);
-        } catch (error) {
-          alert('An error occurred while creating the listing: ' + error);
-        } finally {
-          enableButton(
-            submitFormButton,
-            'Create Listing',
-            'bg-gray-400',
-            'bg-primary',
-          );
-        }
-      }, modal);
+      const modal = modalComponent(); // Create the modal component
+      const form = createListingFormComponent(modal); // Create the form component and pass the modal
 
       // Set the modal content
       const modalContent = modal.querySelector('.modal-content');
-      modalContent.appendChild(formComponent);
+      modalContent.appendChild(form);
 
       // Append modal to the container
       document.body.appendChild(modal);

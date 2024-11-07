@@ -37,11 +37,11 @@ export async function registerEventListener() {
     );
 
     // Collect form data
-    const data = new FormData(form);
-    const name = data.get('name').trim();
-    const email = data.get('email').trim();
-    const password = data.get('password').trim();
-    const avatarUrl = data.get('avatar').trim();
+    const formData = new FormData(form);
+    const name = formData.get('name').trim();
+    const email = formData.get('email').trim();
+    const password = formData.get('password').trim();
+    const avatarUrl = formData.get('avatar').trim();
 
     // Prepare avatar object only if avatar URL is provided
     let avatar;

@@ -11,9 +11,10 @@
  * const formElement = document.querySelector('#createListingForm');
  *
  * // Add event listener to handle media URLs
- * addMediaEventListener(mediaUrls, formElement);
+ * addMediaEventListener(formElement);
  */
-export function addMediaEventListener(mediaUrls, form) {
+export let mediaUrls = [];
+export function addMediaEventListener(form) {
   // Get the form elements
   const mediaUrlInput = form.querySelector('#mediaUrl');
   const addMediaBtn = form.querySelector('#addMediaBtn');
