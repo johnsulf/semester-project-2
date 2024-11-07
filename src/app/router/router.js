@@ -65,7 +65,7 @@ window.addEventListener('hashchange', router);
  * @exports router
  *
  * @example
- * // In your main entry file
+ * // In the main entry file
  * import router from './router.js';
  * router(); // Initialize the router
  */
