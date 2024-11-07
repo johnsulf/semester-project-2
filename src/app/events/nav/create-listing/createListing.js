@@ -1,7 +1,7 @@
 import { modalComponent } from '../../../components/common/modalComponent.js';
-import { createListingFormComponent } from '../../../components/listings/createListingFormComponent.js';
+import { createListingFormComponent } from '../../../components/common/create-listing/createListingFormComponent.js';
 import { createListing } from '../../../api/auction/createListing.js';
-import { successModal } from '../../../components/listings/createListingSuccess.js';
+import { successModal } from '../../../components/common/create-listing/createListingSuccess.js';
 import { disableButton, enableButton } from '../../../helpers/buttonState.js';
 
 /**

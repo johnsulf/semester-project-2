@@ -2,7 +2,7 @@ import { isLoggedIn } from '../../helpers/authState.js';
 import { profile } from '../../helpers/authState.js';
 import { createListingEventListener } from '../../events/nav/create-listing/createListing.js';
 import { creditsAndActionsStates } from '../../helpers/creditsAndActionsStates.js';
-import { createListingBtn } from '../common/createListingBtn.js';
+import { createListingBtn } from '../common/create-listing/createListingBtn.js';
 
 /**
  * Creates and populates the credits and actions section based on the user's authentication state.

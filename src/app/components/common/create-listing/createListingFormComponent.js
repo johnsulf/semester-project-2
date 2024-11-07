@@ -1,6 +1,6 @@
-import { addMediaEventListener } from '../../events/nav/create-listing/addMedia.js';
-import { closeFormEventListener } from '../../events/nav/create-listing/closeForm.js';
-import { submitCreateListingForm } from '../../events/nav/create-listing/submitForm.js';
+import { addMediaEventListener } from '../../../events/nav/create-listing/addMedia.js';
+import { closeFormEventListener } from '../../../events/nav/create-listing/closeForm.js';
+import { submitCreateListingForm } from '../../../events/nav/create-listing/submitForm.js';
 
 /**
  * Creates a form component for creating a new listing, including fields for title, description, media URLs, and end date/time.
