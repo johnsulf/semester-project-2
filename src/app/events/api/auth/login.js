@@ -1,7 +1,7 @@
-import * as auth from '../../api/auth/index.js';
-import { disableButton, enableButton } from '../../helpers/buttonState.js';
-import { handleErrors } from '../../helpers/handleErrors.js';
-import { handleSuccessfulLogin } from '../../helpers/handleSuccessfulLogin.js';
+import * as auth from '../../../api/auth/index.js';
+import { disableButton, enableButton } from '../../../helpers/buttonState.js';
+import { handleErrors } from '../../../helpers/handleErrors.js';
+import { handleSuccessfulLogin } from '../../../helpers/handleSuccessfulLogin.js';
 
 /**
  * Adds a submit event listener to the login form to handle user authentication.

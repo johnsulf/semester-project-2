@@ -1,4 +1,4 @@
-import { loginEventListener } from '../events/auth/login.js';
+import { loginEventListener } from '../events/api/auth/login.js';
 
 /**
  * Renders the login view by injecting the login form into the provided app container

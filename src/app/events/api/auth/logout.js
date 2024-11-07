@@ -1,5 +1,5 @@
-import * as auth from '../../api/auth/index.js';
-import { buildNav } from '../../components/nav/nav.js';
+import * as auth from '../../../api/auth/index.js';
+import { buildNav } from '../../../components/nav/nav.js';
 
 /**
  * Attaches an event listener to the logout button that handles the logout process when clicked.

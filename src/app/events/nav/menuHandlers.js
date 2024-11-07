@@ -1,4 +1,4 @@
-import { logoutListener } from '../auth/logout.js';
+import { logoutListener } from '../api/auth/logout.js';
 
 /**
  * Adds event listeners to various elements within the user menu, enabling interactive behaviors such as toggling the menu visibility,

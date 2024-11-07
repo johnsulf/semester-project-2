@@ -1,4 +1,4 @@
-import { registerEventListener } from '../events/auth/register.js';
+import { registerEventListener } from '../events/api/auth/register.js';
 
 /**
  * Renders the registration view by injecting the registration form into the provided app container
