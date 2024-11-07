@@ -35,16 +35,10 @@ export async function submitEditAvatarFormListener(form, modal) {
     event.preventDefault(); // Prevent the form from being submitted
     const avatarUrl = form.avatarUrl.value.trim();
 
-    // Prepare avatar object if avatar URL is provided
-    const avatar = avatarUrl ? { url: avatarUrl } : null;
+    // Prepare avatar object
+    const avatar = { url: avatarUrl };
 
-    // Validate the avatar URL
-    if (!avatar) {
-      alert('Please enter a valid URL.');
-      return;
-    }
-
-    // Disable the update button and change its appearance
+    // Disable the update button
     disableButton(
       updateAvatarBtn,
       'Updating Avatar...',
@@ -66,9 +60,10 @@ export async function submitEditAvatarFormListener(form, modal) {
       // Reload the profile view to reflect changes
       window.location.reload();
     } catch (error) {
-      // Re-enable the update button and restore its appearance
-      enableButton(updateAvatarBtn, 'Update', 'bg-gray-400', 'bg-primary');
       alert(`Error updating avatar: ${error.message}`);
+    } finally {
+      // Re-enable the update button
+      enableButton(updateAvatarBtn, 'Update', 'bg-gray-400', 'bg-primary');
     }
   });
 }

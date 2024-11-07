@@ -13,10 +13,10 @@ export async function updateUserProfile(avatarUrl) {
       body: JSON.stringify(avatarUrl),
     });
 
-    const responseData = await response.json(); // Parse the JSON from the response
+    const result = await response.json(); // Parse the JSON from the response
 
     // Return the response data
-    return responseData;
+    return result;
   } catch (error) {
     throw new Error(error);
   }
