@@ -1,6 +1,6 @@
 import { isLoggedIn } from '../../helpers/authState.js';
 import { profile } from '../../helpers/authState.js';
-import { createListingEventListener } from '../../events/nav/create-listing/createListing.js';
+import { openCreateListingModal } from '../../events/auction/openCreateListingModal.js';
 import { walletStates } from '../../helpers/walletStates.js';
 import { createListingBtn } from '../common/create-listing/createListingBtn.js';
 
@@ -159,7 +159,7 @@ function loggedInContent(credits) {
 
   // Attach event listener if needed
   if (!state.buttonRoute) {
-    createListingEventListener(actionContainer, state.buttonId);
+    openCreateListingModal(actionContainer, state.buttonId);
   }
 
   // Append credits and action containers to main content

@@ -1,7 +1,7 @@
 import { menuHandlers } from '../../../events/nav/menuHandlers.js';
 import { avatarImg } from './avatarImg.js';
 import { userMenu } from './userMenu.js';
-import { createListingEventListener } from '../../../events/nav/create-listing/createListing.js';
+import { openCreateListingModal } from '../../../events/auction/openCreateListingModal.js';
 
 /**
  * Builds the authenticated navigation bar by creating and appending the user's avatar, menu, and associated event listeners.
@@ -45,5 +45,5 @@ export function authenticatedNav(authSection, userData) {
   authSection.appendChild(container);
 
   // Add an event listener for the "Create Listing" button within the user menu
-  createListingEventListener(container, 'createListingBtn');
+  openCreateListingModal(container, 'createListingBtn');
 }

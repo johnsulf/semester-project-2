@@ -1,8 +1,8 @@
-import { modalComponent } from '../../../components/common/modalComponent.js';
-import { createListingFormComponent } from '../../../components/common/create-listing/createListingFormComponent.js';
-import { createListing } from '../../../api/auction/createListing.js';
-import { successModal } from '../../../components/common/create-listing/createListingSuccess.js';
-import { disableButton, enableButton } from '../../../helpers/buttonState.js';
+import { modalComponent } from '../../components/common/modalComponent.js';
+import { createListingFormComponent } from '../../components/common/create-listing/createListingFormComponent.js';
+import { createListing } from '../../api/auction/createListing.js';
+import { successModal } from '../../components/common/create-listing/createListingSuccess.js';
+import { disableButton, enableButton } from '../../helpers/buttonState.js';
 
 /**
  * Adds an event listener to a button that, when clicked, opens a modal for creating a new listing.
@@ -13,9 +13,9 @@ import { disableButton, enableButton } from '../../../helpers/buttonState.js';
  *
  * @example
  * // Assuming you have a container element and a button with ID 'createListingBtn'
- * createListingEventListener(container, 'createListingBtn');
+ * openCreateListingModal(container, 'createListingBtn');
  */
-export function createListingEventListener(container, btnId) {
+export function openCreateListingModal(container, btnId) {
   const createListingButton = container.querySelector(`#${btnId}`);
   if (createListingButton) {
     createListingButton.addEventListener('click', () => {

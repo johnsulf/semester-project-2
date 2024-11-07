@@ -65,8 +65,8 @@ export function createListingFormComponent(onSubmitCallback, modal) {
 
   // After creating the HTML, event listeners are added
   addMediaEventListener(mediaUrls, form);
-  submitCreateListingForm(form, mediaUrls, onSubmitCallback);
   closeFormEventListener(form, modal);
+  submitCreateListingForm(form, mediaUrls, onSubmitCallback);
 
   return form;
 }
