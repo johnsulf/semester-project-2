@@ -1,6 +1,6 @@
 import { getUserProfile } from '../../../api/profile/getUserProfile.js';
 import { save } from '../../../storage/save.js';
-import { buildNav } from '../../../components/nav/buildNav.js';
+import { buildNav } from '../../nav/buildNav.js';
 
 /**
  * Refreshes the user's data by fetching the latest profile information from the API,

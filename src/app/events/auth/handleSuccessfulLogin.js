@@ -1,5 +1,5 @@
 import { save } from '../../storage/save.js';
-import { buildNav } from '../../components/nav/buildNav.js';
+import { buildNav } from '../nav/buildNav.js';
 import { getUserProfile } from '../../api/profile/getUserProfile.js';
 
 /**

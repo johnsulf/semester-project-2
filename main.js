@@ -1,5 +1,5 @@
 import router from './src/app/router/router.js';
-import { buildNav } from './src/app/components/nav/buildNav.js';
+import { buildNav } from './src/app/events/nav/buildNav.js';
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
