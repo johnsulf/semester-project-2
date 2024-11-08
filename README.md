@@ -81,4 +81,47 @@ npm run build
 
 This will generate optimized CSS in the ./dist folder
 
-### Testing
+## Testing
+### Unit tests
+Run unit tests with Jest:
+```bash
+npm run test-unit
+```
+
+### End-to-end tests
+Open Cypress test runner:
+
+```bash
+npm run test-e2e
+```
+
+Run Cypress tests in headless mode:
+
+```bash
+npm run test-e2e-cli
+```
+
+## Linting and Formatting
+- **Lint JavaScript files:**
+  ```bash
+  npm run lint
+  ```
+
+- **Fix linting errors:**
+  ```bash
+  npm run lint-fix
+  ```
+
+- **Format code with Prettier:**
+  ```bash
+  npm run format
+  ```
+
+## Deployment
+The application is hosted on GitHub Pages and can be accessed here:
+- [Fun Auction](https://johnsulf.github.io/semester-project-2/)
+
+## Project planning and design
+- **Gantt Chart:** [Google Sheets](https://docs.google.com/spreadsheets/d/1jKh6bmGbnyDCtAN7rsCbakhN_9YcxhYXpMnFmjK-nQg/edit?usp=sharing)
+- **Design Prototype:** [Figma](https://www.figma.com/proto/Bxh2e8dEg9xp6nQjHft2aF/styletile-and-protoype?page-id=1%3A2&node-id=21-237&node-type=canvas&viewport=914%2C479%2C0.09&t=28MeLIN3h156fxcW-1&scaling=contain&content-scaling=fixed)
+- **Style Tile:** [Figma](https://www.figma.com/proto/Bxh2e8dEg9xp6nQjHft2aF/styletile-and-protoype?page-id=0%3A1&node-id=1-3&node-type=canvas&viewport=262%2C182%2C0.74&t=Y4PyGQGlsaBgZjeM-1&scaling=contain&content-scaling=fixed)
