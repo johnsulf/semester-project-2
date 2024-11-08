@@ -56,16 +56,19 @@ When a new user joins, they are credited with 1000 credits to participate in auc
    ```bash
    git clone https://github.com/johnsulf/semester-project-2.git
    cd semester-project-2
+   ```
 
 2. **Install dependencies**
    ```bash
    npm install
+   ```
 
 ### Running the project locally
 To start the development server and watch for changes:
 
 ```bash
 npm start
+```
 
 This command runs both the live server and watches for changes in the Tailwind CSS files
 
@@ -74,6 +77,7 @@ To build the project for production:
 
 ```bash
 npm run build
+```
 
 This will generate optimized CSS in the ./dist folder
 
