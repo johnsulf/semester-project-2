@@ -1,7 +1,23 @@
 import * as storage from '../storage/index.js';
 import { API_KEY } from './constants.js';
 
-// Function to create headers for API requests
+/**
+ * Creates headers for API requests, including API key, content type, and authorization token.
+ *
+ * @param {string} contentType - The content type of the request (e.g., 'application/json').
+ * @param {boolean} [includeToken=true] - Whether to include the authorization token in the headers.
+ * @returns {Object} The headers object to be used in API requests.
+ *
+ * @example
+ * // Example usage with content type and token
+ * const requestHeaders = headers('application/json');
+ * // Returns:
+ * // {
+ * //   'X-Noroff-API-Key': 'your-api-key',
+ * //   'Content-Type': 'application/json',
+ * //   'Authorization': 'Bearer your-token'
+ * // }
+ */
 export const headers = (contentType, includeToken = true) => {
   let token;
   if (includeToken) {

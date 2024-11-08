@@ -2,7 +2,22 @@ import { API_BASE } from '../constants.js';
 import { headers } from '../headers.js';
 import { LISTINGS } from '../endpoints.js';
 
-// Function to get a listing by ID
+/**
+ * Retrieves a specific listing by its ID from the API.
+ *
+ * @param {string} listingId - The ID of the listing to retrieve.
+ * @returns {Promise<Object>} A promise that resolves to the listing data object.
+ *
+ * @example
+ * // Example usage
+ * getListingById('listing123')
+ *   .then(listing => {
+ *     console.log('Retrieved listing:', listing);
+ *   })
+ *   .catch(error => {
+ *     console.error('Error fetching listing:', error);
+ *   });
+ */
 export async function getListingById(listingId) {
   // Do a GET request to the API to get the listing by ID
   try {

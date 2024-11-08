@@ -1,6 +1,20 @@
 import { createListingBtn } from '../../common/create-listing/createListingBtn.js';
 
-// Function to create the user menu
+/**
+ * Creates a user menu element with user information and navigation options.
+ *
+ * @param {Object} userData - The user data object.
+ * @param {string} userData.name - The name of the user.
+ * @param {number} userData.credits - The user's available credits.
+ * @returns {HTMLDivElement} The created user menu element.
+ *
+ * @example
+ * // Example usage
+ * const user = { name: 'John Doe', credits: 150 };
+ * const menuElement = userMenu(user);
+ * document.body.appendChild(menuElement);
+ * // This will create and append the user menu to the document body.
+ */
 export function userMenu(userData) {
   const userMenu = document.createElement('div'); // Create the user menu container
   userMenu.id = 'userMenu'; // Set the user menu ID

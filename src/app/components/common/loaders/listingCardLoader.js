@@ -1,4 +1,14 @@
-// Function to create a skeleton loader for a listing card
+/**
+ * Creates a skeleton loader element for a listing card to indicate a loading state.
+ *
+ * @returns {HTMLDivElement} The created skeleton loader element.
+ *
+ * @example
+ * // Example usage
+ * const loader = listingCardLoader();
+ * document.getElementById('listings').appendChild(loader);
+ * // This will append the skeleton loader to the listings container.
+ */
 export function listingCardLoader() {
   const listingElement = document.createElement('div'); // Create the listing element
   listingElement.classList.add('p-4', 'rounded-md', 'mx-1', 'bg-white'); // Add classes to the listing element
