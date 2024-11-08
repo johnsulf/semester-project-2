@@ -21,6 +21,20 @@ export function closeCreateListingModal(form, modal) {
   }
 }
 
+/**
+ * Closes the success modal by removing it from the DOM when the close button is clicked.
+ *
+ * @param {HTMLElement} successMessage - The element containing the success message and the close button.
+ * @param {HTMLElement} modal - The modal element to be removed.
+ * @returns {void}
+ *
+ * @example
+ * // Assuming you have elements with IDs 'successMessage' and 'modal'
+ * const successMessageElement = document.getElementById('successMessage');
+ * const modalElement = document.getElementById('modal');
+ * closeSuccesModal(successMessageElement, modalElement);
+ * // Clicking the close button will remove the modal from the DOM
+ */
 export function closeSuccesModal(successMessage, modal) {
   // Add event listener to close the modal
   const closeModalBtn = successMessage.querySelector('#closeModalBtn');
@@ -31,6 +45,20 @@ export function closeSuccesModal(successMessage, modal) {
   }
 }
 
+/**
+ * Navigates to the listing page by removing the success modal when the "Go to Listing" button is clicked.
+ *
+ * @param {HTMLElement} successMessage - The element containing the success message and the "Go to Listing" button.
+ * @param {HTMLElement} modal - The modal element to be removed.
+ * @returns {void}
+ *
+ * @example
+ * // Assuming you have elements with IDs 'successMessage' and 'modal'
+ * const successMessageElement = document.getElementById('successMessage');
+ * const modalElement = document.getElementById('modal');
+ * goToListingFromSuccessModal(successMessageElement, modalElement);
+ * // Clicking the "Go to Listing" button will remove the modal from the DOM
+ */
 export function goToListingFromSuccessModal(successMessage, modal) {
   // Add event listener to "Go to Listing" button
   const goToListingBtn = successMessage.querySelector('#goToListingBtn');

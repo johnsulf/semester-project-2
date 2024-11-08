@@ -3,7 +3,21 @@ import { headers } from '../headers.js';
 import { load } from '../../storage/load.js';
 import { PROFILES } from '../endpoints.js';
 
-// Function to get the user profile
+/**
+ * Retrieves the user profile from the API based on the stored user name.
+ *
+ * @returns {Promise<Object>} A promise that resolves to the user profile data.
+ *
+ * @example
+ * // Example usage
+ * getUserProfile()
+ *   .then(profile => {
+ *     console.log('User Profile:', profile);
+ *   })
+ *   .catch(error => {
+ *     console.error('Error fetching user profile:', error);
+ *   });
+ */
 export async function getUserProfile() {
   const name = load('name'); // Load the name from local storage
 

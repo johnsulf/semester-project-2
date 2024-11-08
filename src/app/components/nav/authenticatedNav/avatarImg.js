@@ -1,4 +1,33 @@
-// Function to create an avatar image element
+/**
+ * Creates an avatar image element based on the provided user data.
+ *
+ * @param {Object} userData - The user data object.
+ * @param {string} userData.name - The name of the user.
+ * @param {Object} [userData.avatar] - The avatar object containing the URL.
+ * @param {string} [userData.avatar.url] - The URL of the user's avatar image.
+ * @returns {HTMLImageElement} The created avatar image element.
+ *
+ * @example
+ * // Example with a user who has an avatar
+ * const user = {
+ *   name: 'John Doe',
+ *   avatar: {
+ *     url: 'https://example.com/avatar.jpg'
+ *   }
+ * };
+ * const avatarElement = avatarImg(user);
+ * document.body.appendChild(avatarElement);
+ * // This will create an img element with src set to 'https://example.com/avatar.jpg'
+ *
+ * @example
+ * // Example with a user who does not have an avatar
+ * const user = {
+ *   name: 'Jane Smith'
+ * };
+ * const avatarElement = avatarImg(user);
+ * document.body.appendChild(avatarElement);
+ * // This will create an img element with src set to 'https://via.placeholder.com/40'
+ */
 export function avatarImg(userData) {
   // Get the avatar URL from the user data
   const avatarUrl =

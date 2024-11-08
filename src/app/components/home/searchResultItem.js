@@ -1,7 +1,28 @@
 import { navigateToListing } from '../../events/home/navigateToListingFromSearch.js';
 import { endString, listingEnded } from '../../helpers/bidOnListing.js';
 
-// Function to create a search result item
+/**
+ * Creates a search result list item element based on the provided listing data.
+ *
+ * @param {Object} listing - The listing data object.
+ * @param {string} listing.title - The title of the listing.
+ * @param {Array<Object>} [listing.media] - An array of media objects associated with the listing.
+ * @param {string} [listing.media[].url] - The URL of the media item.
+ * @param {string} [listing.media[].alt] - The alt text for the media item.
+ * @returns {HTMLLIElement} The created search result list item element.
+ *
+ * @example
+ * // Example usage with media
+ * const listing = {
+ *   title: 'Vintage Clock',
+ *   media: [
+ *     { url: 'https://example.com/clock.jpg', alt: 'Vintage Clock Image' }
+ *   ],
+ * };
+ * const searchItem = searchResultItem(listing);
+ * document.querySelector('#search-results').appendChild(searchItem);
+ * // This will create and append a list item representing the 'Vintage Clock' listing.
+ */
 export function searchResultItem(listing) {
   const item = document.createElement('li'); // Create the list item element
 

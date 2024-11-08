@@ -103,6 +103,5 @@ export function bidsSectionComponent(listing) {
         '<p class="mt-8">No bids yet. Be the first to bid!</p>';
     }
   }
-
   return bidsContainer;
 }

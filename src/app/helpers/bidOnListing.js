@@ -9,7 +9,6 @@
  * const highestBid = getHighestBid(listing.bids);
  * // highestBid would be 'Current Highest Bid: 100 Credits' (formatted by displayCredits)
  */
-
 export function getHighestBid(bids) {
   if (bids && bids.length > 0) {
     const sortedBids = bids.sort((a, b) => b.amount - a.amount); // Sort the bids in descending order
@@ -27,7 +26,6 @@ export function getHighestBid(bids) {
  * // After placing a new bid and receiving the updated listing data:
  * updateBidsSection(updatedListing);
  */
-
 export function updateBidsSection(updatedListing) {
   const bidsSectionContainer = document.getElementById('bidsSectionContainer');
   if (bidsSectionContainer) {
@@ -51,7 +49,6 @@ export function updateBidsSection(updatedListing) {
  *   // Listing is still active
  * }
  */
-
 export function listingEnded(listing) {
   return new Date(listing.endsAt) < new Date();
 }
@@ -66,7 +63,6 @@ export function listingEnded(listing) {
  * const endMessage = endString(listing);
  * // "Auction ends at: 12/31/2023, 5:00:00 PM" or "Auction ended on: 12/31/2023, 5:00:00 PM"
  */
-
 export function endString(listing) {
   const dateString = new Date(listing.endsAt).toLocaleString();
   return listingEnded(listing)
@@ -74,6 +70,30 @@ export function endString(listing) {
     : `Auction ends at: ${dateString}`;
 }
 
+/**
+ * Validates the bid input by ensuring the bid amount does not exceed available credits
+ * and is higher than the current highest bid.
+ *
+ * @param {number} bidAmount - The amount the user is attempting to bid.
+ * @param {number} credits - The user's available credits.
+ * @param {Array<number>} bids - An array of existing bids.
+ * @returns {boolean} Returns true if the bid is valid, otherwise false.
+ *
+ * @example
+ * // Valid bid scenario
+ * const isValid = validateBidInput(150, 200, [100, 120, 140]);
+ * // isValid would be true since 150 <= 200 and 150 > 140
+ *
+ * @example
+ * // Bid amount exceeds credits
+ * const isValid = validateBidInput(250, 200, [100, 120, 140]);
+ * // Alerts "You cannot bid more than your available credits." and isValid would be false
+ *
+ * @example
+ * // Bid is not higher than the highest existing bid
+ * const isValid = validateBidInput(130, 200, [100, 120, 140]);
+ * // Alerts "Your bid must be higher than the current highest bid of 140 credits." and isValid would be false
+ */
 export const validateBidInput = (bidAmount, credits, bids) => {
   if (bidAmount > credits) {
     alert('You cannot bid more than your available credits.');
