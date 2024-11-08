@@ -118,10 +118,28 @@ npm run test-e2e-cli
   ```
 
 ## Deployment
-The application is hosted on GitHub Pages and can be accessed here:
-- [Fun Auction](https://johnsulf.github.io/semester-project-2/)
+The application is hosted on GitHub Pages and can be accessed here: **[Fun Auction](https://johnsulf.github.io/semester-project-2/)**
 
 ## Project planning and design
 - **Gantt Chart:** [Google Sheets](https://docs.google.com/spreadsheets/d/1jKh6bmGbnyDCtAN7rsCbakhN_9YcxhYXpMnFmjK-nQg/edit?usp=sharing)
 - **Design Prototype:** [Figma](https://www.figma.com/proto/Bxh2e8dEg9xp6nQjHft2aF/styletile-and-protoype?page-id=1%3A2&node-id=21-237&node-type=canvas&viewport=914%2C479%2C0.09&t=28MeLIN3h156fxcW-1&scaling=contain&content-scaling=fixed)
 - **Style Tile:** [Figma](https://www.figma.com/proto/Bxh2e8dEg9xp6nQjHft2aF/styletile-and-protoype?page-id=0%3A1&node-id=1-3&node-type=canvas&viewport=262%2C182%2C0.74&t=Y4PyGQGlsaBgZjeM-1&scaling=contain&content-scaling=fixed)
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements.
+
+## License
+This project is licensed under the ISC License.
+
+## Status
+
+[![Unit Tests](https://github.com/johnsulf/semester-project-2/actions/workflows/unit-test.yml/badge.svg)](https://github.com/johnsulf/semester-project-2/actions/workflows/unit-test.yml)
+
+[![E2E Tests](https://github.com/johnsulf/semester-project-2/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/johnsulf/semester-project-2/actions/workflows/e2e-test.yml)
+
+[![Deploy static content to Pages](https://github.com/johnsulf/semester-project-2/actions/workflows/pages.yml/badge.svg)](https://github.com/johnsulf/semester-project-2/actions/workflows/pages.yml)
+
+## Acknowledgments
+- Noroff School of Technology and Digital Media
+- API Documentation: [Noroff API Docs V2](https://docs.noroff.dev/docs/v2)
+
