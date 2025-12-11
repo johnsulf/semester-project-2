@@ -78,7 +78,7 @@ Contributions are welcome! Please open an issue or submit a pull request so chan
 
 ## License
 
-This project is licensed under the ISC License. See the LICENSE file for details.
+This project is provided for educational purposes and has no specific license.
 
 ## Acknowledgments
 
